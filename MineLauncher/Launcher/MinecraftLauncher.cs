@@ -166,7 +166,7 @@ namespace MineLauncher.Launcher
                 string read = mcProcessOutputReader.ReadLine();
                 if ((read == "") == false || (read == null) == false)
                 {
-                    if (OnLauncherLog != null) OnLauncherLog(this, new LauncherEventArgs("MINECRAFT", read.Substring(read.IndexOf("]") + 2)));
+                    if (OnLauncherLog != null) OnLauncherLog(this, new LauncherEventArgs("MINECRAFT", read));
                 }
             }
         }
