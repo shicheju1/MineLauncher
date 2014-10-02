@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace MineLauncher
@@ -11,7 +12,6 @@ namespace MineLauncher
     {
 
         public static ExceptionBase.ExceptionBase ExceptionTracker;
-
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
         /// </summary>
@@ -43,6 +43,14 @@ namespace MineLauncher
                 else if (args.Name.StartsWith("MetroFramework.Fonts"))
                 {
                     return Assembly.Load(MineLauncher.Properties.Resources.MetroFramework_Fonts);
+                }
+                else if (args.Name.StartsWith("Microsoft.WindowsAPICodePack") && !args.Name.StartsWith("Microsoft.WindowsAPICodePack.Shell"))
+                {
+                    return Assembly.Load(MineLauncher.Properties.Resources.Microsoft_WindowsAPICodePack);
+                }
+                else if (args.Name.StartsWith("Microsoft.WindowsAPICodePack.Shell"))
+                {
+                    return Assembly.Load(MineLauncher.Properties.Resources.Microsoft_WindowsAPICodePack_Shell);
                 }
                 return null;
             };

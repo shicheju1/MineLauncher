@@ -17,6 +17,8 @@ using MineLauncher.Win32Api;
 
 using Newtonsoft.Json;
 
+using Microsoft.WindowsAPICodePack.Taskbar;
+
 namespace MineLauncher
 {
     public partial class frmLauncher : MetroForm
@@ -27,6 +29,8 @@ namespace MineLauncher
         MinecraftSession session = null;
         KeyValuePair<string, Dictionary<string, object>> currentProfile = new KeyValuePair<string, Dictionary<string, object>>();
         Dictionary<string, string[]> rawVersionList = new Dictionary<string, string[]>();
+
+        TaskbarManager taskbar;
 
         public frmLauncher()
         {
@@ -58,6 +62,8 @@ namespace MineLauncher
                 ChangeFormTheme(this);
             }
 
+            if (TaskbarManager.IsPlatformSupported) taskbar = TaskbarManager.Instance;
+
             lblAbout.Text = String.Format(lblAbout.Text,
                 Assembly.GetExecutingAssembly().GetName().Version.Major,
                 Assembly.GetExecutingAssembly().GetName().Version.Minor,
@@ -78,12 +84,7 @@ namespace MineLauncher
             this.Icon = icons[rand.Next(0, 6)];
 
             this.rtbLog.Font = MetroFonts.TextBox(MetroTextBoxSize.Medium, MetroTextBoxWeight.Bold);
-            this.rtbLog.BackColor = MetroFramework.Drawing.MetroPaint.BackColor.Button.Normal(MetroThemeStyle.Dark);
-            this.rtbLog.ForeColor = MetroFramework.Drawing.MetroPaint.ForeColor.Button.Normal(MetroThemeStyle.Dark);
-
             this.rtbAbout_Licenses.Font = MetroFonts.TextBox(MetroTextBoxSize.Medium, MetroTextBoxWeight.Bold);
-            this.rtbAbout_Licenses.BackColor = MetroFramework.Drawing.MetroPaint.BackColor.Button.Normal(MetroThemeStyle.Dark);
-            this.rtbAbout_Licenses.ForeColor = MetroFramework.Drawing.MetroPaint.ForeColor.Button.Normal(MetroThemeStyle.Dark);
         }
         
         private void frmLauncher_Shown(object sender, EventArgs e)
@@ -92,17 +93,17 @@ namespace MineLauncher
             {
                 try
                 {
-                    if (this.IsHandleCreated) this.Invoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Trying to login with saved session\n")));
+                    this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Trying to login with saved session\n")));
                     session = MinecraftSession.LoginWithSavedSession();
                     if (session.LoggedIn)
                     {
-                        if (this.IsHandleCreated) this.Invoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Logged in as " + session.PlayerName + "\n")));
-                        if (this.IsHandleCreated) this.Invoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Session: " + session.Session + "\n")));
+                        this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Logged in as " + session.PlayerName + "\n")));
+                        this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Session: " + session.Session + "\n")));
                         new System.Net.WebClient().DownloadFile("https://minotar.net/avatar/" + session.PlayerName, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
                             "\\.minecraft\\minelauncher\\headwhichyoucanopenwitheveryimageditor");
                         Icon headIcon = Icon.FromHandle(new Bitmap(Image.FromFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
                             "\\.minecraft\\minelauncher\\headwhichyoucanopenwitheveryimageditor"), new Size(64, 64)).GetHicon());
-                        if (this.IsHandleCreated) this.Invoke(new Action(() =>
+                        this.BeginInvoke(new Action(() =>
                         {
                             tbFastLogin_Password.Text = "";
                             tbFastLogin_Username.Text = "";
@@ -114,16 +115,16 @@ namespace MineLauncher
                         }));
                         for (int i = 0; i < 26; i++)
                         {
-                            if (this.IsHandleCreated) this.Invoke(new Action(() => pnlFastControl.Height -= 1));
-                            if (this.IsHandleCreated) this.Invoke(new Action(() => pnlFastControl.Location = new System.Drawing.Point(pnlFastControl.Location.X, pnlFastControl.Location.Y + 1)));
-                            if (this.IsHandleCreated) this.Invoke(new Action(() => tcMain.Height += 1));
+                            this.SafeInvoke(new Action(() => pnlFastControl.Height -= 1));
+                            this.SafeInvoke(new Action(() => pnlFastControl.Location = new System.Drawing.Point(pnlFastControl.Location.X, pnlFastControl.Location.Y + 1)));
+                            this.SafeInvoke(new Action(() => tcMain.Height += 1));
                             Thread.Sleep(15);
                         }
                     }
                     else
                     {
-                        if (this.IsHandleCreated) this.Invoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Couldn't login with saved session\n")));
-                        if (this.IsHandleCreated) this.Invoke(new Action(() =>
+                        this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Couldn't login with saved session\n")));
+                        this.BeginInvoke(new Action(() =>
                         {
                             this.pnlFastLogin.Enabled = true;
                         }));
@@ -133,7 +134,7 @@ namespace MineLauncher
                     List<string> versions = new VersionList().GetVersionList(rawVersionList, VersionListType.All);
                     foreach (string version in versions)
                     {
-                        if (this.IsHandleCreated) this.Invoke(new Action(() => cbProfiles_Edit_Version.Items.Add(version)));
+                        this.SafeInvoke(new Action(() => cbProfiles_Edit_Version.Items.Add(version)));
                     }
 
                     if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
@@ -144,12 +145,12 @@ namespace MineLauncher
                         Dictionary<string, Dictionary<string, object>> profiles = jTypeProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
                         foreach (KeyValuePair<string, Dictionary<string, object>> profile in profiles)
                         {
-                            if (this.IsHandleCreated) this.Invoke(new Action(() => cbProfiles_Select.Items.Add(profile.Key)));
-                            if (this.IsHandleCreated) this.Invoke(new Action(() => cbFastControl_SelectProfile.Items.Add(profile.Key)));
+                            this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add(profile.Key)));
+                            this.SafeInvoke(new Action(() => cbFastControl_SelectProfile.Items.Add(profile.Key)));
                         }
                     }
-                    if (this.IsHandleCreated) this.Invoke(new Action(() => cbProfiles_Select.Items.Add("")));
-                    if (this.IsHandleCreated) this.Invoke(new Action(() => cbProfiles_Select.Items.Add("Create new profile")));
+                    this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add("")));
+                    this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add("Create new profile")));
                 }
                 catch (System.Net.WebException)
                 {
@@ -161,13 +162,13 @@ namespace MineLauncher
 
             }).Start();
         }
-        
+
         private void rtbLog_TextChanged(object sender, EventArgs e)
         {
             rtbLog.ScrollToCaret();
 
             string filename = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\logs\\" + DateTime.Now.ToShortDateString().Replace(".", "-") + ".log";
-            File.AppendAllText(filename, rtbLog.Lines[rtbLog.Lines.Length - 1]);
+            if((rtbLog.Lines.Length - 1) >= 0) File.AppendAllText(filename, rtbLog.Lines[rtbLog.Lines.Length - 1]);
         }
         
         #region ThemeChanger
@@ -205,24 +206,21 @@ namespace MineLauncher
             {
                 ((IMetroControl)ctrl).Theme = GetMetroThemeFromConfig();
             }
+            else
+            {
+                ctrl.BackColor = MetroFramework.Drawing.MetroPaint.BorderColor.Button.Normal(GetMetroThemeFromConfig());
+                ctrl.ForeColor = MetroFramework.Drawing.MetroPaint.ForeColor.Button.Normal(GetMetroThemeFromConfig());
+            }
             foreach (Control subctrl in ctrl.Controls)
             {
-                if (subctrl is IMetroControl || subctrl is MetroLabel)
+                if (subctrl is IMetroControl)
                 {
                     ChangeControlTheme(subctrl);
                 }
                 else
                 {
-                    if (GetMetroThemeFromConfig() == MetroThemeStyle.Dark)
-                    {
-                        ((Control)ctrl).BackColor = Color.FromArgb(17, 17, 17);
-                        ((Control)ctrl).ForeColor = Color.FromArgb(170, 170, 170);
-                    }
-                    else
-                    {
-                        ((Control)ctrl).BackColor = Color.FromArgb(255, 255, 255);
-                        ((Control)ctrl).ForeColor = Color.FromArgb(0, 0, 0);
-                    }
+                    subctrl.BackColor = MetroFramework.Drawing.MetroPaint.BorderColor.Button.Normal(GetMetroThemeFromConfig());
+                    subctrl.ForeColor = MetroFramework.Drawing.MetroPaint.ForeColor.Button.Normal(GetMetroThemeFromConfig());
                 }
             }
         }
@@ -271,8 +269,8 @@ namespace MineLauncher
                 cbFastControl_SelectProfile.Items.Add(newProfile.Key);
             }
 
-            if (this.IsHandleCreated) this.Invoke(new Action(() => cbProfiles_Select.Items.Add("")));
-            if (this.IsHandleCreated) this.Invoke(new Action(() => cbProfiles_Select.Items.Add("Create new profile")));
+            this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add("")));
+            this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add("Create new profile")));
         }
 
         private void btnProfile_Edit_Save_Click(object sender, EventArgs e)
@@ -415,7 +413,7 @@ namespace MineLauncher
                     List<string> versions = new VersionList().GetVersionList(rawVersionList, VersionListType.Release);
                     foreach (string version in versions)
                     {
-                        if (this.IsHandleCreated) this.Invoke(new Action(() => cbProfiles_Edit_Version.Items.Add(version)));
+                        this.SafeInvoke(new Action(() => cbProfiles_Edit_Version.Items.Add(version)));
                     }
                 }
                 if (toggleProfiles_Edit_ShowVersion_Snapshot.Checked)
@@ -423,7 +421,7 @@ namespace MineLauncher
                     List<string> versions = new VersionList().GetVersionList(rawVersionList, VersionListType.Snapshot);
                     foreach (string version in versions)
                     {
-                        if (this.IsHandleCreated) this.Invoke(new Action(() => cbProfiles_Edit_Version.Items.Add(version)));
+                        this.SafeInvoke(new Action(() => cbProfiles_Edit_Version.Items.Add(version)));
                     }
                 }
                 if (toggleProfiles_Edit_ShowVersion_Beta.Checked)
@@ -431,7 +429,7 @@ namespace MineLauncher
                     List<string> versions = new VersionList().GetVersionList(rawVersionList, VersionListType.Beta);
                     foreach (string version in versions)
                     {
-                        if (this.IsHandleCreated) this.Invoke(new Action(() => cbProfiles_Edit_Version.Items.Add(version)));
+                        this.SafeInvoke(new Action(() => cbProfiles_Edit_Version.Items.Add(version)));
                     }
                 }
                 if (toggleProfiles_Edit_ShowVersion_Alpha.Checked)
@@ -439,7 +437,7 @@ namespace MineLauncher
                     List<string> versions = new VersionList().GetVersionList(rawVersionList, VersionListType.Alpha);
                     foreach (string version in versions)
                     {
-                        if (this.IsHandleCreated) this.Invoke(new Action(() => cbProfiles_Edit_Version.Items.Add(version)));
+                        this.SafeInvoke(new Action(() => cbProfiles_Edit_Version.Items.Add(version)));
                     }
                 }
                 if (toggleProfiles_Edit_ShowVersion_Custom.Checked)
@@ -447,11 +445,11 @@ namespace MineLauncher
                     List<string> versions = new VersionList().GetVersionList(rawVersionList, VersionListType.Custom);
                     foreach (string version in versions)
                     {
-                        if (this.IsHandleCreated) this.Invoke(new Action(() => cbProfiles_Edit_Version.Items.Add(version)));
+                        this.SafeInvoke(new Action(() => cbProfiles_Edit_Version.Items.Add(version)));
                     }
                 }
 
-                if (this.IsHandleCreated) this.Invoke(new Action(() => cbProfiles_Edit_Version.Enabled = true));
+                this.SafeInvoke(new Action(() => cbProfiles_Edit_Version.Enabled = true));
             }).Start();
         }
         
@@ -506,12 +504,12 @@ namespace MineLauncher
         {
             new Thread(() =>
             {
-                if (this.IsHandleCreated) this.Invoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Trying to login\n")));
+                this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Trying to login\n")));
                 session = new MinecraftSession(tbFastLogin_Username.Text, tbFastLogin_Password.Text);
                 if (session.LoggedIn)
                 {
-                    if (this.IsHandleCreated) this.Invoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Logged in as " + session.PlayerName + "\n")));
-                    if (this.IsHandleCreated) this.Invoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Session: " + session.Session + "\n")));
+                    this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Logged in as " + session.PlayerName + "\n")));
+                    this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Session: " + session.Session + "\n")));
 
                     new System.Net.WebClient().DownloadFile("https://minotar.net/avatar/" + session.PlayerName, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
                         "\\.minecraft\\minelauncher\\headwhichyoucanopenwitheveryimageditor");
@@ -537,7 +535,7 @@ namespace MineLauncher
                 }
                 else
                 {
-                    if (this.IsHandleCreated) this.Invoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Couldn't login, please try again\n")));
+                    this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Couldn't login, please try again\n")));
                     MetroFramework.MetroMessageBox.Show(this, "Login failed.\nCheck your internet connection and your entered username and password", "Login failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }).Start();
@@ -551,24 +549,36 @@ namespace MineLauncher
             {
                 new Thread(() =>
                 {
-                    if (this.IsHandleCreated) this.Invoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LAUNCHER] Download libararies/assets and preparing launcher...")));       
+                    this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LAUNCHER] Download libararies/assets and preparing launcher..." + "\n")));       
                     new DirectoryInfo(currentProfile.Value["gamedir"].ToString()).CreateDirectoryStructure();
 
                     MinecraftDownloader downloader = new MinecraftDownloader(currentProfile.Value["mcversion"].ToString());
                     downloader.OnDownload += ((object downloadsender, DownloadEventArgs downloade) =>
                     {
-                        if (this.IsHandleCreated) this.Invoke(new Action(() => rtbLog.AppendText(downloade.Entry + "\n")));                        
+                        //this.Invoke => 
+                        this.SafeInvoke(new Action(() => 
+                        {
+                            rtbLog.AppendText(downloade.Entry + "\n");
+                            pbLog.Maximum = downloade.DownloadMaximum;
+                            pbLog.Value = downloade.DownloadCurrent;
+                            lblLogPB.Text = "Downloading " + downloade.DownloadingFile;
+
+                            if (TaskbarManager.IsPlatformSupported)
+                            {
+                                taskbar.SetProgressValue(downloade.DownloadCurrent, downloade.DownloadMaximum, this.Handle);
+                            }
+                        }));
                     });
                     downloader.StartDownload();
 
                     MinecraftLauncher launcher = new MinecraftLauncher(currentProfile.Key);
                     launcher.OnLauncherLog += ((object launchersender, LauncherEventArgs launchere) =>
                     {
-                        if (this.IsHandleCreated) this.Invoke(new Action(() => rtbLog.AppendText(launchere.Entry + "\n")));
+                        this.SafeInvoke(new Action(() => rtbLog.AppendText(launchere.Entry + "\n")));
                     });
 
                     launcher.LaunchMC(this.session, this, (bool)currentProfile.Value["offline-mode"]);
-                    if (this.IsHandleCreated) this.Invoke(new Action(() =>  btnLaunch.Enabled = true));
+                    this.SafeInvoke(new Action(() =>  btnLaunch.Enabled = true));
                 }).Start();
             }
         }
@@ -581,6 +591,13 @@ namespace MineLauncher
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
             ico.Save(fs);
             fs.Close();
+        }
+
+        private void frmLauncher_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Preevent errors like ObjectDisposedException and so on
+            Environment.Exit(0);
+            //System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
                                   
     }

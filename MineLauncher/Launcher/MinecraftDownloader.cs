@@ -65,6 +65,10 @@ namespace MineLauncher.Launcher
                         "https://libraries.minecraft.net/" + library.Replace(@"\", "/"), 
                         Path.Combine(_librariespath, library) 
                     });
+                    _librariesHashes.Add(new string[] { 
+                        "https://libraries.minecraft.net/" + library.Replace(@"\", "/") + ".sha1", 
+                        Path.Combine(_librariespath, library) + ".sha1" 
+                    });
                 }
                 else
                 {
@@ -73,10 +77,6 @@ namespace MineLauncher.Launcher
                         Path.Combine(_librariespath, library)
                     });
                 }
-                _librariesHashes.Add(new string[] { 
-                    "https://libraries.minecraft.net/" + library.Replace(@"\", "/") + ".sha1", 
-                    Path.Combine(_librariespath, library) + ".sha1" 
-                });
 
                 modCount++;
             }
@@ -125,6 +125,9 @@ namespace MineLauncher.Launcher
 
         public void StartDownload()
         {
+            int dnld_max = _libraries.Count + _assets.Count + rawVersionData["natives"].Length;
+            int dnld_curr = 0;
+
             foreach (string[] item in _libraries)
             {
                 string url = item[0];
@@ -133,22 +136,31 @@ namespace MineLauncher.Launcher
                 new DirectoryInfo(Path.GetDirectoryName(path)).CreateDirectoryStructure();
                 if(!File.Exists(path))
                 {
-                    if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Downloading " + Path.GetFileNameWithoutExtension(path)));
+                    if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Downloading " + Path.GetFileNameWithoutExtension(path), dnld_max, dnld_curr, Path.GetFileNameWithoutExtension(path)));
                     WebClient downloader = new WebClient();
                     if(downloader.RemoteExists(url))
                     {
-                        new WebClient().DownloadFile(url, path);
+                        try
+                        {
+                            downloader.DownloadFile(url, path);
+                        }
+                        catch (Exception)
+                        {
+                            if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Downloading of " + Path.GetFileNameWithoutExtension(path) + " failed", dnld_max, dnld_curr, Path.GetFileNameWithoutExtension(path)));
+                        }
                     }
                     else
                     {
-                        if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Downloading of " + Path.GetFileNameWithoutExtension(path) + " failed"));
+                        if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Downloading of " + Path.GetFileNameWithoutExtension(path) + " failed", dnld_max, dnld_curr, Path.GetFileNameWithoutExtension(path)));
                     }
                 }
+                dnld_curr++;
             }
 
             foreach (string entry in rawVersionData["natives"])
             {
                 Extract(_librariespath + "\\" + entry, _versionspath + "\\" + rawVersionData["id"][0] + "\\" + rawVersionData["id"][0] + "-natives-AL74", "META-INF");
+                dnld_curr++;
             }
 
             foreach (string[] item in _assets)
@@ -159,17 +171,25 @@ namespace MineLauncher.Launcher
                 new FileInfo(path).Directory.CreateDirectoryStructure();
                 if (!File.Exists(path))
                 {
-                    if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Downloading " + Path.GetFileNameWithoutExtension(path)));
+                    if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Downloading " + Path.GetFileNameWithoutExtension(path), dnld_max, dnld_curr, Path.GetFileNameWithoutExtension(path)));
                     WebClient downloader = new WebClient();
                     if (downloader.RemoteExists(url))
                     {
-                        new WebClient().DownloadFile(url, path);
+                        try
+                        {
+                            new WebClient().DownloadFile(url, path);
+                        }
+                        catch (Exception)
+                        {
+                            if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Downloading of " + Path.GetFileNameWithoutExtension(path) + " failed", dnld_max, dnld_curr, Path.GetFileNameWithoutExtension(path)));
+                        }
                     }
                     else
                     {
-                        if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Downloading of " + Path.GetFileNameWithoutExtension(path) + " failed"));
+                        if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Downloading of " + Path.GetFileNameWithoutExtension(path) + " failed", dnld_max, dnld_curr, Path.GetFileNameWithoutExtension(path)));
                     }
                 }
+                dnld_curr++;
             }
         }
 

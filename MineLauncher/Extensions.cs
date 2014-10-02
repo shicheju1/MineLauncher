@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace MineLauncher
 {
@@ -32,6 +33,7 @@ namespace MineLauncher
                 HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
                 request.Method = "HEAD";
                 HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+                response.Close();
                 return (response.StatusCode == HttpStatusCode.OK);
             }
             catch
@@ -40,5 +42,44 @@ namespace MineLauncher
             }
         }
 
+        public static void SafeInvoke(this Control uiElement, Action updater, bool forceSynchronous = true)
+        {
+            if (uiElement == null)
+            {
+                throw new ArgumentNullException("uiElement");
+            }
+
+            if (uiElement.InvokeRequired)
+            {
+                if (forceSynchronous)
+                {
+                    try
+                    {
+                        uiElement.Invoke((Action)delegate { SafeInvoke(uiElement, updater, forceSynchronous); });
+                    }
+                    catch (ObjectDisposedException)
+                    {
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        uiElement.BeginInvoke((Action)delegate { SafeInvoke(uiElement, updater, forceSynchronous); });
+                    }
+                    catch (ObjectDisposedException)
+                    {
+                    }
+                }
+            }
+            else
+            {
+                if (!uiElement.IsDisposed)
+                {
+                    updater();
+                }
+            }
+        }
+        
     }
 }

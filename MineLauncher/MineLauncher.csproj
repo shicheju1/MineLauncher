@@ -80,15 +80,27 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.WindowsAPICodePack">
+      <HintPath>..\..\..\..\AudioVisualizer\AudioVisualizer\AudioVisualizer\bin\Debug\bin\Microsoft.WindowsAPICodePack.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
+      <HintPath>..\..\..\..\AudioVisualizer\AudioVisualizer\AudioVisualizer\bin\Debug\bin\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\..\..\Downloads\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\BaseEventArgs.cs" />
@@ -101,6 +113,12 @@
     </Compile>
     <Compile Include="frmLauncher.Designer.cs">
       <DependentUpon>frmLauncher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMinecraftCrashLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMinecraftCrashLog.Designer.cs">
+      <DependentUpon>frmMinecraftCrashLog.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSetup.cs">
       <SubType>Form</SubType>
@@ -118,6 +136,9 @@
     <Compile Include="Win32Api.cs" />
     <EmbeddedResource Include="frmLauncher.resx">
       <DependentUpon>frmLauncher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMinecraftCrashLog.resx">
+      <DependentUpon>frmMinecraftCrashLog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSetup.resx">
       <DependentUpon>frmSetup.cs</DependentUpon>
@@ -145,6 +166,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <None Include="Resources\Microsoft.WindowsAPICodePack.Shell.dll" />
+    <None Include="Resources\Microsoft.WindowsAPICodePack.dll" />
     <EmbeddedResource Include="Resources\ExceptionBase.dll" />
     <EmbeddedResource Include="Resources\Newtonsoft.Json.dll" />
     <EmbeddedResource Include="Resources\MetroFramework.Fonts.dll" />

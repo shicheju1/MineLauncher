@@ -105,8 +105,8 @@ namespace MineLauncher.Launcher
                     mcJava = mainDrive + @"Windows\System32\" + mcJavaFile + ".exe";
                     if (!File.Exists(mcJava))
                     {
-                        MetroFramework.MetroMessageBox.Show(parent, "Java ist nicht installiert, wird aber benötigt um Minecraft zu spielen.\nGehe auf java.com und lade die neuste Version herunter",
-                            "Java nicht installiert", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Stop);
+                        MetroFramework.MetroMessageBox.Show(parent, "Java is not installed. Please visit java.com and download the newest version",
+                            "Java is not installed", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Stop);
                         return;
                     }
                 }
@@ -167,7 +167,22 @@ namespace MineLauncher.Launcher
                 if ((read == "") == false || (read == null) == false)
                 {
                     if (OnLauncherLog != null) OnLauncherLog(this, new LauncherEventArgs("MINECRAFT", read));
+
+                    // [Server thread/ERROR]: This crash report has been saved to: D:\Example\x.x.x\crash-reports\crash-2000-01-01_00.00.00-(server/client).txt
+                    if (read.Contains("[Server thread/ERROR]: This crash report has been saved to"))
+                    {
+                        string[] line_parts = read.Split(':');
+
+                        string drive = line_parts[2].ToCharArray()[1].ToString();
+                        string path = drive + ":\\" + line_parts[3];
+
+                        new frmMinecraftCrashLog(path, ver).Show();
+                    }
                 }
+            }
+            if(mcProcess.ExitCode == -1)
+            {
+
             }
         }
 

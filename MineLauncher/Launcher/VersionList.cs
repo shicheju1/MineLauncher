@@ -140,7 +140,7 @@ namespace MineLauncher.Launcher
                 {
                     foreach (DirectoryInfo versions in new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\versions").GetDirectories())
                     {
-                        if (!rawList.ContainsKey(versions.Name))
+                        if (!rawList.ContainsKey(versions.Name) && File.Exists(versions.FullName + "\\" + versions.Name + ".json"))
                         {
                             dynamic versionJson = JsonConvert.DeserializeObject(File.ReadAllText(versions.FullName + "\\" + versions.Name + ".json"));
                             string keyString = versionJson.id;

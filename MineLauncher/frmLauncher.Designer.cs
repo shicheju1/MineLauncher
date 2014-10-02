@@ -33,6 +33,8 @@
             this.tpStart = new MetroFramework.Controls.MetroTabPage();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tpConsole = new MetroFramework.Controls.MetroTabPage();
+            this.lblLogPB = new MetroFramework.Controls.MetroLabel();
+            this.pbLog = new MetroFramework.Controls.MetroProgressBar();
             this.rtbLog = new System.Windows.Forms.RichTextBox();
             this.tpProfiles = new MetroFramework.Controls.MetroTabPage();
             this.pnlProfiles_Edit = new MetroFramework.Controls.MetroPanel();
@@ -64,6 +66,7 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.cbProfiles_Select = new MetroFramework.Controls.MetroComboBox();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.lblAbout = new MetroFramework.Controls.MetroLabel();
             this.rtbAbout_Licenses = new System.Windows.Forms.RichTextBox();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
@@ -80,7 +83,6 @@
             this.btnFastLogin_Login = new MetroFramework.Controls.MetroButton();
             this.tbFastLogin_Username = new MetroFramework.Controls.MetroTextBox();
             this.btnLaunch = new MetroFramework.Controls.MetroButton();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.tcMain.SuspendLayout();
             this.tpStart.SuspendLayout();
             this.tpConsole.SuspendLayout();
@@ -147,6 +149,8 @@
             // 
             // tpConsole
             // 
+            this.tpConsole.Controls.Add(this.lblLogPB);
+            this.tpConsole.Controls.Add(this.pbLog);
             this.tpConsole.Controls.Add(this.rtbLog);
             this.tpConsole.HorizontalScrollbarBarColor = true;
             this.tpConsole.HorizontalScrollbarHighlightOnWheel = false;
@@ -161,13 +165,30 @@
             this.tpConsole.VerticalScrollbarHighlightOnWheel = false;
             this.tpConsole.VerticalScrollbarSize = 10;
             // 
+            // lblLogPB
+            // 
+            this.lblLogPB.BackColor = System.Drawing.Color.Transparent;
+            this.lblLogPB.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblLogPB.Location = new System.Drawing.Point(16, 345);
+            this.lblLogPB.Name = "lblLogPB";
+            this.lblLogPB.Size = new System.Drawing.Size(314, 15);
+            this.lblLogPB.TabIndex = 4;
+            // 
+            // pbLog
+            // 
+            this.pbLog.HideProgressText = false;
+            this.pbLog.Location = new System.Drawing.Point(3, 333);
+            this.pbLog.Name = "pbLog";
+            this.pbLog.Size = new System.Drawing.Size(924, 39);
+            this.pbLog.TabIndex = 3;
+            // 
             // rtbLog
             // 
             this.rtbLog.AcceptsTab = true;
             this.rtbLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.rtbLog.BackColor = System.Drawing.SystemColors.Window;
             this.rtbLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbLog.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rtbLog.DetectUrls = false;
@@ -175,7 +196,7 @@
             this.rtbLog.Location = new System.Drawing.Point(3, 3);
             this.rtbLog.Name = "rtbLog";
             this.rtbLog.ReadOnly = true;
-            this.rtbLog.Size = new System.Drawing.Size(924, 366);
+            this.rtbLog.Size = new System.Drawing.Size(924, 324);
             this.rtbLog.TabIndex = 2;
             this.rtbLog.Text = "";
             this.rtbLog.TextChanged += new System.EventHandler(this.rtbLog_TextChanged);
@@ -638,6 +659,19 @@
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
             // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.Location = new System.Drawing.Point(6, 79);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(241, 95);
+            this.metroLabel13.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel13.TabIndex = 4;
+            this.metroLabel13.Text = "MetroFramework by Sven Walter\r\nExceptionBase.NET by Leo Bernard\r\nNewtonsoft.Json " +
+    "by James Newton-King\r\nIonic.Zip by Dino Chiesa\r\nWindowsAPICodePack by Microsoft";
+            this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel13.WrapToLine = true;
+            // 
             // lblAbout
             // 
             this.lblAbout.AutoSize = true;
@@ -655,9 +689,13 @@
             // 
             this.rtbAbout_Licenses.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbAbout_Licenses.BackColor = System.Drawing.SystemColors.Window;
             this.rtbAbout_Licenses.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbAbout_Licenses.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.rtbAbout_Licenses.DetectUrls = false;
             this.rtbAbout_Licenses.Location = new System.Drawing.Point(315, 3);
             this.rtbAbout_Licenses.Name = "rtbAbout_Licenses";
+            this.rtbAbout_Licenses.ReadOnly = true;
             this.rtbAbout_Licenses.Size = new System.Drawing.Size(612, 366);
             this.rtbAbout_Licenses.TabIndex = 2;
             this.rtbAbout_Licenses.Text = resources.GetString("rtbAbout_Licenses.Text");
@@ -862,19 +900,6 @@
             this.btnLaunch.UseSelectable = true;
             this.btnLaunch.Click += new System.EventHandler(this.btnLaunch_Click);
             // 
-            // metroLabel13
-            // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.Location = new System.Drawing.Point(6, 79);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(241, 76);
-            this.metroLabel13.Style = MetroFramework.MetroColorStyle.White;
-            this.metroLabel13.TabIndex = 4;
-            this.metroLabel13.Text = "MetroFramework by Sven Walter\r\nExceptionBase.NET by Leo Bernard\r\nNewtonsoft.Json " +
-    "by James Newton-King\r\nIonic.Zip by Dino Chiesa";
-            this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel13.WrapToLine = true;
-            // 
             // frmLauncher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -884,6 +909,7 @@
             this.Controls.Add(this.pnlFastControl);
             this.Controls.Add(this.tcMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(984, 595);
             this.MinimumSize = new System.Drawing.Size(984, 595);
             this.Name = "frmLauncher";
@@ -892,6 +918,7 @@
             this.Text = "MineLauncher";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLauncher_FormClosing);
             this.Shown += new System.EventHandler(this.frmLauncher_Shown);
             this.tcMain.ResumeLayout(false);
             this.tpStart.ResumeLayout(false);
@@ -966,6 +993,8 @@
         private MetroFramework.Controls.MetroLabel lblProfiles_Edit_Offline_PlayerName;
         private MetroFramework.Controls.MetroTextBox tbProfiles_Edit_Offline_PlayerName;
         private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroProgressBar pbLog;
+        private MetroFramework.Controls.MetroLabel lblLogPB;
     }
 }
 
