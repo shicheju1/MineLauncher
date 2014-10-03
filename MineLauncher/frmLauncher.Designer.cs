@@ -38,6 +38,7 @@
             this.rtbLog = new System.Windows.Forms.RichTextBox();
             this.tpProfiles = new MetroFramework.Controls.MetroTabPage();
             this.pnlProfiles_Edit = new MetroFramework.Controls.MetroPanel();
+            this.btnProfile_Edit_Save = new MetroFramework.Controls.MetroButton();
             this.lblProfiles_Edit_Offline_PlayerName = new MetroFramework.Controls.MetroLabel();
             this.tbProfiles_Edit_Offline_PlayerName = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
@@ -53,7 +54,7 @@
             this.toggleProfiles_Edit_ShowVersion_Snapshot = new MetroFramework.Controls.MetroToggle();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.toggleProfiles_Edit_ShowVersion_Release = new MetroFramework.Controls.MetroToggle();
-            this.btnProfile_Edit_Save = new MetroFramework.Controls.MetroButton();
+            this.btnProfile_Edit_SaveNew = new MetroFramework.Controls.MetroButton();
             this.tbProfiles_Edit_JVM_Args = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.tbProfiles_Edit_JVM_Path = new MetroFramework.Controls.MetroTextBox();
@@ -66,10 +67,14 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.cbProfiles_Select = new MetroFramework.Controls.MetroComboBox();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.rtbAbout_PrivacyPolicy = new System.Windows.Forms.RichTextBox();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.lblAbout = new MetroFramework.Controls.MetroLabel();
             this.rtbAbout_Licenses = new System.Windows.Forms.RichTextBox();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.btnSettings_ImportFromOriginalLauncher = new MetroFramework.Controls.MetroButton();
+            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
             this.pnlFastControl = new MetroFramework.Controls.MetroPanel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.cbFastControl_SelectProfile = new MetroFramework.Controls.MetroComboBox();
@@ -83,18 +88,24 @@
             this.btnFastLogin_Login = new MetroFramework.Controls.MetroButton();
             this.tbFastLogin_Username = new MetroFramework.Controls.MetroTextBox();
             this.btnLaunch = new MetroFramework.Controls.MetroButton();
+            this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
+            this.cbSettings_Themes = new MetroFramework.Controls.MetroComboBox();
             this.tcMain.SuspendLayout();
             this.tpStart.SuspendLayout();
             this.tpConsole.SuspendLayout();
             this.tpProfiles.SuspendLayout();
             this.pnlProfiles_Edit.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
+            this.metroTabPage1.SuspendLayout();
+            this.metroPanel2.SuspendLayout();
             this.pnlFastControl.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.pnlFastInfo.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFastInfo_Avatar)).BeginInit();
             this.pnlFastLogin.SuspendLayout();
+            this.metroPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcMain
@@ -108,7 +119,7 @@
             this.tcMain.Controls.Add(this.metroTabPage1);
             this.tcMain.Location = new System.Drawing.Point(23, 63);
             this.tcMain.Name = "tcMain";
-            this.tcMain.SelectedIndex = 3;
+            this.tcMain.SelectedIndex = 4;
             this.tcMain.Size = new System.Drawing.Size(938, 414);
             this.tcMain.Style = MetroFramework.MetroColorStyle.Blue;
             this.tcMain.TabIndex = 0;
@@ -167,6 +178,7 @@
             // 
             // lblLogPB
             // 
+            this.lblLogPB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblLogPB.BackColor = System.Drawing.Color.Transparent;
             this.lblLogPB.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lblLogPB.Location = new System.Drawing.Point(16, 345);
@@ -176,6 +188,8 @@
             // 
             // pbLog
             // 
+            this.pbLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbLog.HideProgressText = false;
             this.pbLog.Location = new System.Drawing.Point(3, 333);
             this.pbLog.Name = "pbLog";
@@ -223,6 +237,7 @@
             this.pnlProfiles_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlProfiles_Edit.Controls.Add(this.btnProfile_Edit_Save);
             this.pnlProfiles_Edit.Controls.Add(this.lblProfiles_Edit_Offline_PlayerName);
             this.pnlProfiles_Edit.Controls.Add(this.tbProfiles_Edit_Offline_PlayerName);
             this.pnlProfiles_Edit.Controls.Add(this.metroLabel12);
@@ -238,7 +253,7 @@
             this.pnlProfiles_Edit.Controls.Add(this.toggleProfiles_Edit_ShowVersion_Snapshot);
             this.pnlProfiles_Edit.Controls.Add(this.metroLabel6);
             this.pnlProfiles_Edit.Controls.Add(this.toggleProfiles_Edit_ShowVersion_Release);
-            this.pnlProfiles_Edit.Controls.Add(this.btnProfile_Edit_Save);
+            this.pnlProfiles_Edit.Controls.Add(this.btnProfile_Edit_SaveNew);
             this.pnlProfiles_Edit.Controls.Add(this.tbProfiles_Edit_JVM_Args);
             this.pnlProfiles_Edit.Controls.Add(this.metroLabel5);
             this.pnlProfiles_Edit.Controls.Add(this.tbProfiles_Edit_JVM_Path);
@@ -260,6 +275,19 @@
             this.pnlProfiles_Edit.VerticalScrollbarBarColor = true;
             this.pnlProfiles_Edit.VerticalScrollbarHighlightOnWheel = false;
             this.pnlProfiles_Edit.VerticalScrollbarSize = 10;
+            // 
+            // btnProfile_Edit_Save
+            // 
+            this.btnProfile_Edit_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProfile_Edit_Save.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnProfile_Edit_Save.Location = new System.Drawing.Point(701, 283);
+            this.btnProfile_Edit_Save.Name = "btnProfile_Edit_Save";
+            this.btnProfile_Edit_Save.Size = new System.Drawing.Size(220, 42);
+            this.btnProfile_Edit_Save.TabIndex = 30;
+            this.btnProfile_Edit_Save.Text = "Save profile";
+            this.btnProfile_Edit_Save.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnProfile_Edit_Save.UseSelectable = true;
+            this.btnProfile_Edit_Save.Click += new System.EventHandler(this.btnProfile_Edit_Save_Click);
             // 
             // lblProfiles_Edit_Offline_PlayerName
             // 
@@ -348,7 +376,7 @@
             // 
             this.btnProfile_Edit_Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnProfile_Edit_Delete.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnProfile_Edit_Delete.Location = new System.Drawing.Point(470, 278);
+            this.btnProfile_Edit_Delete.Location = new System.Drawing.Point(249, 283);
             this.btnProfile_Edit_Delete.Name = "btnProfile_Edit_Delete";
             this.btnProfile_Edit_Delete.Size = new System.Drawing.Size(220, 42);
             this.btnProfile_Edit_Delete.TabIndex = 23;
@@ -465,18 +493,19 @@
             this.toggleProfiles_Edit_ShowVersion_Release.UseSelectable = true;
             this.toggleProfiles_Edit_ShowVersion_Release.CheckedChanged += new System.EventHandler(this.toggleProfiles_Edit_ShowVersion_CheckedChanged);
             // 
-            // btnProfile_Edit_Save
+            // btnProfile_Edit_SaveNew
             // 
-            this.btnProfile_Edit_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProfile_Edit_Save.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnProfile_Edit_Save.Location = new System.Drawing.Point(696, 278);
-            this.btnProfile_Edit_Save.Name = "btnProfile_Edit_Save";
-            this.btnProfile_Edit_Save.Size = new System.Drawing.Size(220, 42);
-            this.btnProfile_Edit_Save.TabIndex = 13;
-            this.btnProfile_Edit_Save.Text = "Save profile";
-            this.btnProfile_Edit_Save.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.btnProfile_Edit_Save.UseSelectable = true;
-            this.btnProfile_Edit_Save.Click += new System.EventHandler(this.btnProfile_Edit_Save_Click);
+            this.btnProfile_Edit_SaveNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProfile_Edit_SaveNew.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnProfile_Edit_SaveNew.Location = new System.Drawing.Point(475, 283);
+            this.btnProfile_Edit_SaveNew.Name = "btnProfile_Edit_SaveNew";
+            this.btnProfile_Edit_SaveNew.Size = new System.Drawing.Size(220, 42);
+            this.btnProfile_Edit_SaveNew.TabIndex = 13;
+            this.btnProfile_Edit_SaveNew.Text = "Copy && Save profile";
+            this.btnProfile_Edit_SaveNew.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnProfile_Edit_SaveNew.UseMnemonic = false;
+            this.btnProfile_Edit_SaveNew.UseSelectable = true;
+            this.btnProfile_Edit_SaveNew.Click += new System.EventHandler(this.btnProfile_Edit_SaveNew_Click);
             // 
             // tbProfiles_Edit_JVM_Args
             // 
@@ -642,6 +671,7 @@
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.rtbAbout_PrivacyPolicy);
             this.metroTabPage2.Controls.Add(this.metroLabel13);
             this.metroTabPage2.Controls.Add(this.lblAbout);
             this.metroTabPage2.Controls.Add(this.rtbAbout_Licenses);
@@ -658,6 +688,21 @@
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
+            // 
+            // rtbAbout_PrivacyPolicy
+            // 
+            this.rtbAbout_PrivacyPolicy.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbAbout_PrivacyPolicy.BackColor = System.Drawing.SystemColors.Window;
+            this.rtbAbout_PrivacyPolicy.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbAbout_PrivacyPolicy.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.rtbAbout_PrivacyPolicy.DetectUrls = false;
+            this.rtbAbout_PrivacyPolicy.Location = new System.Drawing.Point(275, 3);
+            this.rtbAbout_PrivacyPolicy.Name = "rtbAbout_PrivacyPolicy";
+            this.rtbAbout_PrivacyPolicy.ReadOnly = true;
+            this.rtbAbout_PrivacyPolicy.Size = new System.Drawing.Size(223, 366);
+            this.rtbAbout_PrivacyPolicy.TabIndex = 5;
+            this.rtbAbout_PrivacyPolicy.Text = "Privacy Policy\n";
             // 
             // metroLabel13
             // 
@@ -693,15 +738,17 @@
             this.rtbAbout_Licenses.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbAbout_Licenses.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rtbAbout_Licenses.DetectUrls = false;
-            this.rtbAbout_Licenses.Location = new System.Drawing.Point(315, 3);
+            this.rtbAbout_Licenses.Location = new System.Drawing.Point(504, 3);
             this.rtbAbout_Licenses.Name = "rtbAbout_Licenses";
             this.rtbAbout_Licenses.ReadOnly = true;
-            this.rtbAbout_Licenses.Size = new System.Drawing.Size(612, 366);
+            this.rtbAbout_Licenses.Size = new System.Drawing.Size(423, 366);
             this.rtbAbout_Licenses.TabIndex = 2;
             this.rtbAbout_Licenses.Text = resources.GetString("rtbAbout_Licenses.Text");
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.metroPanel4);
+            this.metroTabPage1.Controls.Add(this.metroPanel2);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.HorizontalScrollbarSize = 10;
@@ -716,6 +763,44 @@
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
+            // metroPanel2
+            // 
+            this.metroPanel2.Controls.Add(this.btnSettings_ImportFromOriginalLauncher);
+            this.metroPanel2.Controls.Add(this.metroLabel14);
+            this.metroPanel2.HorizontalScrollbarBarColor = true;
+            this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.HorizontalScrollbarSize = 10;
+            this.metroPanel2.Location = new System.Drawing.Point(3, 3);
+            this.metroPanel2.Name = "metroPanel2";
+            this.metroPanel2.Size = new System.Drawing.Size(310, 124);
+            this.metroPanel2.TabIndex = 2;
+            this.metroPanel2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel2.VerticalScrollbarBarColor = true;
+            this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.VerticalScrollbarSize = 10;
+            // 
+            // btnSettings_ImportFromOriginalLauncher
+            // 
+            this.btnSettings_ImportFromOriginalLauncher.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnSettings_ImportFromOriginalLauncher.Location = new System.Drawing.Point(15, 38);
+            this.btnSettings_ImportFromOriginalLauncher.Name = "btnSettings_ImportFromOriginalLauncher";
+            this.btnSettings_ImportFromOriginalLauncher.Size = new System.Drawing.Size(280, 71);
+            this.btnSettings_ImportFromOriginalLauncher.TabIndex = 3;
+            this.btnSettings_ImportFromOriginalLauncher.Text = "Start import";
+            this.btnSettings_ImportFromOriginalLauncher.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnSettings_ImportFromOriginalLauncher.UseSelectable = true;
+            this.btnSettings_ImportFromOriginalLauncher.Click += new System.EventHandler(this.btnSettings_ImportFromOriginalLauncher_Click);
+            // 
+            // metroLabel14
+            // 
+            this.metroLabel14.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel14.Location = new System.Drawing.Point(15, 12);
+            this.metroLabel14.Name = "metroLabel14";
+            this.metroLabel14.Size = new System.Drawing.Size(280, 23);
+            this.metroLabel14.TabIndex = 2;
+            this.metroLabel14.Text = "Import profiles from Minecraft Launcher";
+            this.metroLabel14.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
             // pnlFastControl
             // 
             this.pnlFastControl.Controls.Add(this.metroPanel1);
@@ -725,7 +810,7 @@
             this.pnlFastControl.HorizontalScrollbarBarColor = true;
             this.pnlFastControl.HorizontalScrollbarHighlightOnWheel = false;
             this.pnlFastControl.HorizontalScrollbarSize = 10;
-            this.pnlFastControl.Location = new System.Drawing.Point(30, 476);
+            this.pnlFastControl.Location = new System.Drawing.Point(30, 484);
             this.pnlFastControl.Name = "pnlFastControl";
             this.pnlFastControl.Size = new System.Drawing.Size(924, 96);
             this.pnlFastControl.TabIndex = 1;
@@ -900,6 +985,47 @@
             this.btnLaunch.UseSelectable = true;
             this.btnLaunch.Click += new System.EventHandler(this.btnLaunch_Click);
             // 
+            // metroPanel4
+            // 
+            this.metroPanel4.Controls.Add(this.cbSettings_Themes);
+            this.metroPanel4.Controls.Add(this.metroLabel15);
+            this.metroPanel4.HorizontalScrollbarBarColor = true;
+            this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel4.HorizontalScrollbarSize = 10;
+            this.metroPanel4.Location = new System.Drawing.Point(319, 3);
+            this.metroPanel4.Name = "metroPanel4";
+            this.metroPanel4.Size = new System.Drawing.Size(310, 124);
+            this.metroPanel4.TabIndex = 4;
+            this.metroPanel4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel4.VerticalScrollbarBarColor = true;
+            this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel4.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel15
+            // 
+            this.metroLabel15.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel15.Location = new System.Drawing.Point(15, 12);
+            this.metroLabel15.Name = "metroLabel15";
+            this.metroLabel15.Size = new System.Drawing.Size(280, 23);
+            this.metroLabel15.TabIndex = 2;
+            this.metroLabel15.Text = "Import profiles from Minecraft Launcher";
+            this.metroLabel15.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // cbSettings_Themes
+            // 
+            this.cbSettings_Themes.FormattingEnabled = true;
+            this.cbSettings_Themes.ItemHeight = 23;
+            this.cbSettings_Themes.Items.AddRange(new object[] {
+            "Dark",
+            "Light"});
+            this.cbSettings_Themes.Location = new System.Drawing.Point(15, 59);
+            this.cbSettings_Themes.Name = "cbSettings_Themes";
+            this.cbSettings_Themes.Size = new System.Drawing.Size(280, 29);
+            this.cbSettings_Themes.TabIndex = 3;
+            this.cbSettings_Themes.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.cbSettings_Themes.UseSelectable = true;
+            this.cbSettings_Themes.SelectedIndexChanged += new System.EventHandler(this.cbSettings_Themes_SelectedIndexChanged);
+            // 
             // frmLauncher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -928,6 +1054,8 @@
             this.pnlProfiles_Edit.PerformLayout();
             this.metroTabPage2.ResumeLayout(false);
             this.metroTabPage2.PerformLayout();
+            this.metroTabPage1.ResumeLayout(false);
+            this.metroPanel2.ResumeLayout(false);
             this.pnlFastControl.ResumeLayout(false);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
@@ -935,6 +1063,7 @@
             this.metroPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbFastInfo_Avatar)).EndInit();
             this.pnlFastLogin.ResumeLayout(false);
+            this.metroPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -954,12 +1083,11 @@
         private MetroFramework.Controls.MetroTextBox tbProfiles_Edit_Directory;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroTextBox tbProfiles_Edit_Name;
-        private MetroFramework.Controls.MetroButton btnProfile_Edit_Save;
+        private MetroFramework.Controls.MetroButton btnProfile_Edit_SaveNew;
         private MetroFramework.Controls.MetroTextBox tbProfiles_Edit_JVM_Args;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroTextBox tbProfiles_Edit_JVM_Path;
         private MetroFramework.Controls.MetroLabel metroLabel4;
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private MetroFramework.Controls.MetroPanel pnlFastControl;
         private MetroFramework.Controls.MetroButton btnFastLogin_Login;
         private MetroFramework.Controls.MetroTextBox tbFastLogin_Password;
@@ -995,6 +1123,15 @@
         private MetroFramework.Controls.MetroLabel metroLabel13;
         private MetroFramework.Controls.MetroProgressBar pbLog;
         private MetroFramework.Controls.MetroLabel lblLogPB;
+        private MetroFramework.Controls.MetroButton btnProfile_Edit_Save;
+        private System.Windows.Forms.RichTextBox rtbAbout_PrivacyPolicy;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private MetroFramework.Controls.MetroPanel metroPanel2;
+        private MetroFramework.Controls.MetroButton btnSettings_ImportFromOriginalLauncher;
+        private MetroFramework.Controls.MetroLabel metroLabel14;
+        private MetroFramework.Controls.MetroPanel metroPanel4;
+        private MetroFramework.Controls.MetroComboBox cbSettings_Themes;
+        private MetroFramework.Controls.MetroLabel metroLabel15;
     }
 }
 

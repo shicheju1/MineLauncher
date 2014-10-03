@@ -57,7 +57,7 @@ namespace MineLauncher
         {
             Dictionary<string, object> setup = new Dictionary<string, object>();
 
-            setup.Add("base-offline-mode", toggleLogin_UseOfflineMode.Checked);
+            setup.Add("baseofflinemode", toggleLogin_UseOfflineMode.Checked);
             setup.Add("theme", cbTheme.SelectedItem.ToString());
 
             File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));

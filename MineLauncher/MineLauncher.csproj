@@ -166,21 +166,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
-    <None Include="Resources\Microsoft.WindowsAPICodePack.Shell.dll" />
-    <None Include="Resources\Microsoft.WindowsAPICodePack.dll" />
+    <Content Include="Resources\Creeper_Blue.ico" />
+    <Content Include="Resources\Creeper_Green.ico" />
+    <Content Include="Resources\Creeper_Orange.ico" />
+    <Content Include="Resources\Creeper_Red.ico" />
+    <Content Include="Resources\Creeper_Standard.ico" />
+    <Content Include="Resources\Creeper_Violet.ico" />
+    <Content Include="Resources\Creeper_Yellow.ico" />
     <EmbeddedResource Include="Resources\ExceptionBase.dll" />
-    <EmbeddedResource Include="Resources\Newtonsoft.Json.dll" />
-    <EmbeddedResource Include="Resources\MetroFramework.Fonts.dll" />
-    <EmbeddedResource Include="Resources\MetroFramework.dll" />
-    <EmbeddedResource Include="Resources\MetroFramework.Design.dll" />
     <EmbeddedResource Include="Resources\Ionic.Zip.dll" />
-    <EmbeddedResource Include="Resources\Creeper_Green.ico" />
-    <EmbeddedResource Include="Resources\Creeper_Blue.ico" />
-    <EmbeddedResource Include="Resources\Creeper_Yellow.ico" />
-    <EmbeddedResource Include="Resources\Creeper_Violet.ico" />
-    <EmbeddedResource Include="Resources\Creeper_Standard.ico" />
-    <EmbeddedResource Include="Resources\Creeper_Red.ico" />
-    <EmbeddedResource Include="Resources\Creeper_Orange.ico" />
+    <EmbeddedResource Include="Resources\MetroFramework.Design.dll" />
+    <EmbeddedResource Include="Resources\MetroFramework.dll" />
+    <EmbeddedResource Include="Resources\MetroFramework.Fonts.dll" />
+    <EmbeddedResource Include="Resources\Microsoft.WindowsAPICodePack.dll" />
+    <EmbeddedResource Include="Resources\Microsoft.WindowsAPICodePack.Shell.dll" />
+    <EmbeddedResource Include="Resources\Newtonsoft.Json.dll" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />

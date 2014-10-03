@@ -4,6 +4,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Threading;
 using System.Reflection;
+using System.Text;
 using System.Windows.Forms;
 
 using MetroFramework;
@@ -16,6 +17,7 @@ using MineLauncher.Launcher;
 using MineLauncher.Win32Api;
 
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 using Microsoft.WindowsAPICodePack.Taskbar;
 
@@ -25,6 +27,8 @@ namespace MineLauncher
     {
 
         string uitheme = "";
+        bool base_offline_mode = false;
+
         Random rand = new Random();
         MinecraftSession session = null;
         KeyValuePair<string, Dictionary<string, object>> currentProfile = new KeyValuePair<string, Dictionary<string, object>>();
@@ -35,7 +39,6 @@ namespace MineLauncher
         public frmLauncher()
         {
             InitializeComponent();
-
             DotMinecraft.CreateDotMinecraftHierarchy();
 
             MEMORYSTATUSEX memory = new MEMORYSTATUSEX();
@@ -53,6 +56,8 @@ namespace MineLauncher
 
                 dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"));
                 uitheme = (string)setup.theme;
+                base_offline_mode = (bool)setup.baseofflinemode;
+
                 ChangeFormTheme(this);
             }
             else
@@ -163,6 +168,13 @@ namespace MineLauncher
             }).Start();
         }
 
+        private void frmLauncher_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Preevent errors like ObjectDisposedException and so on
+            Environment.Exit(0);
+            //System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
+
         private void rtbLog_TextChanged(object sender, EventArgs e)
         {
             rtbLog.ScrollToCaret();
@@ -193,6 +205,7 @@ namespace MineLauncher
                     {
                         ((Control)ctrl).BackColor = Color.FromArgb(255, 255, 255);
                         ((Control)ctrl).ForeColor = Color.FromArgb(0, 0, 0);
+                        ((Control)ctrl).Refresh();
                     }
                 }
 
@@ -210,6 +223,7 @@ namespace MineLauncher
             {
                 ctrl.BackColor = MetroFramework.Drawing.MetroPaint.BorderColor.Button.Normal(GetMetroThemeFromConfig());
                 ctrl.ForeColor = MetroFramework.Drawing.MetroPaint.ForeColor.Button.Normal(GetMetroThemeFromConfig());
+                ctrl.Refresh();
             }
             foreach (Control subctrl in ctrl.Controls)
             {
@@ -221,6 +235,7 @@ namespace MineLauncher
                 {
                     subctrl.BackColor = MetroFramework.Drawing.MetroPaint.BorderColor.Button.Normal(GetMetroThemeFromConfig());
                     subctrl.ForeColor = MetroFramework.Drawing.MetroPaint.ForeColor.Button.Normal(GetMetroThemeFromConfig());
+                    subctrl.Refresh();
                 }
             }
         }
@@ -251,117 +266,208 @@ namespace MineLauncher
         
         private void btnProfile_Edit_Delete_Click(object sender, EventArgs e)
         {
-            dynamic _profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
-            Newtonsoft.Json.Linq.JObject jTypeProfile = (Newtonsoft.Json.Linq.JObject)(_profilejson);
-
-            Dictionary<string, Dictionary<string, object>> profiles = jTypeProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
-            
-            profiles.Remove(tbProfiles_Edit_Name.Text);
-
-            string json = JsonConvert.SerializeObject(profiles);
-            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json", json);
-
-            cbProfiles_Select.Items.Clear();
-            cbFastControl_SelectProfile.Items.Clear();
-            foreach (KeyValuePair<string, Dictionary<string, object>> newProfile in profiles)
+            new Thread(() => 
             {
-                cbProfiles_Select.Items.Add(newProfile.Key);
-                cbFastControl_SelectProfile.Items.Add(newProfile.Key);
-            }
+                dynamic _profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
+                Newtonsoft.Json.Linq.JObject jTypeProfile = (Newtonsoft.Json.Linq.JObject)(_profilejson);
 
-            this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add("")));
-            this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add("Create new profile")));
+                Dictionary<string, Dictionary<string, object>> profiles = jTypeProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
+            
+                profiles.Remove(tbProfiles_Edit_Name.Text);
+
+                string json = JsonConvert.SerializeObject(profiles);
+                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json", json);
+
+                this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Clear()));
+                this.SafeInvoke(new Action(() => cbFastControl_SelectProfile.Items.Clear()));
+                foreach (KeyValuePair<string, Dictionary<string, object>> newProfile in profiles)
+                {
+                    this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add(newProfile.Key)));
+                    this.SafeInvoke(new Action(() => cbFastControl_SelectProfile.Items.Add(newProfile.Key)));
+                }
+
+                this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add("")));
+                this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add("Create new profile")));
+            }).Start();
         }
-
+        
         private void btnProfile_Edit_Save_Click(object sender, EventArgs e)
         {
-            if (tbProfiles_Edit_Name.Text == "")
+            new Thread(() =>
             {
-                MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) profile name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (tbProfiles_Edit_Directory.Text == "")
-            {
-                MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) directory for the game-files", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (tbProfiles_Edit_JVM_Path.Text == "")
-            {
-                MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) path to the javaw.exe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            else if (!File.Exists(tbProfiles_Edit_JVM_Path.Text))
-            {
-                MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) path to the javaw.exe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            else if (!tbProfiles_Edit_JVM_Path.Text.EndsWith("\\bin\\javaw.exe"))
-            {
-                MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) path to the javaw.exe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            try
-            {
-                if(Path.IsPathRooted(tbProfiles_Edit_Directory.Text))
+                if (tbProfiles_Edit_Name.Text == "")
                 {
-                    Path.GetFullPath(tbProfiles_Edit_Directory.Text);
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) profile name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)));
+                    return;
+                }
+                if (tbProfiles_Edit_Directory.Text == "")
+                {
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) directory for the game-files", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)));
+                    return;
+                }
+                if (tbProfiles_Edit_JVM_Path.Text == "")
+                {
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) path to the javaw.exe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)));
+                    return;
+                }
+                else if (!File.Exists(tbProfiles_Edit_JVM_Path.Text))
+                {
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) path to the javaw.exe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)));
+                    return;
+                }
+                else if (!tbProfiles_Edit_JVM_Path.Text.EndsWith("\\bin\\javaw.exe"))
+                {
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) path to the javaw.exe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)));
+                    return;
+                }
+
+                try
+                {
+                    if (Path.IsPathRooted(tbProfiles_Edit_Directory.Text))
+                    {
+                        Path.GetFullPath(tbProfiles_Edit_Directory.Text);
+                    }
+                    else
+                    {
+                        this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) directory for the game-files", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)));
+                    }
+                }
+                catch (Exception)
+                {
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) directory for the game-files", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)));
+                }
+
+                dynamic profilejson;
+                if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
+                {
+                    profilejson = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json");
                 }
                 else
                 {
-                    MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) directory for the game-files", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    profilejson = "{ }";
                 }
-            }
-            catch (Exception)
-            {
-                MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) directory for the game-files", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
 
-            dynamic profilejson;
-            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
-            {
-                profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
-            }
-            else
-            {
-                profilejson = new Dictionary<string, Dictionary<string, object>>();
-            }
+                Dictionary<string, object> profile = new Dictionary<string, object>();
+                Newtonsoft.Json.Linq.JObject jTypeProfile = (Newtonsoft.Json.Linq.JObject)(profilejson);
+                Dictionary<string, Dictionary<string, object>> profiles = jTypeProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
 
-            Dictionary<string, object> profile = new Dictionary<string, object>();
-            /*Newtonsoft.Json.Linq.JObject jTypeProfile = (Newtonsoft.Json.Linq.JObject)(profilejson);
-            Dictionary<string, Dictionary<string, object>> profiles = jTypeProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();*/
-            Dictionary<string, Dictionary<string, object>> profiles = profilejson;
+                profile.Add("mcversion", cbProfiles_Edit_Version.Items[cbProfiles_Edit_Version.SelectedIndex]);
+                profile.Add("gamedir", tbProfiles_Edit_Directory.Text);
+                profile.Add("javapath", tbProfiles_Edit_JVM_Path.Text);
+                profile.Add("javaargs", tbProfiles_Edit_JVM_Args.Text);
+                profile.Add("offline-mode", toggleProfiles_Edit_Offline.Checked);
+                profile.Add("offline-mode-playername", tbProfiles_Edit_Offline_PlayerName.Text);
 
-            profile.Add("mcversion", cbProfiles_Edit_Version.Items[cbProfiles_Edit_Version.SelectedIndex]);
-            profile.Add("gamedir", tbProfiles_Edit_Directory.Text);
-            profile.Add("javapath", tbProfiles_Edit_JVM_Path.Text);
-            profile.Add("javaargs", tbProfiles_Edit_JVM_Args.Text);
-            profile.Add("offline-mode", toggleProfiles_Edit_Offline.Checked);
-            profile.Add("offline-mode-playername", tbProfiles_Edit_Offline_PlayerName.Text);
-
-            if (profiles.ContainsKey(tbProfiles_Edit_Name.Text))
-            {
                 profiles.Remove(tbProfiles_Edit_Name.Text);
                 profiles.Add(tbProfiles_Edit_Name.Text, profile);
-            }
-            else
+
+                string json = JsonConvert.SerializeObject(profiles);
+                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json", json);
+
+                this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Clear()));
+                this.SafeInvoke(new Action(() => cbFastControl_SelectProfile.Items.Clear()));
+                foreach (KeyValuePair<string, Dictionary<string, object>> newProfile in profiles)
+                {
+                    this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add(newProfile.Key)));
+                    this.SafeInvoke(new Action(() => cbFastControl_SelectProfile.Items.Add(newProfile.Key)));
+                }
+
+                this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add("")));
+                this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add("Create new profile")));
+            }).Start();
+        }
+
+        private void btnProfile_Edit_SaveNew_Click(object sender, EventArgs e)
+        {
+            new Thread(() =>
             {
-                profiles.Add(tbProfiles_Edit_Name.Text, profile);
-            }
+                if (tbProfiles_Edit_Name.Text == "")
+                {
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) profile name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)));
+                    return;
+                }
+                if (tbProfiles_Edit_Directory.Text == "")
+                {
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) directory for the game-files", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)));
+                    return;
+                }
+                if (tbProfiles_Edit_JVM_Path.Text == "")
+                {
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) path to the javaw.exe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)));
+                    return;
+                }
+                else if (!File.Exists(tbProfiles_Edit_JVM_Path.Text))
+                {
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) path to the javaw.exe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)));
+                    return;
+                }
+                else if (!tbProfiles_Edit_JVM_Path.Text.EndsWith("\\bin\\javaw.exe"))
+                {
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) path to the javaw.exe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)));
+                    return;
+                }
 
-            string json = JsonConvert.SerializeObject(profiles);
-            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json", json);
+                try
+                {
+                    if (Path.IsPathRooted(tbProfiles_Edit_Directory.Text))
+                    {
+                        Path.GetFullPath(tbProfiles_Edit_Directory.Text);
+                    }
+                    else
+                    {
+                        this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) directory for the game-files", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)));
+                    }
+                }
+                catch (Exception)
+                {
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "Please enter a (valid) directory for the game-files", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)));
+                }
 
-            cbProfiles_Select.Items.Clear();
-            cbFastControl_SelectProfile.Items.Clear();
-            foreach (KeyValuePair<string, Dictionary<string, object>> newProfile in profiles)
-            {
-                cbProfiles_Select.Items.Add(newProfile.Key);
-                cbFastControl_SelectProfile.Items.Add(newProfile.Key);
-            }
+                dynamic profilejson;
+                if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
+                {
+                    profilejson = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json");
+                }
+                else
+                {
+                    profilejson = "{ }";
+                }
 
-            if(this.IsHandleCreated) this.Invoke(new Action(() => cbProfiles_Select.Items.Add("")));
-            if(this.IsHandleCreated) this.Invoke(new Action(() => cbProfiles_Select.Items.Add("Create new profile")));
+                Dictionary<string, object> profile = new Dictionary<string, object>();
+                Newtonsoft.Json.Linq.JObject jTypeProfile = (Newtonsoft.Json.Linq.JObject)(profilejson);
+                Dictionary<string, Dictionary<string, object>> profiles = jTypeProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
+
+                profile.Add("mcversion", cbProfiles_Edit_Version.Items[cbProfiles_Edit_Version.SelectedIndex]);
+                profile.Add("gamedir", tbProfiles_Edit_Directory.Text);
+                profile.Add("javapath", tbProfiles_Edit_JVM_Path.Text);
+                profile.Add("javaargs", tbProfiles_Edit_JVM_Args.Text);
+                profile.Add("offline-mode", toggleProfiles_Edit_Offline.Checked);
+                profile.Add("offline-mode-playername", tbProfiles_Edit_Offline_PlayerName.Text);
+
+                if (profiles.ContainsKey(tbProfiles_Edit_Name.Text))
+                {
+                    profiles.Remove(tbProfiles_Edit_Name.Text);
+                    profiles.Add(tbProfiles_Edit_Name.Text, profile);
+                }
+                else
+                {
+                    profiles.Add(tbProfiles_Edit_Name.Text, profile);
+                }
+
+                string json = JsonConvert.SerializeObject(profiles);
+                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json", json);
+
+                this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Clear()));
+                this.SafeInvoke(new Action(() => cbFastControl_SelectProfile.Items.Clear()));
+                foreach (KeyValuePair<string, Dictionary<string, object>> newProfile in profiles)
+                {
+                    this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add(newProfile.Key)));
+                    this.SafeInvoke(new Action(() => cbFastControl_SelectProfile.Items.Add(newProfile.Key)));
+                }
+
+                this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add("")));
+                this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add("Create new profile")));
+            }).Start();
         }
 
         private void cbProfiles_Select_SelectedIndexChanged(object sender, EventArgs e)
@@ -370,19 +476,22 @@ namespace MineLauncher
             {
                 cbProfiles_Select.SelectedIndex = cbProfiles_Select.Items.Count - 1;
                 btnProfile_Edit_Save.Text = "Create profile";
+                btnProfile_Edit_SaveNew.Enabled = false;
                 btnProfile_Edit_Delete.Enabled = false;
             }
             else if (cbProfiles_Select.SelectedIndex == (cbProfiles_Select.Items.Count - 1))
             {
                 btnProfile_Edit_Save.Text = "Create profile";
+                btnProfile_Edit_SaveNew.Enabled = false;
                 btnProfile_Edit_Delete.Enabled = false;
             }
             else
             {
                 dynamic profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
-                Newtonsoft.Json.Linq.JObject jTypeProfile = (Newtonsoft.Json.Linq.JObject)(profilejson);
 
+                Newtonsoft.Json.Linq.JObject jTypeProfile = (Newtonsoft.Json.Linq.JObject)(profilejson);
                 Dictionary<string, Dictionary<string, object>> profiles = jTypeProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
+
                 foreach (KeyValuePair<string, Dictionary<string, object>> profile in profiles)
                 {
                     if (profile.Key == (string)cbProfiles_Select.Items[cbProfiles_Select.SelectedIndex])
@@ -392,12 +501,14 @@ namespace MineLauncher
                         tbProfiles_Edit_Directory.Text = profile.Value["gamedir"].ToString();
                         tbProfiles_Edit_JVM_Path.Text = profile.Value["javapath"].ToString();
                         tbProfiles_Edit_JVM_Args.Text = profile.Value["javaargs"].ToString();
+                        tbProfiles_Edit_Offline_PlayerName.Text = profile.Value["offline-mode-playername"].ToString();
                         toggleProfiles_Edit_Offline.Checked = (bool)profile.Value["offline-mode"];
                     }
                 }
 
                 btnProfile_Edit_Save.Text = "Save profile";
                 btnProfile_Edit_Delete.Enabled = true;
+                btnProfile_Edit_SaveNew.Enabled = true;
             }
         }
                    
@@ -515,7 +626,7 @@ namespace MineLauncher
                         "\\.minecraft\\minelauncher\\headwhichyoucanopenwitheveryimageditor");
                     Icon headIcon = Icon.FromHandle(new Bitmap(Image.FromFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
                         "\\.minecraft\\minelauncher\\headwhichyoucanopenwitheveryimageditor"), new Size(64, 64)).GetHicon());
-                    if(this.IsHandleCreated) this.Invoke(new Action(() => 
+                    this.SafeInvoke(new Action(() => 
                     {
                         tbFastLogin_Password.Text = "";
                         tbFastLogin_Username.Text = "";
@@ -527,9 +638,9 @@ namespace MineLauncher
                     }));
                     for (int i = 0; i < 26; i++)
                     {
-                        if(this.IsHandleCreated) this.Invoke(new Action(() => pnlFastControl.Height -= 1));
-                        if(this.IsHandleCreated) this.Invoke(new Action(() => pnlFastControl.Location = new System.Drawing.Point(pnlFastControl.Location.X, pnlFastControl.Location.Y + 1)));
-                        if(this.IsHandleCreated) this.Invoke(new Action(() => tcMain.Height += 1));
+                        this.SafeInvoke(new Action(() => pnlFastControl.Height -= 1));
+                        this.SafeInvoke(new Action(() => pnlFastControl.Location = new System.Drawing.Point(pnlFastControl.Location.X, pnlFastControl.Location.Y + 1)));
+                        this.SafeInvoke(new Action(() => tcMain.Height += 1));
                         Thread.Sleep(15);
                     }
                 }
@@ -547,6 +658,12 @@ namespace MineLauncher
             btnLaunch.Enabled = false;
             if (!currentProfile.Equals(default(KeyValuePair<string, Dictionary<string, object>>)))
             {
+                if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\versions\\" + currentProfile.Value["mcversion"].ToString()))
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "This version doesn't exists. Maybe the profile was imported and the version was deleted", "Version missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 new Thread(() =>
                 {
                     this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LAUNCHER] Download libararies/assets and preparing launcher..." + "\n")));       
@@ -585,6 +702,174 @@ namespace MineLauncher
 
         #endregion
 
+        #region Settings
+        
+        private void btnSettings_ImportFromOriginalLauncher_Click(object sender, EventArgs e)
+        {
+            new Thread(() =>
+            {
+                try
+                {
+                    dynamic mclauncher_profiles_json = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\launcher_profiles.json"));
+                
+                    Newtonsoft.Json.Linq.JObject jTypeMCProfile = (Newtonsoft.Json.Linq.JObject)(mclauncher_profiles_json.profiles);
+                    Dictionary<string, Dictionary<string, object>> mclauncher_profiles = jTypeMCProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
+                
+                    rawVersionList = VersionList.getVersionList(new System.Net.WebClient().DownloadString("http://s3.amazonaws.com/Minecraft.Download/versions/versions.json"));
+                    List<string> versions = new VersionList().GetVersionList(rawVersionList, VersionListType.Release);
+                
+                    dynamic profilejson;
+                    if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
+                    {
+                        profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
+                    }
+                    else
+                    {
+                        profilejson = JsonConvert.DeserializeObject("{ }");
+                    }
+
+                    Newtonsoft.Json.Linq.JObject jTypeMineLauncherProfile = (Newtonsoft.Json.Linq.JObject)(profilejson);
+                    Dictionary<string, Dictionary<string, object>> profiles = jTypeMineLauncherProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
+                    
+                    if (profiles == null) profiles = new Dictionary<string, Dictionary<string, object>>();
+
+                    foreach(KeyValuePair<string, Dictionary<string, object>> mclauncher_profile in mclauncher_profiles)
+                    {
+                        Dictionary<string, object> minelauncher_profile_info = new Dictionary<string, object>();
+
+                        if (mclauncher_profile.Value.ContainsKey("lastVersionId"))
+                        {
+                            minelauncher_profile_info.Add("mcversion", mclauncher_profile.Value["lastVersionId"]);
+                        }
+                        else
+                        {
+                            minelauncher_profile_info.Add("mcversion", versions[0]);
+                        }
+
+                        if(mclauncher_profile.Value.Count > 2)
+                        {
+                            minelauncher_profile_info.Add("gamedir", mclauncher_profile.Value["gameDir"]);
+                            minelauncher_profile_info.Add("javapath", mclauncher_profile.Value["javaDir"]);
+                            minelauncher_profile_info.Add("javaargs", mclauncher_profile.Value["javaArgs"]);
+                            minelauncher_profile_info.Add("offline-mode", base_offline_mode);
+                            minelauncher_profile_info.Add("offline-mode-playername", Generate(9));
+
+                            if (profiles.ContainsKey(mclauncher_profile.Key))
+                            {
+                                profiles.Remove(mclauncher_profile.Key);
+                                profiles.Add(mclauncher_profile.Key, minelauncher_profile_info);
+                            }
+                            else
+                            {
+                                profiles.Add(mclauncher_profile.Key, minelauncher_profile_info);
+                            } 
+                        }
+                    }
+
+                    string json = JsonConvert.SerializeObject(profiles);
+                    File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json", json);
+                
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "The profiles of the original minecraft launcher were imported", "Import successfully", MessageBoxButtons.OK, MessageBoxIcon.Information)));
+
+                    this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Clear()));
+                    this.SafeInvoke(new Action(() => cbFastControl_SelectProfile.Items.Clear()));
+                    foreach (KeyValuePair<string, Dictionary<string, object>> newProfile in profiles)
+                    {
+                        this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add(newProfile.Key)));
+                        this.SafeInvoke(new Action(() => cbFastControl_SelectProfile.Items.Add(newProfile.Key)));
+                    }
+
+                    this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add("")));
+                    this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add("Create new profile")));
+                }
+                catch (Exception)
+                {
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "The import of the profiles failed", "Import failed", MessageBoxButtons.OK, MessageBoxIcon.Information)));
+                }
+            }).Start();
+        }
+        
+        private void cbSettings_Themes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dynamic setupjson;
+            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
+            {
+                setupjson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
+            }
+            else
+            {
+                setupjson = JsonConvert.DeserializeObject("{ }");
+            }
+
+            Newtonsoft.Json.Linq.JObject setupjsonObject = (Newtonsoft.Json.Linq.JObject)(setupjson);
+            Dictionary<string, object> setup = setupjsonObject.ToObject<Dictionary<string, object>>();
+
+            if (cbSettings_Themes.SelectedIndex == 0)
+            {
+                uitheme = "Dark";
+            }
+            else if (cbSettings_Themes.SelectedIndex == 1)
+            {
+                uitheme = "Light";
+            }
+            
+            setup.Remove("theme");
+            setup.Add("theme", cbSettings_Themes.SelectedItem.ToString());
+
+            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));
+
+            ChangeFormTheme(this);
+        }
+
+        char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'u', 'y' };
+        char[] consonants = new char[] { 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z' };
+        int[] numbers = new int[] { 1, 3, 4, 6, 7, 8 };
+
+        private string Generate(int length)
+        {
+            StringBuilder sb = new StringBuilder();
+            //initialize our vowel/consonant flag
+            bool flag = (rand.Next(2) == 0);
+            bool numbers1 = (rand.Next(4) == 2);
+            bool numbers2 = (rand.Next(4) == 4);
+
+            int middle_number_rand = rand.Next(44);
+
+            if (numbers1)
+            {
+                sb.Append(numbers[rand.Next(numbers.Length)].ToString());
+                sb.Append(numbers[rand.Next(numbers.Length)].ToString());
+            }
+
+            for (int i = 0; i < length; i++)
+            {
+                bool numbers_middle = (rand.Next(44) == middle_number_rand);
+                if (numbers_middle) sb.Append(numbers[rand.Next(numbers.Length)].ToString());
+
+                sb.Append(GetChar(flag));
+                flag = !flag; //invert the vowel/consonant flag
+            }
+
+            if (numbers2)
+            {
+                sb.Append(numbers[rand.Next(numbers.Length)].ToString());
+                sb.Append(numbers[rand.Next(numbers.Length)].ToString());
+            }
+
+            return sb.ToString();
+        }
+
+        private char GetChar(bool vowel)
+        {
+            if (vowel)
+            {
+                return vowels[rand.Next(vowels.Length)];
+            }
+            return consonants[rand.Next(consonants.Length)];
+        }
+
+        #endregion
+
         private void ConvertBitmapToIcon(Bitmap bmp, string path)
         {
             Icon ico = Icon.FromHandle(bmp.GetHicon());
@@ -592,13 +877,6 @@ namespace MineLauncher
             ico.Save(fs);
             fs.Close();
         }
-
-        private void frmLauncher_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // Preevent errors like ObjectDisposedException and so on
-            Environment.Exit(0);
-            //System.Diagnostics.Process.GetCurrentProcess().Kill();
-        }
-                                  
+                                                  
     }
 }

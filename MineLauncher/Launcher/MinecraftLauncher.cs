@@ -169,7 +169,7 @@ namespace MineLauncher.Launcher
                     if (OnLauncherLog != null) OnLauncherLog(this, new LauncherEventArgs("MINECRAFT", read));
 
                     // [Server thread/ERROR]: This crash report has been saved to: D:\Example\x.x.x\crash-reports\crash-2000-01-01_00.00.00-(server/client).txt
-                    if (read.Contains("[Server thread/ERROR]: This crash report has been saved to"))
+                    if ((read == null) == false && read.Contains("[Server thread/ERROR]: This crash report has been saved to"))
                     {
                         string[] line_parts = read.Split(':');
 
