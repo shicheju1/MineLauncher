@@ -209,5 +209,24 @@ namespace MineLauncher.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        public static byte[] nUpdate {
+            get {
+                object obj = ResourceManager.GetObject("nUpdate", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;RSAKeyValue&gt;&lt;Modulus&gt;uxslw0AcHAbSGmOuzhiqgMuIW8+MkZeIBAa9nAuO42SnkVjqSmV9A1/y8GWjcm5867nazKpEoubu4gR90Fhv8Cg+l4eNcAjlVapTsLo32lRDJMOc3IdaIo3pT0IuO197ann0w95LODznARd5mcBqO28j3QlK3U/PVwdxsWyc7Sv48nOxNyvuxqkCPyBNX3cl1uQN70y34eCallJ6avWpbaq7VVLpnLlHuktmaaAwCzyaSEX12g8PKNV44x9fvC2BGnFHep7bD6jTgrM3Mq3f/Wv4lwkP25FNiE0fFwXKr2aXmwEMRAUrI1wZVPceNBPOw1u5jhZuS8/8jspdPP2sDonuG4Awrj4DDXjBJBLOEXZNyReAyak1uzER1tY02miAJPu6HNk49ickBUPR9iPo7yCZNG2UPdhM9sU5NFMS3GSHESEQC8GCy7T6X3RSX78zLqtO7lOYZds+ftTgzmF0VUoaRiXxQPQrL8eALnPPWp [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        public static string UpdaterPublicKey {
+            get {
+                return ResourceManager.GetString("UpdaterPublicKey", resourceCulture);
+            }
+        }
     }
 }

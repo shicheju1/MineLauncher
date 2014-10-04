@@ -118,49 +118,55 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Creeper_Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Creeper_Blue.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Creeper_Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Creeper_Green.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Creeper_Orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Creeper_Orange.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Creeper_Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Creeper_Red.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Creeper_Standard" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Creeper_Standard.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Newtonsoft_Json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Newtonsoft.Json.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Creeper_Violet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Creeper_Violet.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Creeper_Yellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Creeper_Yellow.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Creeper_Orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Creeper_Orange.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ExceptionBase" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ExceptionBase.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Creeper_Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Creeper_Blue.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ionic_Zip" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ionic.Zip.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MetroFramework" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MetroFramework.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Creeper_Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Creeper_Red.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MetroFramework_Design" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MetroFramework.Design.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Creeper_Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Creeper_Green.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MetroFramework_Fonts" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MetroFramework.Fonts.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Creeper_Yellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Creeper_Yellow.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Microsoft_WindowsAPICodePack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Microsoft.WindowsAPICodePack.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Creeper_Standard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Creeper_Standard.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MetroFramework_Design" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MetroFramework.Design.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MetroFramework" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MetroFramework.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Microsoft_WindowsAPICodePack_Shell" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Microsoft.WindowsAPICodePack.Shell.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Newtonsoft_Json" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Newtonsoft.Json.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ExceptionBase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExceptionBase.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="nUpdate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nUpdate.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UpdaterPublicKey" xml:space="preserve">
+    <value>&lt;RSAKeyValue&gt;&lt;Modulus&gt;uxslw0AcHAbSGmOuzhiqgMuIW8+MkZeIBAa9nAuO42SnkVjqSmV9A1/y8GWjcm5867nazKpEoubu4gR90Fhv8Cg+l4eNcAjlVapTsLo32lRDJMOc3IdaIo3pT0IuO197ann0w95LODznARd5mcBqO28j3QlK3U/PVwdxsWyc7Sv48nOxNyvuxqkCPyBNX3cl1uQN70y34eCallJ6avWpbaq7VVLpnLlHuktmaaAwCzyaSEX12g8PKNV44x9fvC2BGnFHep7bD6jTgrM3Mq3f/Wv4lwkP25FNiE0fFwXKr2aXmwEMRAUrI1wZVPceNBPOw1u5jhZuS8/8jspdPP2sDonuG4Awrj4DDXjBJBLOEXZNyReAyak1uzER1tY02miAJPu6HNk49ickBUPR9iPo7yCZNG2UPdhM9sU5NFMS3GSHESEQC8GCy7T6X3RSX78zLqtO7lOYZds+ftTgzmF0VUoaRiXxQPQrL8eALnPPWplGz+H4kKIymiJIedWCUN9mVLbgoJQWovlzcA5SyZ2tpLKUSD0WIQTVBohHGQG8aSmT9zvhx9jzeS5T3lGE3+6JkkKteazS0kyb23bbKAVhrvqOTCvT5vp7/cKE3sPcvsfR3S3xNwyGZuvI024YUzHW4o+EBXSiQ+R7HxH+yqLzJUfLMs3wfNWpwlRVvv3pfk8EN+UtdcT9brB98l+6qCdKQGna+mJUaT4RMS7Mtk4zbF394Y2Dg9kARvRWUtqMpkYnTRc4DLZAsQ2gYPCu2zRJ8Teae+ko5n+K1F7dT8YJU1VcKntONPSqnwVdsUDbTyGrOsG73q3pflQYXNUMbY91WK8/xHWFd5ryF0nrGPv9+N+gorctYnfX7KJRsHqDajlqIyavbu6zY1/UCi7N0c18bo0aXZG+mQDyipaJmc26zCDJh+P7eyTnB/Pt+rHfWyIU4MG7F34BviY4zVECBWjK8YRe4WF4c7pI1qUy7sjcHPbpQ8TEa5v/SoBg1lPS3pwYKGxyYLW8VshniToIiHhT+5YsKiNZHoIEnTc59Yc86gAoKXDbi169Qhsui11uzQB+n1XUeWuK/6sx77WljOiP81PkNdyfNnDfQeSjh87exfDs8aoWaMBy9h/PR6Z7CyI98BmFXFhzfYILuBQFbjlmVHlr0iRH9JcGwK2FI7NU3cNXC3XCFqtRc1jX2WkNQjsMfWUZDd6hnpofJ78NmY/aRdbjy5ohqXkr5qBCX25vVzZag/5So66+oG65QppK1Ga2sbiP+QOeuZdkm0UGTCwVCJ9oEFC7PJ0GPEUdcL6p7tR1Jo2Z6GaLq03Pi9miKb1JlGa/5MHXga2M+pXB39SnBd4neZWCXBOKIwupLCB/cw==&lt;/Modulus&gt;&lt;Exponent&gt;AQAB&lt;/Exponent&gt;&lt;/RSAKeyValue&gt;</value>
   </data>
 </root>

@@ -92,6 +92,10 @@
       <HintPath>..\..\..\..\..\Downloads\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="nUpdate">
+      <HintPath>..\..\..\..\#nUpdate\nUpdate\bin\Debug\nUpdate.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -108,22 +112,28 @@
     <Compile Include="Events\LauncherEventArgs.cs" />
     <Compile Include="Events\LoginEventArgs.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="frmLauncher.cs">
+    <Compile Include="frmStarting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLauncher.Designer.cs">
+    <Compile Include="frmStarting.Designer.cs">
+      <DependentUpon>frmStarting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\frmLauncher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\frmLauncher.Designer.cs">
       <DependentUpon>frmLauncher.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMinecraftCrashLog.cs">
+    <Compile Include="UI\Forms\frmMinecraftCrashLog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMinecraftCrashLog.Designer.cs">
+    <Compile Include="UI\Forms\frmMinecraftCrashLog.Designer.cs">
       <DependentUpon>frmMinecraftCrashLog.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSetup.cs">
+    <Compile Include="UI\Forms\frmSetup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSetup.Designer.cs">
+    <Compile Include="UI\Forms\frmSetup.Designer.cs">
       <DependentUpon>frmSetup.cs</DependentUpon>
     </Compile>
     <Compile Include="Launcher\DotMinecraft.cs" />
@@ -134,13 +144,16 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Win32Api.cs" />
-    <EmbeddedResource Include="frmLauncher.resx">
+    <EmbeddedResource Include="frmStarting.resx">
+      <DependentUpon>frmStarting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\frmLauncher.resx">
       <DependentUpon>frmLauncher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMinecraftCrashLog.resx">
+    <EmbeddedResource Include="UI\Forms\frmMinecraftCrashLog.resx">
       <DependentUpon>frmMinecraftCrashLog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSetup.resx">
+    <EmbeddedResource Include="UI\Forms\frmSetup.resx">
       <DependentUpon>frmSetup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -173,6 +186,7 @@
     <Content Include="Resources\Creeper_Standard.ico" />
     <Content Include="Resources\Creeper_Violet.ico" />
     <Content Include="Resources\Creeper_Yellow.ico" />
+    <EmbeddedResource Include="Resources\nUpdate.dll" />
     <EmbeddedResource Include="Resources\ExceptionBase.dll" />
     <EmbeddedResource Include="Resources\Ionic.Zip.dll" />
     <EmbeddedResource Include="Resources\MetroFramework.Design.dll" />
@@ -182,9 +196,7 @@
     <EmbeddedResource Include="Resources\Microsoft.WindowsAPICodePack.Shell.dll" />
     <EmbeddedResource Include="Resources\Newtonsoft.Json.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
       <Visible>False</Visible>

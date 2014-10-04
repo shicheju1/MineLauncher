@@ -80,6 +80,41 @@ namespace MineLauncher
                 }
             }
         }
+
+        public static string GetOSFullName(this OperatingSystem os)
+        {
+            string name = "Unknow";
+
+            switch (os.Version.Major)
+            {
+                case 3:
+                    name = "Windows NT 3.51";
+                    break;
+                case 4:
+                    name = "Windows NT 4.0 \"Cairo\"";
+                    break;
+                case 5:
+                    if (os.Version.Minor == 0)
+                        name = "Windows 2000 \"Memphis NT\"";
+                    else
+                        name = "Windows XP \"Whistler\"";
+                    break;
+                case 6:
+                    if (os.Version.Minor == 0)
+                        name = "Windows Vista \"Longhorn\"";
+                    else if (os.Version.Minor == 1)
+                        name = "Windows 7 \"Vienna\"";
+                    else if (os.Version.Minor == 2)
+                        name = "Windows 8 \"8\"";
+                    else if (os.Version.Minor == 3)
+                        name = "Windows 8.1 \"Blue\"";
+                    else if (os.Version.Minor == 4)
+                        name = "Windows 10 \"Threshold\" - Be careful when testing ;)"; /* Supported since 04.10.2014 :D */
+                    break; 
+            }
+
+            return name;
+        }
         
     }
 }

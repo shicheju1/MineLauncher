@@ -6,6 +6,8 @@ using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 
+using MineLauncher.UI.Forms;
+
 namespace MineLauncher
 {
     static class Program
@@ -23,6 +25,10 @@ namespace MineLauncher
                 if(args.Name.StartsWith("ExceptionBase"))
                 {
                     return Assembly.Load(MineLauncher.Properties.Resources.ExceptionBase);
+                }
+                else if(args.Name.StartsWith("nUpdate"))
+                {
+                    return Assembly.Load(MineLauncher.Properties.Resources.nUpdate);
                 }
                 else if (args.Name.StartsWith("Newtonsoft.Json"))
                 {
@@ -74,7 +80,7 @@ namespace MineLauncher
             {
                 ExceptionTracker.Track(e.Exception, false, false);
             });
-
+                        
             Application.Run(new frmLauncher());
         }
         

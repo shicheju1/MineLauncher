@@ -12,7 +12,7 @@ namespace MineLauncher.Events
         None
     }
 
-    public class BaseEventArgs
+    public class BaseEventArgs : EventArgs
     {
 
         private string log_prefix = "MineLauncher";

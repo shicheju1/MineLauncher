@@ -10,11 +10,12 @@ using MetroFramework;
 using MetroFramework.Interfaces;
 using MetroFramework.Forms;
 
+using MineLauncher;
 using MineLauncher.Launcher;
 
 using Newtonsoft.Json;
 
-namespace MineLauncher
+namespace MineLauncher.UI.Forms
 {
 
     public partial class frmMinecraftCrashLog : MetroForm
@@ -48,6 +49,8 @@ namespace MineLauncher
             dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"));
             uitheme = (string)setup.theme;
             ChangeFormTheme(this);
+            
+            this.rtbCrashLog.Font = MetroFonts.TextBox(MetroTextBoxSize.Medium, MetroTextBoxWeight.Bold);
         }
         
         private void frmMinecraftCrashLog_Shown(object sender, EventArgs e)

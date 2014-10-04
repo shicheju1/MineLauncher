@@ -1,4 +1,4 @@
-﻿namespace MineLauncher
+﻿namespace MineLauncher.UI.Forms
 {
     partial class frmLauncher
     {
@@ -66,15 +66,22 @@
             this.cbProfiles_Edit_Version = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.cbProfiles_Select = new MetroFramework.Controls.MetroComboBox();
-            this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
-            this.rtbAbout_PrivacyPolicy = new System.Windows.Forms.RichTextBox();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
-            this.lblAbout = new MetroFramework.Controls.MetroLabel();
-            this.rtbAbout_Licenses = new System.Windows.Forms.RichTextBox();
-            this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.tpSettings = new MetroFramework.Controls.MetroTabPage();
+            this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
+            this.cbSettings_Updater_Including_Beta = new MetroFramework.Controls.MetroCheckBox();
+            this.cbSettings_Updater_Including_Alpha = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
+            this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
+            this.cbSettings_Themes = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
             this.btnSettings_ImportFromOriginalLauncher = new MetroFramework.Controls.MetroButton();
             this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this.tpAbout = new MetroFramework.Controls.MetroTabPage();
+            this.linkAbout_GitHub = new MetroFramework.Controls.MetroLink();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.lblAbout = new MetroFramework.Controls.MetroLabel();
+            this.rtbAbout_Licenses = new System.Windows.Forms.RichTextBox();
             this.pnlFastControl = new MetroFramework.Controls.MetroPanel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.cbFastControl_SelectProfile = new MetroFramework.Controls.MetroComboBox();
@@ -88,24 +95,22 @@
             this.btnFastLogin_Login = new MetroFramework.Controls.MetroButton();
             this.tbFastLogin_Username = new MetroFramework.Controls.MetroTextBox();
             this.btnLaunch = new MetroFramework.Controls.MetroButton();
-            this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
-            this.cbSettings_Themes = new MetroFramework.Controls.MetroComboBox();
             this.tcMain.SuspendLayout();
             this.tpStart.SuspendLayout();
             this.tpConsole.SuspendLayout();
             this.tpProfiles.SuspendLayout();
             this.pnlProfiles_Edit.SuspendLayout();
-            this.metroTabPage2.SuspendLayout();
-            this.metroTabPage1.SuspendLayout();
+            this.tpSettings.SuspendLayout();
+            this.metroPanel5.SuspendLayout();
+            this.metroPanel4.SuspendLayout();
             this.metroPanel2.SuspendLayout();
+            this.tpAbout.SuspendLayout();
             this.pnlFastControl.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.pnlFastInfo.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFastInfo_Avatar)).BeginInit();
             this.pnlFastLogin.SuspendLayout();
-            this.metroPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcMain
@@ -115,11 +120,11 @@
             this.tcMain.Controls.Add(this.tpStart);
             this.tcMain.Controls.Add(this.tpConsole);
             this.tcMain.Controls.Add(this.tpProfiles);
-            this.tcMain.Controls.Add(this.metroTabPage2);
-            this.tcMain.Controls.Add(this.metroTabPage1);
+            this.tcMain.Controls.Add(this.tpSettings);
+            this.tcMain.Controls.Add(this.tpAbout);
             this.tcMain.Location = new System.Drawing.Point(23, 63);
             this.tcMain.Name = "tcMain";
-            this.tcMain.SelectedIndex = 4;
+            this.tcMain.SelectedIndex = 3;
             this.tcMain.Size = new System.Drawing.Size(938, 414);
             this.tcMain.Style = MetroFramework.MetroColorStyle.Blue;
             this.tcMain.TabIndex = 0;
@@ -669,51 +674,202 @@
             this.cbProfiles_Select.UseSelectable = true;
             this.cbProfiles_Select.SelectedIndexChanged += new System.EventHandler(this.cbProfiles_Select_SelectedIndexChanged);
             // 
-            // metroTabPage2
+            // tpSettings
             // 
-            this.metroTabPage2.Controls.Add(this.rtbAbout_PrivacyPolicy);
-            this.metroTabPage2.Controls.Add(this.metroLabel13);
-            this.metroTabPage2.Controls.Add(this.lblAbout);
-            this.metroTabPage2.Controls.Add(this.rtbAbout_Licenses);
-            this.metroTabPage2.HorizontalScrollbarBarColor = true;
-            this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.HorizontalScrollbarSize = 10;
-            this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(930, 372);
-            this.metroTabPage2.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTabPage2.TabIndex = 5;
-            this.metroTabPage2.Text = "About";
-            this.metroTabPage2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTabPage2.VerticalScrollbarBarColor = true;
-            this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.VerticalScrollbarSize = 10;
+            this.tpSettings.Controls.Add(this.metroPanel5);
+            this.tpSettings.Controls.Add(this.metroPanel4);
+            this.tpSettings.Controls.Add(this.metroPanel2);
+            this.tpSettings.HorizontalScrollbarBarColor = true;
+            this.tpSettings.HorizontalScrollbarHighlightOnWheel = false;
+            this.tpSettings.HorizontalScrollbarSize = 10;
+            this.tpSettings.Location = new System.Drawing.Point(4, 38);
+            this.tpSettings.Name = "tpSettings";
+            this.tpSettings.Size = new System.Drawing.Size(930, 372);
+            this.tpSettings.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tpSettings.TabIndex = 4;
+            this.tpSettings.Text = "Settings";
+            this.tpSettings.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.tpSettings.VerticalScrollbarBarColor = true;
+            this.tpSettings.VerticalScrollbarHighlightOnWheel = false;
+            this.tpSettings.VerticalScrollbarSize = 10;
             // 
-            // rtbAbout_PrivacyPolicy
+            // metroPanel5
             // 
-            this.rtbAbout_PrivacyPolicy.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbAbout_PrivacyPolicy.BackColor = System.Drawing.SystemColors.Window;
-            this.rtbAbout_PrivacyPolicy.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbAbout_PrivacyPolicy.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.rtbAbout_PrivacyPolicy.DetectUrls = false;
-            this.rtbAbout_PrivacyPolicy.Location = new System.Drawing.Point(275, 3);
-            this.rtbAbout_PrivacyPolicy.Name = "rtbAbout_PrivacyPolicy";
-            this.rtbAbout_PrivacyPolicy.ReadOnly = true;
-            this.rtbAbout_PrivacyPolicy.Size = new System.Drawing.Size(223, 366);
-            this.rtbAbout_PrivacyPolicy.TabIndex = 5;
-            this.rtbAbout_PrivacyPolicy.Text = "Privacy Policy\n";
+            this.metroPanel5.Controls.Add(this.cbSettings_Updater_Including_Beta);
+            this.metroPanel5.Controls.Add(this.cbSettings_Updater_Including_Alpha);
+            this.metroPanel5.Controls.Add(this.metroLabel16);
+            this.metroPanel5.HorizontalScrollbarBarColor = true;
+            this.metroPanel5.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel5.HorizontalScrollbarSize = 10;
+            this.metroPanel5.Location = new System.Drawing.Point(595, 3);
+            this.metroPanel5.Name = "metroPanel5";
+            this.metroPanel5.Size = new System.Drawing.Size(310, 124);
+            this.metroPanel5.TabIndex = 5;
+            this.metroPanel5.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel5.VerticalScrollbarBarColor = true;
+            this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel5.VerticalScrollbarSize = 10;
+            // 
+            // cbSettings_Updater_Including_Beta
+            // 
+            this.cbSettings_Updater_Including_Beta.AutoSize = true;
+            this.cbSettings_Updater_Including_Beta.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
+            this.cbSettings_Updater_Including_Beta.Location = new System.Drawing.Point(3, 59);
+            this.cbSettings_Updater_Including_Beta.Name = "cbSettings_Updater_Including_Beta";
+            this.cbSettings_Updater_Including_Beta.Size = new System.Drawing.Size(154, 15);
+            this.cbSettings_Updater_Including_Beta.TabIndex = 4;
+            this.cbSettings_Updater_Including_Beta.Text = "Including Beta-Versions";
+            this.cbSettings_Updater_Including_Beta.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.cbSettings_Updater_Including_Beta.UseSelectable = true;
+            this.cbSettings_Updater_Including_Beta.CheckedChanged += new System.EventHandler(this.cbSettings_Updater_CheckedChanged);
+            // 
+            // cbSettings_Updater_Including_Alpha
+            // 
+            this.cbSettings_Updater_Including_Alpha.AutoSize = true;
+            this.cbSettings_Updater_Including_Alpha.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
+            this.cbSettings_Updater_Including_Alpha.Location = new System.Drawing.Point(3, 38);
+            this.cbSettings_Updater_Including_Alpha.Name = "cbSettings_Updater_Including_Alpha";
+            this.cbSettings_Updater_Including_Alpha.Size = new System.Drawing.Size(159, 15);
+            this.cbSettings_Updater_Including_Alpha.TabIndex = 3;
+            this.cbSettings_Updater_Including_Alpha.Text = "Including Alpha-Versions";
+            this.cbSettings_Updater_Including_Alpha.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.cbSettings_Updater_Including_Alpha.UseSelectable = true;
+            this.cbSettings_Updater_Including_Alpha.CheckedChanged += new System.EventHandler(this.cbSettings_Updater_CheckedChanged);
+            // 
+            // metroLabel16
+            // 
+            this.metroLabel16.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel16.Location = new System.Drawing.Point(3, 12);
+            this.metroLabel16.Name = "metroLabel16";
+            this.metroLabel16.Size = new System.Drawing.Size(304, 23);
+            this.metroLabel16.TabIndex = 2;
+            this.metroLabel16.Text = "Updater\r\n\r\n";
+            this.metroLabel16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroLabel16.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // metroPanel4
+            // 
+            this.metroPanel4.Controls.Add(this.cbSettings_Themes);
+            this.metroPanel4.Controls.Add(this.metroLabel15);
+            this.metroPanel4.HorizontalScrollbarBarColor = true;
+            this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel4.HorizontalScrollbarSize = 10;
+            this.metroPanel4.Location = new System.Drawing.Point(299, 3);
+            this.metroPanel4.Name = "metroPanel4";
+            this.metroPanel4.Size = new System.Drawing.Size(290, 124);
+            this.metroPanel4.TabIndex = 4;
+            this.metroPanel4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel4.VerticalScrollbarBarColor = true;
+            this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel4.VerticalScrollbarSize = 10;
+            // 
+            // cbSettings_Themes
+            // 
+            this.cbSettings_Themes.FormattingEnabled = true;
+            this.cbSettings_Themes.ItemHeight = 23;
+            this.cbSettings_Themes.Items.AddRange(new object[] {
+            "Dark",
+            "Light"});
+            this.cbSettings_Themes.Location = new System.Drawing.Point(3, 59);
+            this.cbSettings_Themes.Name = "cbSettings_Themes";
+            this.cbSettings_Themes.Size = new System.Drawing.Size(284, 29);
+            this.cbSettings_Themes.TabIndex = 3;
+            this.cbSettings_Themes.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.cbSettings_Themes.UseSelectable = true;
+            this.cbSettings_Themes.SelectedIndexChanged += new System.EventHandler(this.cbSettings_Themes_SelectedIndexChanged);
+            // 
+            // metroLabel15
+            // 
+            this.metroLabel15.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel15.Location = new System.Drawing.Point(3, 12);
+            this.metroLabel15.Name = "metroLabel15";
+            this.metroLabel15.Size = new System.Drawing.Size(284, 23);
+            this.metroLabel15.TabIndex = 2;
+            this.metroLabel15.Text = "Theme for the launcher\r\n";
+            this.metroLabel15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroLabel15.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // metroPanel2
+            // 
+            this.metroPanel2.Controls.Add(this.btnSettings_ImportFromOriginalLauncher);
+            this.metroPanel2.Controls.Add(this.metroLabel14);
+            this.metroPanel2.HorizontalScrollbarBarColor = true;
+            this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.HorizontalScrollbarSize = 10;
+            this.metroPanel2.Location = new System.Drawing.Point(3, 3);
+            this.metroPanel2.Name = "metroPanel2";
+            this.metroPanel2.Size = new System.Drawing.Size(290, 124);
+            this.metroPanel2.TabIndex = 2;
+            this.metroPanel2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel2.VerticalScrollbarBarColor = true;
+            this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.VerticalScrollbarSize = 10;
+            // 
+            // btnSettings_ImportFromOriginalLauncher
+            // 
+            this.btnSettings_ImportFromOriginalLauncher.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnSettings_ImportFromOriginalLauncher.Location = new System.Drawing.Point(3, 38);
+            this.btnSettings_ImportFromOriginalLauncher.Name = "btnSettings_ImportFromOriginalLauncher";
+            this.btnSettings_ImportFromOriginalLauncher.Size = new System.Drawing.Size(284, 71);
+            this.btnSettings_ImportFromOriginalLauncher.TabIndex = 3;
+            this.btnSettings_ImportFromOriginalLauncher.Text = "Start import";
+            this.btnSettings_ImportFromOriginalLauncher.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnSettings_ImportFromOriginalLauncher.UseSelectable = true;
+            this.btnSettings_ImportFromOriginalLauncher.Click += new System.EventHandler(this.btnSettings_ImportFromOriginalLauncher_Click);
+            // 
+            // metroLabel14
+            // 
+            this.metroLabel14.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel14.Location = new System.Drawing.Point(3, 12);
+            this.metroLabel14.Name = "metroLabel14";
+            this.metroLabel14.Size = new System.Drawing.Size(284, 23);
+            this.metroLabel14.TabIndex = 2;
+            this.metroLabel14.Text = "Import profiles from Minecraft Launcher";
+            this.metroLabel14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroLabel14.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // tpAbout
+            // 
+            this.tpAbout.Controls.Add(this.linkAbout_GitHub);
+            this.tpAbout.Controls.Add(this.metroLabel13);
+            this.tpAbout.Controls.Add(this.lblAbout);
+            this.tpAbout.Controls.Add(this.rtbAbout_Licenses);
+            this.tpAbout.HorizontalScrollbarBarColor = true;
+            this.tpAbout.HorizontalScrollbarHighlightOnWheel = false;
+            this.tpAbout.HorizontalScrollbarSize = 10;
+            this.tpAbout.Location = new System.Drawing.Point(4, 38);
+            this.tpAbout.Name = "tpAbout";
+            this.tpAbout.Size = new System.Drawing.Size(930, 372);
+            this.tpAbout.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tpAbout.TabIndex = 5;
+            this.tpAbout.Text = "About";
+            this.tpAbout.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.tpAbout.VerticalScrollbarBarColor = true;
+            this.tpAbout.VerticalScrollbarHighlightOnWheel = false;
+            this.tpAbout.VerticalScrollbarSize = 10;
+            // 
+            // linkAbout_GitHub
+            // 
+            this.linkAbout_GitHub.FontSize = MetroFramework.MetroLinkSize.Medium;
+            this.linkAbout_GitHub.Location = new System.Drawing.Point(3, 346);
+            this.linkAbout_GitHub.Name = "linkAbout_GitHub";
+            this.linkAbout_GitHub.Size = new System.Drawing.Size(341, 23);
+            this.linkAbout_GitHub.TabIndex = 5;
+            this.linkAbout_GitHub.Text = "MineLauncher on GitHub";
+            this.linkAbout_GitHub.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.linkAbout_GitHub.UseSelectable = true;
             // 
             // metroLabel13
             // 
             this.metroLabel13.AutoSize = true;
-            this.metroLabel13.Location = new System.Drawing.Point(6, 79);
+            this.metroLabel13.Location = new System.Drawing.Point(3, 70);
             this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(241, 95);
+            this.metroLabel13.Size = new System.Drawing.Size(241, 114);
             this.metroLabel13.Style = MetroFramework.MetroColorStyle.White;
             this.metroLabel13.TabIndex = 4;
             this.metroLabel13.Text = "MetroFramework by Sven Walter\r\nExceptionBase.NET by Leo Bernard\r\nNewtonsoft.Json " +
-    "by James Newton-King\r\nIonic.Zip by Dino Chiesa\r\nWindowsAPICodePack by Microsoft";
+    "by James Newton-King\r\nIonic.Zip by Dino Chiesa\r\nnUpdate by Dominic Beger\r\nWindow" +
+    "sAPICodePack by Microsoft";
             this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel13.WrapToLine = true;
             // 
@@ -738,68 +894,12 @@
             this.rtbAbout_Licenses.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbAbout_Licenses.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rtbAbout_Licenses.DetectUrls = false;
-            this.rtbAbout_Licenses.Location = new System.Drawing.Point(504, 3);
+            this.rtbAbout_Licenses.Location = new System.Drawing.Point(350, 3);
             this.rtbAbout_Licenses.Name = "rtbAbout_Licenses";
             this.rtbAbout_Licenses.ReadOnly = true;
-            this.rtbAbout_Licenses.Size = new System.Drawing.Size(423, 366);
+            this.rtbAbout_Licenses.Size = new System.Drawing.Size(577, 366);
             this.rtbAbout_Licenses.TabIndex = 2;
             this.rtbAbout_Licenses.Text = resources.GetString("rtbAbout_Licenses.Text");
-            // 
-            // metroTabPage1
-            // 
-            this.metroTabPage1.Controls.Add(this.metroPanel4);
-            this.metroTabPage1.Controls.Add(this.metroPanel2);
-            this.metroTabPage1.HorizontalScrollbarBarColor = true;
-            this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.HorizontalScrollbarSize = 10;
-            this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(930, 372);
-            this.metroTabPage1.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTabPage1.TabIndex = 4;
-            this.metroTabPage1.Text = "Settings";
-            this.metroTabPage1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTabPage1.VerticalScrollbarBarColor = true;
-            this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.VerticalScrollbarSize = 10;
-            // 
-            // metroPanel2
-            // 
-            this.metroPanel2.Controls.Add(this.btnSettings_ImportFromOriginalLauncher);
-            this.metroPanel2.Controls.Add(this.metroLabel14);
-            this.metroPanel2.HorizontalScrollbarBarColor = true;
-            this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel2.HorizontalScrollbarSize = 10;
-            this.metroPanel2.Location = new System.Drawing.Point(3, 3);
-            this.metroPanel2.Name = "metroPanel2";
-            this.metroPanel2.Size = new System.Drawing.Size(310, 124);
-            this.metroPanel2.TabIndex = 2;
-            this.metroPanel2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroPanel2.VerticalScrollbarBarColor = true;
-            this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel2.VerticalScrollbarSize = 10;
-            // 
-            // btnSettings_ImportFromOriginalLauncher
-            // 
-            this.btnSettings_ImportFromOriginalLauncher.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnSettings_ImportFromOriginalLauncher.Location = new System.Drawing.Point(15, 38);
-            this.btnSettings_ImportFromOriginalLauncher.Name = "btnSettings_ImportFromOriginalLauncher";
-            this.btnSettings_ImportFromOriginalLauncher.Size = new System.Drawing.Size(280, 71);
-            this.btnSettings_ImportFromOriginalLauncher.TabIndex = 3;
-            this.btnSettings_ImportFromOriginalLauncher.Text = "Start import";
-            this.btnSettings_ImportFromOriginalLauncher.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.btnSettings_ImportFromOriginalLauncher.UseSelectable = true;
-            this.btnSettings_ImportFromOriginalLauncher.Click += new System.EventHandler(this.btnSettings_ImportFromOriginalLauncher_Click);
-            // 
-            // metroLabel14
-            // 
-            this.metroLabel14.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel14.Location = new System.Drawing.Point(15, 12);
-            this.metroLabel14.Name = "metroLabel14";
-            this.metroLabel14.Size = new System.Drawing.Size(280, 23);
-            this.metroLabel14.TabIndex = 2;
-            this.metroLabel14.Text = "Import profiles from Minecraft Launcher";
-            this.metroLabel14.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // pnlFastControl
             // 
@@ -985,47 +1085,6 @@
             this.btnLaunch.UseSelectable = true;
             this.btnLaunch.Click += new System.EventHandler(this.btnLaunch_Click);
             // 
-            // metroPanel4
-            // 
-            this.metroPanel4.Controls.Add(this.cbSettings_Themes);
-            this.metroPanel4.Controls.Add(this.metroLabel15);
-            this.metroPanel4.HorizontalScrollbarBarColor = true;
-            this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel4.HorizontalScrollbarSize = 10;
-            this.metroPanel4.Location = new System.Drawing.Point(319, 3);
-            this.metroPanel4.Name = "metroPanel4";
-            this.metroPanel4.Size = new System.Drawing.Size(310, 124);
-            this.metroPanel4.TabIndex = 4;
-            this.metroPanel4.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroPanel4.VerticalScrollbarBarColor = true;
-            this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel4.VerticalScrollbarSize = 10;
-            // 
-            // metroLabel15
-            // 
-            this.metroLabel15.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel15.Location = new System.Drawing.Point(15, 12);
-            this.metroLabel15.Name = "metroLabel15";
-            this.metroLabel15.Size = new System.Drawing.Size(280, 23);
-            this.metroLabel15.TabIndex = 2;
-            this.metroLabel15.Text = "Import profiles from Minecraft Launcher";
-            this.metroLabel15.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // cbSettings_Themes
-            // 
-            this.cbSettings_Themes.FormattingEnabled = true;
-            this.cbSettings_Themes.ItemHeight = 23;
-            this.cbSettings_Themes.Items.AddRange(new object[] {
-            "Dark",
-            "Light"});
-            this.cbSettings_Themes.Location = new System.Drawing.Point(15, 59);
-            this.cbSettings_Themes.Name = "cbSettings_Themes";
-            this.cbSettings_Themes.Size = new System.Drawing.Size(280, 29);
-            this.cbSettings_Themes.TabIndex = 3;
-            this.cbSettings_Themes.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.cbSettings_Themes.UseSelectable = true;
-            this.cbSettings_Themes.SelectedIndexChanged += new System.EventHandler(this.cbSettings_Themes_SelectedIndexChanged);
-            // 
             // frmLauncher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1041,6 +1100,7 @@
             this.Name = "frmLauncher";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "MineLauncher";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -1052,10 +1112,13 @@
             this.tpProfiles.ResumeLayout(false);
             this.pnlProfiles_Edit.ResumeLayout(false);
             this.pnlProfiles_Edit.PerformLayout();
-            this.metroTabPage2.ResumeLayout(false);
-            this.metroTabPage2.PerformLayout();
-            this.metroTabPage1.ResumeLayout(false);
+            this.tpSettings.ResumeLayout(false);
+            this.metroPanel5.ResumeLayout(false);
+            this.metroPanel5.PerformLayout();
+            this.metroPanel4.ResumeLayout(false);
             this.metroPanel2.ResumeLayout(false);
+            this.tpAbout.ResumeLayout(false);
+            this.tpAbout.PerformLayout();
             this.pnlFastControl.ResumeLayout(false);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
@@ -1063,7 +1126,6 @@
             this.metroPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbFastInfo_Avatar)).EndInit();
             this.pnlFastLogin.ResumeLayout(false);
-            this.metroPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1112,8 +1174,8 @@
         private MetroFramework.Controls.MetroButton btnProfile_Edit_Delete;
         private MetroFramework.Controls.MetroLabel metroLabel11;
         private MetroFramework.Controls.MetroToggle toggleProfiles_Edit_ShowVersion_Custom;
-        private MetroFramework.Controls.MetroTabPage metroTabPage1;
-        private MetroFramework.Controls.MetroTabPage metroTabPage2;
+        private MetroFramework.Controls.MetroTabPage tpSettings;
+        private MetroFramework.Controls.MetroTabPage tpAbout;
         private System.Windows.Forms.RichTextBox rtbAbout_Licenses;
         private MetroFramework.Controls.MetroLabel lblAbout;
         private MetroFramework.Controls.MetroLabel metroLabel12;
@@ -1124,7 +1186,6 @@
         private MetroFramework.Controls.MetroProgressBar pbLog;
         private MetroFramework.Controls.MetroLabel lblLogPB;
         private MetroFramework.Controls.MetroButton btnProfile_Edit_Save;
-        private System.Windows.Forms.RichTextBox rtbAbout_PrivacyPolicy;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private MetroFramework.Controls.MetroPanel metroPanel2;
         private MetroFramework.Controls.MetroButton btnSettings_ImportFromOriginalLauncher;
@@ -1132,6 +1193,11 @@
         private MetroFramework.Controls.MetroPanel metroPanel4;
         private MetroFramework.Controls.MetroComboBox cbSettings_Themes;
         private MetroFramework.Controls.MetroLabel metroLabel15;
+        private MetroFramework.Controls.MetroLink linkAbout_GitHub;
+        private MetroFramework.Controls.MetroPanel metroPanel5;
+        private MetroFramework.Controls.MetroCheckBox cbSettings_Updater_Including_Beta;
+        private MetroFramework.Controls.MetroCheckBox cbSettings_Updater_Including_Alpha;
+        private MetroFramework.Controls.MetroLabel metroLabel16;
     }
 }
 

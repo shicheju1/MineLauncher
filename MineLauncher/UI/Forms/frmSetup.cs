@@ -10,11 +10,12 @@ using MetroFramework;
 using MetroFramework.Interfaces;
 using MetroFramework.Forms;
 
+using MineLauncher;
 using MineLauncher.Launcher;
 
 using Newtonsoft.Json;
 
-namespace MineLauncher
+namespace MineLauncher.UI.Forms
 {
     public partial class frmSetup : MetroForm
     {
@@ -56,9 +57,15 @@ namespace MineLauncher
         private void tileStartLauncher_Click(object sender, EventArgs e)
         {
             Dictionary<string, object> setup = new Dictionary<string, object>();
+            Dictionary<string, object> setup_updater = new Dictionary<string, object>();
 
             setup.Add("baseofflinemode", toggleLogin_UseOfflineMode.Checked);
             setup.Add("theme", cbTheme.SelectedItem.ToString());
+
+            setup_updater.Add("alpha", false);
+            setup_updater.Add("beta", false);
+
+            setup.Add("updater", setup_updater);
 
             File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));
             Application.Restart();
@@ -336,14 +343,22 @@ namespace MineLauncher
                 return environmentPath;
             }
 
-            string javaKey = "SOFTWARE\\JavaSoft\\Java Runtime Environment\\";
-            using (Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(javaKey))
+            try
             {
-                string currentVersion = rk.GetValue("CurrentVersion").ToString();
-                using (Microsoft.Win32.RegistryKey key = rk.OpenSubKey(currentVersion))
+                string javaKey = "SOFTWARE\\JavaSoft\\Java Runtime Environment\\";
+                using (Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(javaKey))
                 {
-                    return key.GetValue("JavaHome").ToString();
+                    string currentVersion = rk.GetValue("CurrentVersion").ToString();
+                    using (Microsoft.Win32.RegistryKey key = rk.OpenSubKey(currentVersion))
+                    {
+                        return key.GetValue("JavaHome").ToString();
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                MetroFramework.MetroMessageBox.Show(this, "I probaly can say that you haven't installed java. Go to java.com and download the newest version", "Java isn't installed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "";
             }
         }
 

@@ -10,6 +10,7 @@ using Ionic.Zip;
 using Newtonsoft.Json;
 
 using MineLauncher.Events;
+using MineLauncher.UI.Forms;
 
 namespace MineLauncher.Launcher
 {

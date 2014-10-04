@@ -1,4 +1,4 @@
-﻿namespace MineLauncher
+﻿namespace MineLauncher.UI.Forms
 {
     partial class frmMinecraftCrashLog
     {
@@ -90,6 +90,7 @@
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Text = "Sorry, but Minecraft crashed";
+            this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Shown += new System.EventHandler(this.frmMinecraftCrashLog_Shown);
             this.ResumeLayout(false);

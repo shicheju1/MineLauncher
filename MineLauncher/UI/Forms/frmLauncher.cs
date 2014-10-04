@@ -19,15 +19,22 @@ using MineLauncher.Win32Api;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
+using nUpdate.Internal;
+
 using Microsoft.WindowsAPICodePack.Taskbar;
 
-namespace MineLauncher
+namespace MineLauncher.UI.Forms
 {
     public partial class frmLauncher : MetroForm
     {
 
         string uitheme = "";
         bool base_offline_mode = false;
+
+        UpdateManager updater;
+        UpdaterUI updaterui;
+        bool updater_include_alpha = false;
+        bool updater_include_beta = false;
 
         Random rand = new Random();
         MinecraftSession session = null;
@@ -36,26 +43,23 @@ namespace MineLauncher
 
         TaskbarManager taskbar;
 
+        frmStarting starting = new frmStarting();
+
         public frmLauncher()
         {
             InitializeComponent();
-            DotMinecraft.CreateDotMinecraftHierarchy();
 
-            MEMORYSTATUSEX memory = new MEMORYSTATUSEX();
-            Calls.GlobalMemoryStatusEx(memory);
-            
-            rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [STARTUP] Starting MineLauncher Version " + Application.ProductVersion + "\n");
-            rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [STARTUP] System: " + Environment.OSVersion.ToString() + "\n");
-            rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [STARTUP] Memory: " + Math.Round((double)memory.ullTotalPhys / 1024 / 1024, 2) + "MB\n");
-
-            if(!File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"))
+            if (!File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"))
             {
                 this.Enabled = false;
                 new frmSetup().ShowDialog();
                 this.Enabled = true;
 
                 dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"));
+
                 uitheme = (string)setup.theme;
+                updater_include_alpha = (bool)setup.updater.alpha;
+                updater_include_beta = (bool)setup.updater.beta;
                 base_offline_mode = (bool)setup.baseofflinemode;
 
                 ChangeFormTheme(this);
@@ -63,33 +67,125 @@ namespace MineLauncher
             else
             {
                 dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"));
+
                 uitheme = (string)setup.theme;
+                updater_include_alpha = (bool)setup.updater.alpha;
+                updater_include_beta = (bool)setup.updater.beta;
+                base_offline_mode = (bool)setup.baseofflinemode;
+
                 ChangeFormTheme(this);
             }
 
-            if (TaskbarManager.IsPlatformSupported) taskbar = TaskbarManager.Instance;
+            this.Location = new Point(-50000, -50000);
+            this.ShowInTaskbar = false;
+            starting.Show();
 
-            lblAbout.Text = String.Format(lblAbout.Text,
-                Assembly.GetExecutingAssembly().GetName().Version.Major,
-                Assembly.GetExecutingAssembly().GetName().Version.Minor,
-                Assembly.GetExecutingAssembly().GetName().Version.Build,
-                Assembly.GetExecutingAssembly().GetName().Version.Revision);
-            
-            tcMain.SelectedIndex = 0;
+            new Thread(() =>
+            {
+                DotMinecraft.CreateDotMinecraftHierarchy();
 
-            List<System.Drawing.Icon> icons = new List<System.Drawing.Icon>();
-            icons.Add(MineLauncher.Properties.Resources.Creeper_Blue);
-            icons.Add(MineLauncher.Properties.Resources.Creeper_Green);
-            icons.Add(MineLauncher.Properties.Resources.Creeper_Orange);
-            icons.Add(MineLauncher.Properties.Resources.Creeper_Red);
-            icons.Add(MineLauncher.Properties.Resources.Creeper_Standard);
-            icons.Add(MineLauncher.Properties.Resources.Creeper_Violet);
-            icons.Add(MineLauncher.Properties.Resources.Creeper_Yellow);
+                // nUpdate doesn't work yet
 
-            this.Icon = icons[rand.Next(0, 6)];
+                
 
-            this.rtbLog.Font = MetroFonts.TextBox(MetroTextBoxSize.Medium, MetroTextBoxWeight.Bold);
-            this.rtbAbout_Licenses.Font = MetroFonts.TextBox(MetroTextBoxSize.Medium, MetroTextBoxWeight.Bold);
+                /* this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [UPDATER] Searching for updates. This can take a while...\n")));
+                updater = new UpdateManager(new Uri("http://update.lukasberger.at/minelauncher/updates.json"), MineLauncher.Properties.Resources.UpdaterPublicKey, new UpdateVersion(Application.ProductVersion));
+                
+                updater.IncludeAlpha = updater_include_alpha;
+                updater.IncludeBeta = updater_include_beta;
+                updater.UseHiddenSearch = true;
+
+                updater.SearchForUpdates();
+
+                if(updater.UpdatesFound)
+                {
+                    this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [UPDATER] Updates found, new Version is " + updater.UpdateVersion.ToString() + "\n")));
+                    //this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [UPDATER] Updates will be installed soon...\n")));
+                    this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [UPDATER] Sorry, but the installer can't install updates yet\n")));
+
+                    //updater.InstallPackage();
+                }
+                else
+                {
+                    if(nUpdate.Core.ConnectionChecker.IsConnectionAvailable())
+                    {
+                        this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [UPDATER] No updates found\n")));
+                    }
+                    else
+                    {
+                        this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [UPDATER] You must have an internet connection to check for updates\n")));
+                    }
+                } */
+
+                MEMORYSTATUSEX memory = new MEMORYSTATUSEX();
+                Calls.GlobalMemoryStatusEx(memory);
+
+                ulong availMem = memory.ullAvailPhys;
+                string memStat = "Fine";
+
+                availMem = availMem / 1024 / 1024 / 1024;
+
+                if (availMem <= 1)
+                {
+                    memStat = "Meh...";
+                }
+                else if (availMem <= 2)
+                {
+                    memStat = "More is recommended";
+                }
+                else if (availMem <= 4)
+                {
+                    memStat = "For playing with the standard-textures is enough";
+                }
+                else if (availMem <= 6)
+                {
+                    memStat = "Enough, maybe 128x-Textures";
+                }
+                else if (availMem <= 8)
+                {
+                    memStat = "Fine, but I won't use 512x-Textures";
+                }
+
+                if (availMem < 2)
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "It's recommended to have 2 GB free memory", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (availMem <= 1)
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "Sorry, but Minecraft can't run with less than 2 GB memory", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    Application.Exit();
+                }
+
+                this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [STARTUP] Starting MineLauncher Version " + Application.ProductVersion + "\n")));
+                this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [STARTUP] System: " + Environment.OSVersion.GetOSFullName() + ", " + Environment.OSVersion.ToString() + "\n")));
+                this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [STARTUP] Memory: " + Math.Round((double)memory.ullTotalPhys / 1024 / 1024, 2) + "MB\n")));
+                this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [STARTUP] Available Memory: " + Math.Round((double)memory.ullAvailPhys / 1024 / 1024, 2) + "MB - " + memStat + "\n")));
+                
+                if (TaskbarManager.IsPlatformSupported) taskbar = TaskbarManager.Instance;
+
+                this.SafeInvoke(new Action(() => lblAbout.Text = String.Format(lblAbout.Text,
+                    Assembly.GetExecutingAssembly().GetName().Version.Major,
+                    Assembly.GetExecutingAssembly().GetName().Version.Minor,
+                    Assembly.GetExecutingAssembly().GetName().Version.Build,
+                    Assembly.GetExecutingAssembly().GetName().Version.Revision)));
+
+                this.SafeInvoke(new Action(() => tcMain.SelectedIndex = 0));
+
+                List<System.Drawing.Icon> icons = new List<System.Drawing.Icon>();
+                icons.Add(MineLauncher.Properties.Resources.Creeper_Blue);
+                icons.Add(MineLauncher.Properties.Resources.Creeper_Green);
+                icons.Add(MineLauncher.Properties.Resources.Creeper_Orange);
+                icons.Add(MineLauncher.Properties.Resources.Creeper_Red);
+                icons.Add(MineLauncher.Properties.Resources.Creeper_Standard);
+                icons.Add(MineLauncher.Properties.Resources.Creeper_Violet);
+                icons.Add(MineLauncher.Properties.Resources.Creeper_Yellow);
+
+                this.SafeInvoke(new Action(() => this.Icon = icons[rand.Next(0, 6)]));
+
+                this.SafeInvoke(new Action(() => this.rtbLog.Font = MetroFonts.TextBox(MetroTextBoxSize.Medium, MetroTextBoxWeight.Bold)));
+                this.SafeInvoke(new Action(() => this.rtbAbout_Licenses.Font = MetroFonts.TextBox(MetroTextBoxSize.Medium, MetroTextBoxWeight.Bold)));
+            }).Start();
         }
         
         private void frmLauncher_Shown(object sender, EventArgs e)
@@ -162,8 +258,19 @@ namespace MineLauncher
                 }
                 catch (Exception ex)
                 {
-                    Program.ExceptionTracker.Track(ex, true, false);
+                    Program.ExceptionTracker.Track(ex, false, false);
                 }
+
+                this.SafeInvoke(new Action(() =>
+                {
+                    this.StartPosition = FormStartPosition.CenterScreen;
+                    this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
+                    this.ShowInTaskbar = true;
+
+                    this.Focus();
+                    starting.CloseStartingDialog();
+                    starting = null;
+                }));
 
             }).Start();
         }
@@ -192,20 +299,20 @@ namespace MineLauncher
             {
                 if (ctrl is IMetroControl)
                 {
-                    ((IMetroControl)ctrl).Theme = GetMetroThemeFromConfig();
+                    this.SafeInvoke(new Action(() => ((IMetroControl)ctrl).Theme = GetMetroThemeFromConfig()));
                 }
                 else if (ctrl is Control)
                 {
                     if (GetMetroThemeFromConfig() == MetroThemeStyle.Dark)
                     {
-                        ((Control)ctrl).BackColor = Color.FromArgb(17, 17, 17);
-                        ((Control)ctrl).ForeColor = Color.FromArgb(170, 170, 170);
+                        this.SafeInvoke(new Action(() => ((Control)ctrl).BackColor = Color.FromArgb(17, 17, 17)));
+                        this.SafeInvoke(new Action(() => ((Control)ctrl).ForeColor = Color.FromArgb(170, 170, 170)));
                     }
                     else
                     {
-                        ((Control)ctrl).BackColor = Color.FromArgb(255, 255, 255);
-                        ((Control)ctrl).ForeColor = Color.FromArgb(0, 0, 0);
-                        ((Control)ctrl).Refresh();
+                        this.SafeInvoke(new Action(() => ((Control)ctrl).BackColor = Color.FromArgb(255, 255, 255)));
+                        this.SafeInvoke(new Action(() => ((Control)ctrl).ForeColor = Color.FromArgb(0, 0, 0)));
+                        this.SafeInvoke(new Action(() => ((Control)ctrl).Refresh()));
                     }
                 }
 
@@ -217,13 +324,13 @@ namespace MineLauncher
         {
             if (ctrl is IMetroControl)
             {
-                ((IMetroControl)ctrl).Theme = GetMetroThemeFromConfig();
+                this.SafeInvoke(new Action(() => ((IMetroControl)ctrl).Theme = GetMetroThemeFromConfig()));
             }
             else
             {
-                ctrl.BackColor = MetroFramework.Drawing.MetroPaint.BorderColor.Button.Normal(GetMetroThemeFromConfig());
-                ctrl.ForeColor = MetroFramework.Drawing.MetroPaint.ForeColor.Button.Normal(GetMetroThemeFromConfig());
-                ctrl.Refresh();
+                this.SafeInvoke(new Action(() => ctrl.BackColor = MetroFramework.Drawing.MetroPaint.BorderColor.Button.Normal(GetMetroThemeFromConfig())));
+                this.SafeInvoke(new Action(() => ctrl.ForeColor = MetroFramework.Drawing.MetroPaint.ForeColor.Button.Normal(GetMetroThemeFromConfig())));
+                this.SafeInvoke(new Action(() => ctrl.Refresh()));
             }
             foreach (Control subctrl in ctrl.Controls)
             {
@@ -233,9 +340,9 @@ namespace MineLauncher
                 }
                 else
                 {
-                    subctrl.BackColor = MetroFramework.Drawing.MetroPaint.BorderColor.Button.Normal(GetMetroThemeFromConfig());
-                    subctrl.ForeColor = MetroFramework.Drawing.MetroPaint.ForeColor.Button.Normal(GetMetroThemeFromConfig());
-                    subctrl.Refresh();
+                    this.SafeInvoke(new Action(() => subctrl.BackColor = MetroFramework.Drawing.MetroPaint.BorderColor.Button.Normal(GetMetroThemeFromConfig())));
+                    this.SafeInvoke(new Action(() => subctrl.ForeColor = MetroFramework.Drawing.MetroPaint.ForeColor.Button.Normal(GetMetroThemeFromConfig())));
+                    this.SafeInvoke(new Action(() => subctrl.Refresh()));
                 }
             }
         }
@@ -584,6 +691,8 @@ namespace MineLauncher
 
         private void cbFastControl_SelectProfile_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbFastControl_SelectProfile.SelectedItem == null) return;
+
             dynamic profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
             Newtonsoft.Json.Linq.JObject jTypeProfile = (Newtonsoft.Json.Linq.JObject)(profilejson);
 
@@ -729,7 +838,15 @@ namespace MineLauncher
                     }
 
                     Newtonsoft.Json.Linq.JObject jTypeMineLauncherProfile = (Newtonsoft.Json.Linq.JObject)(profilejson);
-                    Dictionary<string, Dictionary<string, object>> profiles = jTypeMineLauncherProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
+                    Dictionary<string, Dictionary<string, object>> profiles;
+                    if(jTypeMineLauncherProfile == null)
+                    {
+                        profiles = new Dictionary<string, Dictionary<string, object>>();
+                    }
+                    else
+                    {
+                        profiles = jTypeMineLauncherProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
+                    }
                     
                     if (profiles == null) profiles = new Dictionary<string, Dictionary<string, object>>();
 
@@ -820,6 +937,37 @@ namespace MineLauncher
 
             ChangeFormTheme(this);
         }
+        
+        private void cbSettings_Updater_CheckedChanged(object sender, EventArgs e)
+        {
+            dynamic setupjson;
+            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
+            {
+                setupjson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
+            }
+            else
+            {
+                setupjson = JsonConvert.DeserializeObject("{ }");
+            }
+
+            Newtonsoft.Json.Linq.JObject setupjsonObject = (Newtonsoft.Json.Linq.JObject)(setupjson);
+            Dictionary<string, object> setup = setupjsonObject.ToObject<Dictionary<string, object>>();
+
+            Dictionary<string, object> updater = (Dictionary<string, object>)(setup["updater"]);
+
+            updater.Remove("alpha");
+            updater.Remove("beta");
+
+            updater.Add("alpha", cbSettings_Updater_Including_Alpha.Checked);
+            updater.Add("beta", cbSettings_Updater_Including_Beta.Checked);
+
+            setup.Remove("updater");
+            setup.Add("updater", updater);
+
+            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));
+        }             
+
+        #region RandomNickGenerator
 
         char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'u', 'y' };
         char[] consonants = new char[] { 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z' };
@@ -870,6 +1018,8 @@ namespace MineLauncher
 
         #endregion
 
+        #endregion
+
         private void ConvertBitmapToIcon(Bitmap bmp, string path)
         {
             Icon ico = Icon.FromHandle(bmp.GetHicon());
@@ -877,6 +1027,6 @@ namespace MineLauncher
             ico.Save(fs);
             fs.Close();
         }
-                                                  
+                           
     }
 }

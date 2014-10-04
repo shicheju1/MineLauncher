@@ -1,4 +1,4 @@
-﻿namespace MineLauncher
+﻿namespace MineLauncher.UI.Forms
 {
     partial class frmSetup
     {
@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSetup));
             this.tcMain = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.tileWelcome_Next = new MetroFramework.Controls.MetroTile();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
@@ -76,7 +77,6 @@
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.tileStartLauncher = new MetroFramework.Controls.MetroTile();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.tcMain.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -125,6 +125,18 @@
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel12.Location = new System.Drawing.Point(5, 342);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(246, 30);
+            this.metroLabel12.TabIndex = 7;
+            this.metroLabel12.Text = "If you continue, you accept the following license: \r\nhttp://stor.lukasberger.at/l" +
+    "icense-en.txt";
+            this.metroLabel12.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // tileWelcome_Next
             // 
@@ -792,24 +804,12 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(0, 63);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(930, 10);
+            this.metroPanel1.Size = new System.Drawing.Size(930, 43);
             this.metroPanel1.TabIndex = 1;
             this.metroPanel1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
-            // 
-            // metroLabel12
-            // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel12.Location = new System.Drawing.Point(5, 342);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(246, 30);
-            this.metroLabel12.TabIndex = 7;
-            this.metroLabel12.Text = "If you continue, you accept the following license: \r\nhttp://stor.lukasberger.at/l" +
-    "icense-en.txt";
-            this.metroLabel12.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // frmSetup
             // 
@@ -825,6 +825,7 @@
             this.MinimumSize = new System.Drawing.Size(930, 506);
             this.Name = "frmSetup";
             this.Resizable = false;
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Text = "MineLauncher - Setup";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
