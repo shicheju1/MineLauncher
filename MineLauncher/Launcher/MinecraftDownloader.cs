@@ -208,12 +208,22 @@ namespace MineLauncher.Launcher
                 {
                     if (!e.FileName.Contains(excludeCard))
                     {
-                        e.Extract(outputDirectory, Ionic.Zip.ExtractExistingFileAction.OverwriteSilently);
+                        try
+                        {
+                            e.Extract(outputDirectory, Ionic.Zip.ExtractExistingFileAction.OverwriteSilently);
+                        }
+                        catch (IOException) { }
+                        catch (UnauthorizedAccessException) { }
                     }
                 }
                 else
                 {
-                    e.Extract(outputDirectory, Ionic.Zip.ExtractExistingFileAction.OverwriteSilently);
+                    try
+                    {
+                        e.Extract(outputDirectory, Ionic.Zip.ExtractExistingFileAction.OverwriteSilently);
+                    }
+                    catch (IOException) { }
+                    catch (UnauthorizedAccessException) { }
                 }
             }
         }

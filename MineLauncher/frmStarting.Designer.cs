@@ -33,6 +33,7 @@
             // 
             // metroProgressSpinner1
             // 
+            this.metroProgressSpinner1.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.metroProgressSpinner1.Location = new System.Drawing.Point(235, 63);
             this.metroProgressSpinner1.Maximum = 100;
             this.metroProgressSpinner1.Name = "metroProgressSpinner1";
@@ -49,6 +50,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 286);
             this.Controls.Add(this.metroProgressSpinner1);
+            this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Movable = false;

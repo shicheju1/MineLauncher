@@ -14,6 +14,7 @@ using MetroFramework.Forms;
 
 using MineLauncher.Events;
 using MineLauncher.Launcher;
+using MineLauncher.UI.Dialogs;
 using MineLauncher.Win32Api;
 
 using Newtonsoft.Json;
@@ -43,26 +44,16 @@ namespace MineLauncher.UI.Forms
 
         TaskbarManager taskbar;
 
-        frmStarting starting = new frmStarting();
+        frmStarting starting;
 
         public frmLauncher()
         {
             InitializeComponent();
-
+            
             if (!File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"))
             {
                 this.Enabled = false;
                 new frmSetup().ShowDialog();
-                this.Enabled = true;
-
-                dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"));
-
-                uitheme = (string)setup.theme;
-                updater_include_alpha = (bool)setup.updater.alpha;
-                updater_include_beta = (bool)setup.updater.beta;
-                base_offline_mode = (bool)setup.baseofflinemode;
-
-                ChangeFormTheme(this);
             }
             else
             {
@@ -73,11 +64,21 @@ namespace MineLauncher.UI.Forms
                 updater_include_beta = (bool)setup.updater.beta;
                 base_offline_mode = (bool)setup.baseofflinemode;
 
+                cbSettings_Launcher_ChangeGameIcon.Checked = (bool)setup.ingame.randomicon;
+                cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Checked = (bool)setup.ingame.changeiconrandom;
+
+                cbSettings_Themes.SelectedItem = uitheme;
+
+                cbSettings_Updater_Including_Alpha.Checked = updater_include_alpha;
+                cbSettings_Updater_Including_Beta.Checked = updater_include_beta;
+
                 ChangeFormTheme(this);
             }
 
             this.Location = new Point(-50000, -50000);
             this.ShowInTaskbar = false;
+
+            starting = new frmStarting();
             starting.Show();
 
             new Thread(() =>
@@ -85,8 +86,6 @@ namespace MineLauncher.UI.Forms
                 DotMinecraft.CreateDotMinecraftHierarchy();
 
                 // nUpdate doesn't work yet
-
-                
 
                 /* this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [UPDATER] Searching for updates. This can take a while...\n")));
                 updater = new UpdateManager(new Uri("http://update.lukasberger.at/minelauncher/updates.json"), MineLauncher.Properties.Resources.UpdaterPublicKey, new UpdateVersion(Application.ProductVersion));
@@ -118,30 +117,30 @@ namespace MineLauncher.UI.Forms
                 } */
 
                 MEMORYSTATUSEX memory = new MEMORYSTATUSEX();
-                Calls.GlobalMemoryStatusEx(memory);
+                NativesMethods.GlobalMemoryStatusEx(memory);
 
                 ulong availMem = memory.ullAvailPhys;
                 string memStat = "Fine";
 
                 availMem = availMem / 1024 / 1024 / 1024;
 
-                if (availMem <= 1)
+                if (availMem < 1)
                 {
                     memStat = "Meh...";
                 }
-                else if (availMem <= 2)
+                else if (availMem < 2)
                 {
                     memStat = "More is recommended";
                 }
-                else if (availMem <= 4)
+                else if (availMem < 4)
                 {
                     memStat = "For playing with the standard-textures is enough";
                 }
-                else if (availMem <= 6)
+                else if (availMem < 6)
                 {
                     memStat = "Enough, maybe 128x-Textures";
                 }
-                else if (availMem <= 8)
+                else if (availMem < 8)
                 {
                     memStat = "Fine, but I won't use 512x-Textures";
                 }
@@ -201,9 +200,9 @@ namespace MineLauncher.UI.Forms
                         this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Logged in as " + session.PlayerName + "\n")));
                         this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Session: " + session.Session + "\n")));
                         new System.Net.WebClient().DownloadFile("https://minotar.net/avatar/" + session.PlayerName, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
-                            "\\.minecraft\\minelauncher\\headwhichyoucanopenwitheveryimageditor");
+                            "\\.minecraft\\minelauncher\\" + session.PlayerName + "Head.png");
                         Icon headIcon = Icon.FromHandle(new Bitmap(Image.FromFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
-                            "\\.minecraft\\minelauncher\\headwhichyoucanopenwitheveryimageditor"), new Size(64, 64)).GetHicon());
+                            "\\.minecraft\\minelauncher\\" + session.PlayerName + "Head.png"), new Size(64, 64)).GetHicon());
                         this.BeginInvoke(new Action(() =>
                         {
                             tbFastLogin_Password.Text = "";
@@ -287,32 +286,77 @@ namespace MineLauncher.UI.Forms
             rtbLog.ScrollToCaret();
 
             string filename = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\logs\\" + DateTime.Now.ToShortDateString().Replace(".", "-") + ".log";
-            if((rtbLog.Lines.Length - 1) >= 0) File.AppendAllText(filename, rtbLog.Lines[rtbLog.Lines.Length - 1]);
+            if((rtbLog.Lines.Length - 1) >= 0) File.AppendAllText(filename, rtbLog.Lines[rtbLog.Lines.Length - 1] + "\n");
         }
         
+        private void ConvertBitmapToIcon(Bitmap bmp, string path)
+        {
+            Icon ico = Icon.FromHandle(bmp.GetHicon());
+            FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
+            ico.Save(fs);
+            fs.Close();
+        }
+
+        #region About
+        
+        private void linkAbout_GitHub_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://github.com/Lukas0610/MineLauncher/");
+        }
+
+        private void lblAbout_ExceptionBase_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://exceptionbase.net/");
+        }
+
+        private void lblAbout_NewtonsoftJson_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://james.newtonking.com/json");
+        }
+
+        private void lblAbout_IonicZip_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://dotnetzip.codeplex.com/");
+        }
+
+        private void lblAbout_nUpdate_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://nupdate.net/");
+        }
+
+        private void lblAbout_WindowsApiCodePack_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.nuget.org/packages/Windows7APICodePack/");
+        }
+
+        #endregion
+
         #region ThemeChanger
 
         public void ChangeFormTheme(MetroForm form)
         {
             form.Theme = GetMetroThemeFromConfig();
+            this.SafeInvoke(new Action(() => form.Refresh()));
             foreach (Control ctrl in ((Control)form).Controls)
             {
                 if (ctrl is IMetroControl)
                 {
                     this.SafeInvoke(new Action(() => ((IMetroControl)ctrl).Theme = GetMetroThemeFromConfig()));
+                    this.SafeInvoke(new Action(() => ctrl.Refresh()));
                 }
                 else if (ctrl is Control)
                 {
                     if (GetMetroThemeFromConfig() == MetroThemeStyle.Dark)
                     {
-                        this.SafeInvoke(new Action(() => ((Control)ctrl).BackColor = Color.FromArgb(17, 17, 17)));
-                        this.SafeInvoke(new Action(() => ((Control)ctrl).ForeColor = Color.FromArgb(170, 170, 170)));
+                        this.SafeInvoke(new Action(() => ctrl.BackColor = Color.FromArgb(17, 17, 17)));
+                        this.SafeInvoke(new Action(() => ctrl.ForeColor = Color.FromArgb(170, 170, 170)));
+                        this.SafeInvoke(new Action(() => ctrl.Refresh()));
                     }
                     else
                     {
-                        this.SafeInvoke(new Action(() => ((Control)ctrl).BackColor = Color.FromArgb(255, 255, 255)));
-                        this.SafeInvoke(new Action(() => ((Control)ctrl).ForeColor = Color.FromArgb(0, 0, 0)));
-                        this.SafeInvoke(new Action(() => ((Control)ctrl).Refresh()));
+                        this.SafeInvoke(new Action(() => ctrl.BackColor = Color.FromArgb(255, 255, 255)));
+                        this.SafeInvoke(new Action(() => ctrl.ForeColor = Color.FromArgb(0, 0, 0)));
+                        this.SafeInvoke(new Action(() => ctrl.Refresh()));
                     }
                 }
 
@@ -325,6 +369,7 @@ namespace MineLauncher.UI.Forms
             if (ctrl is IMetroControl)
             {
                 this.SafeInvoke(new Action(() => ((IMetroControl)ctrl).Theme = GetMetroThemeFromConfig()));
+                this.SafeInvoke(new Action(() => ctrl.Refresh()));
             }
             else
             {
@@ -332,10 +377,13 @@ namespace MineLauncher.UI.Forms
                 this.SafeInvoke(new Action(() => ctrl.ForeColor = MetroFramework.Drawing.MetroPaint.ForeColor.Button.Normal(GetMetroThemeFromConfig())));
                 this.SafeInvoke(new Action(() => ctrl.Refresh()));
             }
+
             foreach (Control subctrl in ctrl.Controls)
             {
                 if (subctrl is IMetroControl)
                 {
+                    this.SafeInvoke(new Action(() => ((IMetroControl)subctrl).Theme = GetMetroThemeFromConfig()));
+                    this.SafeInvoke(new Action(() => subctrl.Refresh()));
                     ChangeControlTheme(subctrl);
                 }
                 else
@@ -343,6 +391,7 @@ namespace MineLauncher.UI.Forms
                     this.SafeInvoke(new Action(() => subctrl.BackColor = MetroFramework.Drawing.MetroPaint.BorderColor.Button.Normal(GetMetroThemeFromConfig())));
                     this.SafeInvoke(new Action(() => subctrl.ForeColor = MetroFramework.Drawing.MetroPaint.ForeColor.Button.Normal(GetMetroThemeFromConfig())));
                     this.SafeInvoke(new Action(() => subctrl.Refresh()));
+                    ChangeControlTheme(subctrl);
                 }
             }
         }
@@ -576,6 +625,34 @@ namespace MineLauncher.UI.Forms
                 this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Add("Create new profile")));
             }).Start();
         }
+        
+        private void btnProfiles_Edit_Directory_Select_Click(object sender, EventArgs e)
+        {
+            using(FolderBrowserDialog fbd = new FolderBrowserDialog())
+            {
+                fbd.Description = "Select a game directory";
+                fbd.ShowNewFolderButton = true;
+                fbd.RootFolder = Environment.SpecialFolder.MyComputer;
+                if(fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    tbProfiles_Edit_JVM_Args.Text = fbd.SelectedPath;
+                }
+            }
+        }
+
+        private void btnProfiles_Edit_JVM_Path_Select_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Title = "Select javaw.exe";
+                ofd.Filter = "javaw.exe|javaw.exe";
+                ofd.Multiselect = false;
+                if(ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    tbProfiles_Edit_JVM_Path.Text = ofd.FileName;
+                }
+            }
+        }
 
         private void cbProfiles_Select_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -732,9 +809,9 @@ namespace MineLauncher.UI.Forms
                     this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Session: " + session.Session + "\n")));
 
                     new System.Net.WebClient().DownloadFile("https://minotar.net/avatar/" + session.PlayerName, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
-                        "\\.minecraft\\minelauncher\\headwhichyoucanopenwitheveryimageditor");
+                        "\\.minecraft\\minelauncher\\" + session.PlayerName + "Head.png");
                     Icon headIcon = Icon.FromHandle(new Bitmap(Image.FromFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
-                        "\\.minecraft\\minelauncher\\headwhichyoucanopenwitheveryimageditor"), new Size(64, 64)).GetHicon());
+                        "\\.minecraft\\minelauncher\\" + session.PlayerName + "Head.png"), new Size(64, 64)).GetHicon());
                     this.SafeInvoke(new Action(() => 
                     {
                         tbFastLogin_Password.Text = "";
@@ -869,7 +946,7 @@ namespace MineLauncher.UI.Forms
                             minelauncher_profile_info.Add("javapath", mclauncher_profile.Value["javaDir"]);
                             minelauncher_profile_info.Add("javaargs", mclauncher_profile.Value["javaArgs"]);
                             minelauncher_profile_info.Add("offline-mode", base_offline_mode);
-                            minelauncher_profile_info.Add("offline-mode-playername", Generate(9));
+                            minelauncher_profile_info.Add("offline-mode-playername", GenerateRandomNickName(9));
 
                             if (profiles.ContainsKey(mclauncher_profile.Key))
                             {
@@ -908,64 +985,77 @@ namespace MineLauncher.UI.Forms
         
         private void cbSettings_Themes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dynamic setupjson;
-            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
-            {
-                setupjson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
-            }
-            else
-            {
-                setupjson = JsonConvert.DeserializeObject("{ }");
-            }
-
-            Newtonsoft.Json.Linq.JObject setupjsonObject = (Newtonsoft.Json.Linq.JObject)(setupjson);
-            Dictionary<string, object> setup = setupjsonObject.ToObject<Dictionary<string, object>>();
-
-            if (cbSettings_Themes.SelectedIndex == 0)
-            {
-                uitheme = "Dark";
-            }
-            else if (cbSettings_Themes.SelectedIndex == 1)
-            {
-                uitheme = "Light";
-            }
-            
-            setup.Remove("theme");
-            setup.Add("theme", cbSettings_Themes.SelectedItem.ToString());
-
-            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));
-
+            cbSettings_CheckedChanged(sender, e);
             ChangeFormTheme(this);
         }
-        
-        private void cbSettings_Updater_CheckedChanged(object sender, EventArgs e)
+
+        private void cbSettings_CheckedChanged(object sender, EventArgs e)
         {
-            dynamic setupjson;
-            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
+            try
             {
-                setupjson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
+                dynamic setupjson;
+                if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"))
+                {
+                    setupjson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"));
+                }
+                else
+                {
+                    setupjson = JsonConvert.DeserializeObject("{ }");
+                }
+
+                Newtonsoft.Json.Linq.JObject setupjsonObject = (Newtonsoft.Json.Linq.JObject)(setupjson);
+                Dictionary<string, object> setup = setupjsonObject.ToObject<Dictionary<string, object>>();
+
+                Newtonsoft.Json.Linq.JObject updaterjsonObject = (Newtonsoft.Json.Linq.JObject)(setup["updater"]);
+                Dictionary<string, object> updater = updaterjsonObject.ToObject<Dictionary<string, object>>();
+                Newtonsoft.Json.Linq.JObject ingamejsonObject = (Newtonsoft.Json.Linq.JObject)(setup["ingame"]);
+                Dictionary<string, object> ingame = ingamejsonObject.ToObject<Dictionary<string, object>>();
+
+                if (cbSettings_Themes.SelectedIndex == 0)
+                {
+                    uitheme = "Dark";
+                }
+                else if (cbSettings_Themes.SelectedIndex == 1)
+                {
+                    uitheme = "Light";
+                }
+
+                // ######
+                // Remove everything
+
+                setup.Remove("theme");
+                setup.Remove("updater");
+                setup.Remove("ingame");
+
+                ingame.Remove("randomicon");
+                ingame.Remove("changeiconrandom");
+
+                updater.Remove("alpha");
+                updater.Remove("beta");
+
+                //
+                // ######
+
+                // ######
+                // Readd everything
+
+                ingame.Add("randomicon", cbSettings_Launcher_ChangeGameIcon.Checked);
+                ingame.Add("changeiconrandom", cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Checked);
+
+                updater.Add("alpha", cbSettings_Updater_Including_Alpha.Checked);
+                updater.Add("beta", cbSettings_Updater_Including_Beta.Checked);
+
+                setup.Add("theme", cbSettings_Themes.SelectedItem.ToString());
+                setup.Add("updater", updater);
+                setup.Add("ingame", ingame);
+
+                //
+                // ######
+
+                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));
             }
-            else
-            {
-                setupjson = JsonConvert.DeserializeObject("{ }");
-            }
-
-            Newtonsoft.Json.Linq.JObject setupjsonObject = (Newtonsoft.Json.Linq.JObject)(setupjson);
-            Dictionary<string, object> setup = setupjsonObject.ToObject<Dictionary<string, object>>();
-
-            Dictionary<string, object> updater = (Dictionary<string, object>)(setup["updater"]);
-
-            updater.Remove("alpha");
-            updater.Remove("beta");
-
-            updater.Add("alpha", cbSettings_Updater_Including_Alpha.Checked);
-            updater.Add("beta", cbSettings_Updater_Including_Beta.Checked);
-
-            setup.Remove("updater");
-            setup.Add("updater", updater);
-
-            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));
-        }             
+            catch (NullReferenceException) { }
+        }
 
         #region RandomNickGenerator
 
@@ -973,7 +1063,7 @@ namespace MineLauncher.UI.Forms
         char[] consonants = new char[] { 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z' };
         int[] numbers = new int[] { 1, 3, 4, 6, 7, 8 };
 
-        private string Generate(int length)
+        private string GenerateRandomNickName(int length)
         {
             StringBuilder sb = new StringBuilder();
             //initialize our vowel/consonant flag
@@ -1018,15 +1108,12 @@ namespace MineLauncher.UI.Forms
 
         #endregion
 
-        #endregion
-
-        private void ConvertBitmapToIcon(Bitmap bmp, string path)
+        private void lblAbout_MetroFramework_Click(object sender, EventArgs e)
         {
-            Icon ico = Icon.FromHandle(bmp.GetHicon());
-            FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
-            ico.Save(fs);
-            fs.Close();
+
         }
-                           
+
+        #endregion
+                                                                       
     }
 }

@@ -38,6 +38,8 @@
             this.rtbLog = new System.Windows.Forms.RichTextBox();
             this.tpProfiles = new MetroFramework.Controls.MetroTabPage();
             this.pnlProfiles_Edit = new MetroFramework.Controls.MetroPanel();
+            this.btnProfiles_Edit_JVM_Path_Select = new MetroFramework.Controls.MetroButton();
+            this.btnProfiles_Edit_Directory_Select = new MetroFramework.Controls.MetroButton();
             this.btnProfile_Edit_Save = new MetroFramework.Controls.MetroButton();
             this.lblProfiles_Edit_Offline_PlayerName = new MetroFramework.Controls.MetroLabel();
             this.tbProfiles_Edit_Offline_PlayerName = new MetroFramework.Controls.MetroTextBox();
@@ -67,6 +69,10 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.cbProfiles_Select = new MetroFramework.Controls.MetroComboBox();
             this.tpSettings = new MetroFramework.Controls.MetroTabPage();
+            this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
+            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds = new MetroFramework.Controls.MetroCheckBox();
+            this.cbSettings_Launcher_ChangeGameIcon = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
             this.cbSettings_Updater_Including_Beta = new MetroFramework.Controls.MetroCheckBox();
             this.cbSettings_Updater_Including_Alpha = new MetroFramework.Controls.MetroCheckBox();
@@ -78,8 +84,13 @@
             this.btnSettings_ImportFromOriginalLauncher = new MetroFramework.Controls.MetroButton();
             this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
             this.tpAbout = new MetroFramework.Controls.MetroTabPage();
+            this.lblAbout_WindowsApiCodePack = new MetroFramework.Controls.MetroLabel();
+            this.lblAbout_nUpdate = new MetroFramework.Controls.MetroLabel();
+            this.lblAbout_IonicZip = new MetroFramework.Controls.MetroLabel();
+            this.lblAbout_NewtonsoftJson = new MetroFramework.Controls.MetroLabel();
+            this.lblAbout_ExceptionBase = new MetroFramework.Controls.MetroLabel();
             this.linkAbout_GitHub = new MetroFramework.Controls.MetroLink();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.lblAbout_MetroFramework = new MetroFramework.Controls.MetroLabel();
             this.lblAbout = new MetroFramework.Controls.MetroLabel();
             this.rtbAbout_Licenses = new System.Windows.Forms.RichTextBox();
             this.pnlFastControl = new MetroFramework.Controls.MetroPanel();
@@ -101,6 +112,7 @@
             this.tpProfiles.SuspendLayout();
             this.pnlProfiles_Edit.SuspendLayout();
             this.tpSettings.SuspendLayout();
+            this.metroPanel6.SuspendLayout();
             this.metroPanel5.SuspendLayout();
             this.metroPanel4.SuspendLayout();
             this.metroPanel2.SuspendLayout();
@@ -134,6 +146,7 @@
             // tpStart
             // 
             this.tpStart.Controls.Add(this.webBrowser1);
+            this.tpStart.Enabled = true;
             this.tpStart.HorizontalScrollbarBarColor = true;
             this.tpStart.HorizontalScrollbarHighlightOnWheel = false;
             this.tpStart.HorizontalScrollbarSize = 10;
@@ -146,6 +159,7 @@
             this.tpStart.VerticalScrollbarBarColor = true;
             this.tpStart.VerticalScrollbarHighlightOnWheel = false;
             this.tpStart.VerticalScrollbarSize = 10;
+            this.tpStart.Visible = false;
             // 
             // webBrowser1
             // 
@@ -168,6 +182,7 @@
             this.tpConsole.Controls.Add(this.lblLogPB);
             this.tpConsole.Controls.Add(this.pbLog);
             this.tpConsole.Controls.Add(this.rtbLog);
+            this.tpConsole.Enabled = true;
             this.tpConsole.HorizontalScrollbarBarColor = true;
             this.tpConsole.HorizontalScrollbarHighlightOnWheel = false;
             this.tpConsole.HorizontalScrollbarSize = 10;
@@ -180,6 +195,7 @@
             this.tpConsole.VerticalScrollbarBarColor = true;
             this.tpConsole.VerticalScrollbarHighlightOnWheel = false;
             this.tpConsole.VerticalScrollbarSize = 10;
+            this.tpConsole.Visible = false;
             // 
             // lblLogPB
             // 
@@ -224,6 +240,7 @@
             // 
             this.tpProfiles.Controls.Add(this.pnlProfiles_Edit);
             this.tpProfiles.Controls.Add(this.cbProfiles_Select);
+            this.tpProfiles.Enabled = true;
             this.tpProfiles.HorizontalScrollbarBarColor = true;
             this.tpProfiles.HorizontalScrollbarHighlightOnWheel = false;
             this.tpProfiles.HorizontalScrollbarSize = 10;
@@ -236,12 +253,15 @@
             this.tpProfiles.VerticalScrollbarBarColor = true;
             this.tpProfiles.VerticalScrollbarHighlightOnWheel = false;
             this.tpProfiles.VerticalScrollbarSize = 10;
+            this.tpProfiles.Visible = false;
             // 
             // pnlProfiles_Edit
             // 
             this.pnlProfiles_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlProfiles_Edit.Controls.Add(this.btnProfiles_Edit_JVM_Path_Select);
+            this.pnlProfiles_Edit.Controls.Add(this.btnProfiles_Edit_Directory_Select);
             this.pnlProfiles_Edit.Controls.Add(this.btnProfile_Edit_Save);
             this.pnlProfiles_Edit.Controls.Add(this.lblProfiles_Edit_Offline_PlayerName);
             this.pnlProfiles_Edit.Controls.Add(this.tbProfiles_Edit_Offline_PlayerName);
@@ -280,6 +300,30 @@
             this.pnlProfiles_Edit.VerticalScrollbarBarColor = true;
             this.pnlProfiles_Edit.VerticalScrollbarHighlightOnWheel = false;
             this.pnlProfiles_Edit.VerticalScrollbarSize = 10;
+            // 
+            // btnProfiles_Edit_JVM_Path_Select
+            // 
+            this.btnProfiles_Edit_JVM_Path_Select.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btnProfiles_Edit_JVM_Path_Select.Location = new System.Drawing.Point(892, 147);
+            this.btnProfiles_Edit_JVM_Path_Select.Name = "btnProfiles_Edit_JVM_Path_Select";
+            this.btnProfiles_Edit_JVM_Path_Select.Size = new System.Drawing.Size(24, 24);
+            this.btnProfiles_Edit_JVM_Path_Select.TabIndex = 34;
+            this.btnProfiles_Edit_JVM_Path_Select.Text = "...";
+            this.btnProfiles_Edit_JVM_Path_Select.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnProfiles_Edit_JVM_Path_Select.UseSelectable = true;
+            this.btnProfiles_Edit_JVM_Path_Select.Click += new System.EventHandler(this.btnProfiles_Edit_JVM_Path_Select_Click);
+            // 
+            // btnProfiles_Edit_Directory_Select
+            // 
+            this.btnProfiles_Edit_Directory_Select.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btnProfiles_Edit_Directory_Select.Location = new System.Drawing.Point(892, 114);
+            this.btnProfiles_Edit_Directory_Select.Name = "btnProfiles_Edit_Directory_Select";
+            this.btnProfiles_Edit_Directory_Select.Size = new System.Drawing.Size(24, 24);
+            this.btnProfiles_Edit_Directory_Select.TabIndex = 33;
+            this.btnProfiles_Edit_Directory_Select.Text = "...";
+            this.btnProfiles_Edit_Directory_Select.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnProfiles_Edit_Directory_Select.UseSelectable = true;
+            this.btnProfiles_Edit_Directory_Select.Click += new System.EventHandler(this.btnProfiles_Edit_Directory_Select_Click);
             // 
             // btnProfile_Edit_Save
             // 
@@ -537,7 +581,6 @@
             this.metroLabel5.AutoSize = true;
             this.metroLabel5.Location = new System.Drawing.Point(14, 179);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(100, 19);
             this.metroLabel5.TabIndex = 11;
             this.metroLabel5.Text = "Java arguments";
             this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -556,7 +599,7 @@
             this.tbProfiles_Edit_JVM_Path.PasswordChar = '\0';
             this.tbProfiles_Edit_JVM_Path.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.tbProfiles_Edit_JVM_Path.SelectedText = "";
-            this.tbProfiles_Edit_JVM_Path.Size = new System.Drawing.Size(797, 24);
+            this.tbProfiles_Edit_JVM_Path.Size = new System.Drawing.Size(767, 24);
             this.tbProfiles_Edit_JVM_Path.TabIndex = 10;
             this.tbProfiles_Edit_JVM_Path.Text = "C:\\Program Files (x86)\\Java\\jre7\\bin\\javaw.exe";
             this.tbProfiles_Edit_JVM_Path.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -586,7 +629,7 @@
             this.tbProfiles_Edit_Directory.PasswordChar = '\0';
             this.tbProfiles_Edit_Directory.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.tbProfiles_Edit_Directory.SelectedText = "";
-            this.tbProfiles_Edit_Directory.Size = new System.Drawing.Size(797, 24);
+            this.tbProfiles_Edit_Directory.Size = new System.Drawing.Size(767, 24);
             this.tbProfiles_Edit_Directory.TabIndex = 8;
             this.tbProfiles_Edit_Directory.Text = "C:\\Minecraft\\My Profile";
             this.tbProfiles_Edit_Directory.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -676,9 +719,11 @@
             // 
             // tpSettings
             // 
+            this.tpSettings.Controls.Add(this.metroPanel6);
             this.tpSettings.Controls.Add(this.metroPanel5);
             this.tpSettings.Controls.Add(this.metroPanel4);
             this.tpSettings.Controls.Add(this.metroPanel2);
+            this.tpSettings.Enabled = true;
             this.tpSettings.HorizontalScrollbarBarColor = true;
             this.tpSettings.HorizontalScrollbarHighlightOnWheel = false;
             this.tpSettings.HorizontalScrollbarSize = 10;
@@ -692,6 +737,61 @@
             this.tpSettings.VerticalScrollbarBarColor = true;
             this.tpSettings.VerticalScrollbarHighlightOnWheel = false;
             this.tpSettings.VerticalScrollbarSize = 10;
+            this.tpSettings.Visible = true;
+            // 
+            // metroPanel6
+            // 
+            this.metroPanel6.Controls.Add(this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds);
+            this.metroPanel6.Controls.Add(this.cbSettings_Launcher_ChangeGameIcon);
+            this.metroPanel6.Controls.Add(this.metroLabel13);
+            this.metroPanel6.HorizontalScrollbarBarColor = true;
+            this.metroPanel6.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel6.HorizontalScrollbarSize = 10;
+            this.metroPanel6.Location = new System.Drawing.Point(6, 133);
+            this.metroPanel6.Name = "metroPanel6";
+            this.metroPanel6.Size = new System.Drawing.Size(297, 124);
+            this.metroPanel6.TabIndex = 6;
+            this.metroPanel6.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel6.VerticalScrollbarBarColor = true;
+            this.metroPanel6.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel6.VerticalScrollbarSize = 10;
+            // 
+            // cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds
+            // 
+            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.AutoSize = true;
+            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
+            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Location = new System.Drawing.Point(18, 59);
+            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Name = "cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds";
+            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Size = new System.Drawing.Size(229, 15);
+            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.TabIndex = 7;
+            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Text = "Change Icon random every 5 seconds";
+            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.UseSelectable = true;
+            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.CheckedChanged += new System.EventHandler(this.cbSettings_CheckedChanged);
+            // 
+            // cbSettings_Launcher_ChangeGameIcon
+            // 
+            this.cbSettings_Launcher_ChangeGameIcon.AutoSize = true;
+            this.cbSettings_Launcher_ChangeGameIcon.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
+            this.cbSettings_Launcher_ChangeGameIcon.Location = new System.Drawing.Point(3, 38);
+            this.cbSettings_Launcher_ChangeGameIcon.Name = "cbSettings_Launcher_ChangeGameIcon";
+            this.cbSettings_Launcher_ChangeGameIcon.Size = new System.Drawing.Size(129, 15);
+            this.cbSettings_Launcher_ChangeGameIcon.TabIndex = 6;
+            this.cbSettings_Launcher_ChangeGameIcon.Text = "Change Game-Icon";
+            this.cbSettings_Launcher_ChangeGameIcon.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.cbSettings_Launcher_ChangeGameIcon.UseSelectable = true;
+            this.cbSettings_Launcher_ChangeGameIcon.CheckedChanged += new System.EventHandler(this.cbSettings_CheckedChanged);
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel13.Location = new System.Drawing.Point(3, 6);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(291, 23);
+            this.metroLabel13.TabIndex = 5;
+            this.metroLabel13.Text = "Launcher";
+            this.metroLabel13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // metroPanel5
             // 
@@ -701,9 +801,9 @@
             this.metroPanel5.HorizontalScrollbarBarColor = true;
             this.metroPanel5.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel5.HorizontalScrollbarSize = 10;
-            this.metroPanel5.Location = new System.Drawing.Point(595, 3);
+            this.metroPanel5.Location = new System.Drawing.Point(615, 3);
             this.metroPanel5.Name = "metroPanel5";
-            this.metroPanel5.Size = new System.Drawing.Size(310, 124);
+            this.metroPanel5.Size = new System.Drawing.Size(300, 124);
             this.metroPanel5.TabIndex = 5;
             this.metroPanel5.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroPanel5.VerticalScrollbarBarColor = true;
@@ -721,7 +821,7 @@
             this.cbSettings_Updater_Including_Beta.Text = "Including Beta-Versions";
             this.cbSettings_Updater_Including_Beta.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.cbSettings_Updater_Including_Beta.UseSelectable = true;
-            this.cbSettings_Updater_Including_Beta.CheckedChanged += new System.EventHandler(this.cbSettings_Updater_CheckedChanged);
+            this.cbSettings_Updater_Including_Beta.CheckedChanged += new System.EventHandler(this.cbSettings_CheckedChanged);
             // 
             // cbSettings_Updater_Including_Alpha
             // 
@@ -734,14 +834,14 @@
             this.cbSettings_Updater_Including_Alpha.Text = "Including Alpha-Versions";
             this.cbSettings_Updater_Including_Alpha.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.cbSettings_Updater_Including_Alpha.UseSelectable = true;
-            this.cbSettings_Updater_Including_Alpha.CheckedChanged += new System.EventHandler(this.cbSettings_Updater_CheckedChanged);
+            this.cbSettings_Updater_Including_Alpha.CheckedChanged += new System.EventHandler(this.cbSettings_CheckedChanged);
             // 
             // metroLabel16
             // 
             this.metroLabel16.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel16.Location = new System.Drawing.Point(3, 12);
+            this.metroLabel16.Location = new System.Drawing.Point(3, 6);
             this.metroLabel16.Name = "metroLabel16";
-            this.metroLabel16.Size = new System.Drawing.Size(304, 23);
+            this.metroLabel16.Size = new System.Drawing.Size(294, 23);
             this.metroLabel16.TabIndex = 2;
             this.metroLabel16.Text = "Updater\r\n\r\n";
             this.metroLabel16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -754,9 +854,9 @@
             this.metroPanel4.HorizontalScrollbarBarColor = true;
             this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel4.HorizontalScrollbarSize = 10;
-            this.metroPanel4.Location = new System.Drawing.Point(299, 3);
+            this.metroPanel4.Location = new System.Drawing.Point(309, 3);
             this.metroPanel4.Name = "metroPanel4";
-            this.metroPanel4.Size = new System.Drawing.Size(290, 124);
+            this.metroPanel4.Size = new System.Drawing.Size(300, 124);
             this.metroPanel4.TabIndex = 4;
             this.metroPanel4.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroPanel4.VerticalScrollbarBarColor = true;
@@ -772,7 +872,7 @@
             "Light"});
             this.cbSettings_Themes.Location = new System.Drawing.Point(3, 59);
             this.cbSettings_Themes.Name = "cbSettings_Themes";
-            this.cbSettings_Themes.Size = new System.Drawing.Size(284, 29);
+            this.cbSettings_Themes.Size = new System.Drawing.Size(294, 29);
             this.cbSettings_Themes.TabIndex = 3;
             this.cbSettings_Themes.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.cbSettings_Themes.UseSelectable = true;
@@ -781,9 +881,9 @@
             // metroLabel15
             // 
             this.metroLabel15.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel15.Location = new System.Drawing.Point(3, 12);
+            this.metroLabel15.Location = new System.Drawing.Point(3, 6);
             this.metroLabel15.Name = "metroLabel15";
-            this.metroLabel15.Size = new System.Drawing.Size(284, 23);
+            this.metroLabel15.Size = new System.Drawing.Size(294, 23);
             this.metroLabel15.TabIndex = 2;
             this.metroLabel15.Text = "Theme for the launcher\r\n";
             this.metroLabel15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -798,7 +898,7 @@
             this.metroPanel2.HorizontalScrollbarSize = 10;
             this.metroPanel2.Location = new System.Drawing.Point(3, 3);
             this.metroPanel2.Name = "metroPanel2";
-            this.metroPanel2.Size = new System.Drawing.Size(290, 124);
+            this.metroPanel2.Size = new System.Drawing.Size(300, 124);
             this.metroPanel2.TabIndex = 2;
             this.metroPanel2.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroPanel2.VerticalScrollbarBarColor = true;
@@ -810,7 +910,7 @@
             this.btnSettings_ImportFromOriginalLauncher.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnSettings_ImportFromOriginalLauncher.Location = new System.Drawing.Point(3, 38);
             this.btnSettings_ImportFromOriginalLauncher.Name = "btnSettings_ImportFromOriginalLauncher";
-            this.btnSettings_ImportFromOriginalLauncher.Size = new System.Drawing.Size(284, 71);
+            this.btnSettings_ImportFromOriginalLauncher.Size = new System.Drawing.Size(294, 71);
             this.btnSettings_ImportFromOriginalLauncher.TabIndex = 3;
             this.btnSettings_ImportFromOriginalLauncher.Text = "Start import";
             this.btnSettings_ImportFromOriginalLauncher.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -820,9 +920,9 @@
             // metroLabel14
             // 
             this.metroLabel14.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel14.Location = new System.Drawing.Point(3, 12);
+            this.metroLabel14.Location = new System.Drawing.Point(3, 6);
             this.metroLabel14.Name = "metroLabel14";
-            this.metroLabel14.Size = new System.Drawing.Size(284, 23);
+            this.metroLabel14.Size = new System.Drawing.Size(294, 23);
             this.metroLabel14.TabIndex = 2;
             this.metroLabel14.Text = "Import profiles from Minecraft Launcher";
             this.metroLabel14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -830,10 +930,16 @@
             // 
             // tpAbout
             // 
+            this.tpAbout.Controls.Add(this.lblAbout_WindowsApiCodePack);
+            this.tpAbout.Controls.Add(this.lblAbout_nUpdate);
+            this.tpAbout.Controls.Add(this.lblAbout_IonicZip);
+            this.tpAbout.Controls.Add(this.lblAbout_NewtonsoftJson);
+            this.tpAbout.Controls.Add(this.lblAbout_ExceptionBase);
             this.tpAbout.Controls.Add(this.linkAbout_GitHub);
-            this.tpAbout.Controls.Add(this.metroLabel13);
+            this.tpAbout.Controls.Add(this.lblAbout_MetroFramework);
             this.tpAbout.Controls.Add(this.lblAbout);
             this.tpAbout.Controls.Add(this.rtbAbout_Licenses);
+            this.tpAbout.Enabled = true;
             this.tpAbout.HorizontalScrollbarBarColor = true;
             this.tpAbout.HorizontalScrollbarHighlightOnWheel = false;
             this.tpAbout.HorizontalScrollbarSize = 10;
@@ -847,6 +953,77 @@
             this.tpAbout.VerticalScrollbarBarColor = true;
             this.tpAbout.VerticalScrollbarHighlightOnWheel = false;
             this.tpAbout.VerticalScrollbarSize = 10;
+            this.tpAbout.Visible = false;
+            // 
+            // lblAbout_WindowsApiCodePack
+            // 
+            this.lblAbout_WindowsApiCodePack.AutoSize = true;
+            this.lblAbout_WindowsApiCodePack.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblAbout_WindowsApiCodePack.Location = new System.Drawing.Point(3, 165);
+            this.lblAbout_WindowsApiCodePack.Name = "lblAbout_WindowsApiCodePack";
+            this.lblAbout_WindowsApiCodePack.Size = new System.Drawing.Size(249, 19);
+            this.lblAbout_WindowsApiCodePack.Style = MetroFramework.MetroColorStyle.White;
+            this.lblAbout_WindowsApiCodePack.TabIndex = 10;
+            this.lblAbout_WindowsApiCodePack.Text = "WindowsAPICodePack by Microsoft";
+            this.lblAbout_WindowsApiCodePack.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblAbout_WindowsApiCodePack.WrapToLine = true;
+            this.lblAbout_WindowsApiCodePack.Click += new System.EventHandler(this.lblAbout_WindowsApiCodePack_Click);
+            // 
+            // lblAbout_nUpdate
+            // 
+            this.lblAbout_nUpdate.AutoSize = true;
+            this.lblAbout_nUpdate.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblAbout_nUpdate.Location = new System.Drawing.Point(3, 146);
+            this.lblAbout_nUpdate.Name = "lblAbout_nUpdate";
+            this.lblAbout_nUpdate.Size = new System.Drawing.Size(190, 19);
+            this.lblAbout_nUpdate.Style = MetroFramework.MetroColorStyle.White;
+            this.lblAbout_nUpdate.TabIndex = 9;
+            this.lblAbout_nUpdate.Text = "nUpdate by Dominic Beger";
+            this.lblAbout_nUpdate.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblAbout_nUpdate.WrapToLine = true;
+            this.lblAbout_nUpdate.Click += new System.EventHandler(this.lblAbout_nUpdate_Click);
+            // 
+            // lblAbout_IonicZip
+            // 
+            this.lblAbout_IonicZip.AutoSize = true;
+            this.lblAbout_IonicZip.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblAbout_IonicZip.Location = new System.Drawing.Point(3, 127);
+            this.lblAbout_IonicZip.Name = "lblAbout_IonicZip";
+            this.lblAbout_IonicZip.Size = new System.Drawing.Size(170, 19);
+            this.lblAbout_IonicZip.Style = MetroFramework.MetroColorStyle.White;
+            this.lblAbout_IonicZip.TabIndex = 8;
+            this.lblAbout_IonicZip.Text = "Ionic.Zip by Dino Chiesa";
+            this.lblAbout_IonicZip.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblAbout_IonicZip.WrapToLine = true;
+            this.lblAbout_IonicZip.Click += new System.EventHandler(this.lblAbout_IonicZip_Click);
+            // 
+            // lblAbout_NewtonsoftJson
+            // 
+            this.lblAbout_NewtonsoftJson.AutoSize = true;
+            this.lblAbout_NewtonsoftJson.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblAbout_NewtonsoftJson.Location = new System.Drawing.Point(3, 108);
+            this.lblAbout_NewtonsoftJson.Name = "lblAbout_NewtonsoftJson";
+            this.lblAbout_NewtonsoftJson.Size = new System.Drawing.Size(277, 19);
+            this.lblAbout_NewtonsoftJson.Style = MetroFramework.MetroColorStyle.White;
+            this.lblAbout_NewtonsoftJson.TabIndex = 7;
+            this.lblAbout_NewtonsoftJson.Text = "Newtonsoft.Json by James Newton-King";
+            this.lblAbout_NewtonsoftJson.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblAbout_NewtonsoftJson.WrapToLine = true;
+            this.lblAbout_NewtonsoftJson.Click += new System.EventHandler(this.lblAbout_NewtonsoftJson_Click);
+            // 
+            // lblAbout_ExceptionBase
+            // 
+            this.lblAbout_ExceptionBase.AutoSize = true;
+            this.lblAbout_ExceptionBase.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblAbout_ExceptionBase.Location = new System.Drawing.Point(3, 89);
+            this.lblAbout_ExceptionBase.Name = "lblAbout_ExceptionBase";
+            this.lblAbout_ExceptionBase.Size = new System.Drawing.Size(242, 19);
+            this.lblAbout_ExceptionBase.Style = MetroFramework.MetroColorStyle.White;
+            this.lblAbout_ExceptionBase.TabIndex = 6;
+            this.lblAbout_ExceptionBase.Text = "ExceptionBase.NET by Leo Bernard";
+            this.lblAbout_ExceptionBase.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblAbout_ExceptionBase.WrapToLine = true;
+            this.lblAbout_ExceptionBase.Click += new System.EventHandler(this.lblAbout_ExceptionBase_Click);
             // 
             // linkAbout_GitHub
             // 
@@ -858,20 +1035,21 @@
             this.linkAbout_GitHub.Text = "MineLauncher on GitHub";
             this.linkAbout_GitHub.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.linkAbout_GitHub.UseSelectable = true;
+            this.linkAbout_GitHub.Click += new System.EventHandler(this.linkAbout_GitHub_Click);
             // 
-            // metroLabel13
+            // lblAbout_MetroFramework
             // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.Location = new System.Drawing.Point(3, 70);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(241, 114);
-            this.metroLabel13.Style = MetroFramework.MetroColorStyle.White;
-            this.metroLabel13.TabIndex = 4;
-            this.metroLabel13.Text = "MetroFramework by Sven Walter\r\nExceptionBase.NET by Leo Bernard\r\nNewtonsoft.Json " +
-    "by James Newton-King\r\nIonic.Zip by Dino Chiesa\r\nnUpdate by Dominic Beger\r\nWindow" +
-    "sAPICodePack by Microsoft";
-            this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel13.WrapToLine = true;
+            this.lblAbout_MetroFramework.AutoSize = true;
+            this.lblAbout_MetroFramework.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblAbout_MetroFramework.Location = new System.Drawing.Point(3, 70);
+            this.lblAbout_MetroFramework.Name = "lblAbout_MetroFramework";
+            this.lblAbout_MetroFramework.Size = new System.Drawing.Size(231, 19);
+            this.lblAbout_MetroFramework.Style = MetroFramework.MetroColorStyle.White;
+            this.lblAbout_MetroFramework.TabIndex = 4;
+            this.lblAbout_MetroFramework.Text = "MetroFramework by Sven Walter";
+            this.lblAbout_MetroFramework.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblAbout_MetroFramework.WrapToLine = true;
+            this.lblAbout_MetroFramework.Click += new System.EventHandler(this.lblAbout_MetroFramework_Click);
             // 
             // lblAbout
             // 
@@ -1113,6 +1291,8 @@
             this.pnlProfiles_Edit.ResumeLayout(false);
             this.pnlProfiles_Edit.PerformLayout();
             this.tpSettings.ResumeLayout(false);
+            this.metroPanel6.ResumeLayout(false);
+            this.metroPanel6.PerformLayout();
             this.metroPanel5.ResumeLayout(false);
             this.metroPanel5.PerformLayout();
             this.metroPanel4.ResumeLayout(false);
@@ -1154,7 +1334,6 @@
         private MetroFramework.Controls.MetroButton btnFastLogin_Login;
         private MetroFramework.Controls.MetroTextBox tbFastLogin_Password;
         private MetroFramework.Controls.MetroTextBox tbFastLogin_Username;
-        private MetroFramework.Controls.MetroButton btnLaunch;
         private MetroFramework.Controls.MetroPanel pnlFastLogin;
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroToggle toggleProfiles_Edit_ShowVersion_Alpha;
@@ -1182,7 +1361,7 @@
         private MetroFramework.Controls.MetroToggle toggleProfiles_Edit_Offline;
         private MetroFramework.Controls.MetroLabel lblProfiles_Edit_Offline_PlayerName;
         private MetroFramework.Controls.MetroTextBox tbProfiles_Edit_Offline_PlayerName;
-        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroLabel lblAbout_MetroFramework;
         private MetroFramework.Controls.MetroProgressBar pbLog;
         private MetroFramework.Controls.MetroLabel lblLogPB;
         private MetroFramework.Controls.MetroButton btnProfile_Edit_Save;
@@ -1198,6 +1377,18 @@
         private MetroFramework.Controls.MetroCheckBox cbSettings_Updater_Including_Beta;
         private MetroFramework.Controls.MetroCheckBox cbSettings_Updater_Including_Alpha;
         private MetroFramework.Controls.MetroLabel metroLabel16;
+        private MetroFramework.Controls.MetroLabel lblAbout_WindowsApiCodePack;
+        private MetroFramework.Controls.MetroLabel lblAbout_nUpdate;
+        private MetroFramework.Controls.MetroLabel lblAbout_IonicZip;
+        private MetroFramework.Controls.MetroLabel lblAbout_NewtonsoftJson;
+        private MetroFramework.Controls.MetroLabel lblAbout_ExceptionBase;
+        private MetroFramework.Controls.MetroPanel metroPanel6;
+        private MetroFramework.Controls.MetroCheckBox cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds;
+        private MetroFramework.Controls.MetroCheckBox cbSettings_Launcher_ChangeGameIcon;
+        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroButton btnProfiles_Edit_JVM_Path_Select;
+        private MetroFramework.Controls.MetroButton btnProfiles_Edit_Directory_Select;
+        private MetroFramework.Controls.MetroButton btnLaunch;
     }
 }
 

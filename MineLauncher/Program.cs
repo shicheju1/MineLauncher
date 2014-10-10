@@ -42,14 +42,6 @@ namespace MineLauncher
                 {
                     return Assembly.Load(MineLauncher.Properties.Resources.MetroFramework);
                 }
-                else if (args.Name.StartsWith("MetroFramework.Design"))
-                {
-                    return Assembly.Load(MineLauncher.Properties.Resources.MetroFramework_Design);
-                }
-                else if (args.Name.StartsWith("MetroFramework.Fonts"))
-                {
-                    return Assembly.Load(MineLauncher.Properties.Resources.MetroFramework_Fonts);
-                }
                 else if (args.Name.StartsWith("Microsoft.WindowsAPICodePack") && !args.Name.StartsWith("Microsoft.WindowsAPICodePack.Shell"))
                 {
                     return Assembly.Load(MineLauncher.Properties.Resources.Microsoft_WindowsAPICodePack);

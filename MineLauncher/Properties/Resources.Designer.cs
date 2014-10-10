@@ -163,26 +163,6 @@ namespace MineLauncher.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
-        public static byte[] MetroFramework_Design {
-            get {
-                object obj = ResourceManager.GetObject("MetroFramework_Design", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
-        /// </summary>
-        public static byte[] MetroFramework_Fonts {
-            get {
-                object obj = ResourceManager.GetObject("MetroFramework_Fonts", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
-        /// </summary>
         public static byte[] Microsoft_WindowsAPICodePack {
             get {
                 object obj = ResourceManager.GetObject("Microsoft_WindowsAPICodePack", resourceCulture);

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 using Ionic.Zip;
@@ -11,6 +14,7 @@ using Newtonsoft.Json;
 
 using MineLauncher.Events;
 using MineLauncher.UI.Forms;
+using MineLauncher.Win32Api;
 
 namespace MineLauncher.Launcher
 {
@@ -34,6 +38,8 @@ namespace MineLauncher.Launcher
 
         public delegate void LauncherLogHandler(object sender, LauncherEventArgs e);
         public event LauncherLogHandler OnLauncherLog;
+
+        Random rand = new Random();
 
         public MinecraftLauncher(string profilename)
         {
@@ -76,6 +82,15 @@ namespace MineLauncher.Launcher
 
         public void LaunchMC(MinecraftSession s, IWin32Window parent, bool offline)
         {
+            List<System.Drawing.Icon> icons = new List<System.Drawing.Icon>();
+            icons.Add(MineLauncher.Properties.Resources.Creeper_Blue);
+            icons.Add(MineLauncher.Properties.Resources.Creeper_Green);
+            icons.Add(MineLauncher.Properties.Resources.Creeper_Orange);
+            icons.Add(MineLauncher.Properties.Resources.Creeper_Red);
+            icons.Add(MineLauncher.Properties.Resources.Creeper_Standard);
+            icons.Add(MineLauncher.Properties.Resources.Creeper_Violet);
+            icons.Add(MineLauncher.Properties.Resources.Creeper_Yellow);
+
             string cmd = "";
             string ver = _version;
             string mcLocation = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\.minecraft";
@@ -161,7 +176,38 @@ namespace MineLauncher.Launcher
 
             Process mcProcess = Process.Start(mcProcessStartInfo);
 
-            StreamReader mcProcessOutputReader = mcProcess.StandardOutput;
+            StreamReader mcProcessOutputReader = mcProcess.StandardOutput;          
+                        
+            dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"));
+
+            if ((bool)setup.ingame.randomicon)
+            {
+                new Thread(() =>
+                {
+
+                    if ((bool)setup.ingame.changeiconrandom)
+                    {
+                        while (!mcProcess.HasExited)
+                        {
+                            Icon icon = icons[rand.Next(0, 6)];
+
+                            NativesMethods.SendMessage(mcProcess.MainWindowHandle, NativesMethods.WM_SETICON, NativesMethods.ICON_BIG, icon.Handle);
+                            NativesMethods.SendMessage(mcProcess.MainWindowHandle, NativesMethods.WM_SETICON, NativesMethods.ICON_SMALL, icon.Handle);
+
+                            Thread.Sleep(5000);
+                        }
+                    }
+                    else
+                    {
+                        while (mcProcess.MainWindowHandle == IntPtr.Zero) { int i = 0; i++; /* Do something */ }
+                        Icon icon = icons[rand.Next(0, 6)];
+
+                        NativesMethods.SendMessage(mcProcess.MainWindowHandle, NativesMethods.WM_SETICON, NativesMethods.ICON_BIG, icon.Handle);
+                        NativesMethods.SendMessage(mcProcess.MainWindowHandle, NativesMethods.WM_SETICON, NativesMethods.ICON_SMALL, icon.Handle);
+                    }
+                }).Start();
+            }
+
             while (!mcProcess.HasExited)
             {
                 string read = mcProcessOutputReader.ReadLine();
@@ -180,10 +226,6 @@ namespace MineLauncher.Launcher
                         new frmMinecraftCrashLog(path, ver).Show();
                     }
                 }
-            }
-            if(mcProcess.ExitCode == -1)
-            {
-
             }
         }
 

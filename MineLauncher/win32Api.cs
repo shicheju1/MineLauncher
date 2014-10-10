@@ -5,7 +5,7 @@ namespace MineLauncher.Win32Api
 {
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-    public class MEMORYSTATUSEX
+    internal class MEMORYSTATUSEX
     {
         public uint dwLength;
         public uint dwMemoryLoad;
@@ -22,12 +22,25 @@ namespace MineLauncher.Win32Api
         }
     }
     
-    public class Calls
+    internal class NativesMethods
     {
+
+        internal const int WM_SETICON = 0x80;
+        internal const int ICON_SMALL = 0;
+        internal const int ICON_BIG = 1;
+
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hwnd, int message, int wParam, IntPtr lParam);
+        
+        [DllImport("User32.dll")]
+        internal static extern IntPtr GetDC(IntPtr hwnd);
+
+        [DllImport("User32.dll")]
+        internal static extern void ReleaseDC(IntPtr dc);
 
         [return: MarshalAs(UnmanagedType.Bool)]
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern bool GlobalMemoryStatusEx([In, Out] MEMORYSTATUSEX lpBuffer);
+        internal static extern bool GlobalMemoryStatusEx([In, Out] MEMORYSTATUSEX lpBuffer);
 
     }
 }

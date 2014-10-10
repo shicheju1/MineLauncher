@@ -40,25 +40,7 @@ namespace MineLauncher.Events
 
         public void OnEvent(string entryText, EventLogType logtype = EventLogType.DateAndPrefix)
         {
-            this.private_entry = "[" + DateTime.Now.ToString() + "][" + log_prefix.ToUpper() + "] " + entryText;
-            this.private_entrywithoutdate = entryText;
-
-            if (logtype == EventLogType.DateAndPrefix)
-            {
-                File.AppendAllText(log_path + DateTime.Now.ToLongDateString().Replace(".", "-"), "[" + DateTime.Now.ToString() + "][" + log_prefix.ToUpper() + "] " + entryText);
-            }
-            else if (logtype == EventLogType.Date)
-            {
-                File.AppendAllText(log_path + DateTime.Now.ToLongDateString().Replace(".", "-"), "[" + DateTime.Now.ToString() + "] " + entryText);
-            }
-            else if (logtype == EventLogType.Prefix)
-            {
-                File.AppendAllText(log_path + DateTime.Now.ToLongDateString().Replace(".", "-"), "[" + log_prefix.ToUpper() + "] " + entryText);
-            }
-            else
-            {
-                File.AppendAllText(log_path + DateTime.Now.ToLongDateString().Replace(".", "-"), entryText);
-            }
+            OnEvent(log_prefix, entryText, logtype);
         }
 
         public void OnEvent(string entryPrefix, string entryText, EventLogType logtype = EventLogType.DateAndPrefix)
@@ -68,19 +50,19 @@ namespace MineLauncher.Events
 
             if (logtype == EventLogType.DateAndPrefix)
             {
-                File.AppendAllText(log_path + DateTime.Now.ToLongDateString().Replace(".", "-"), "[" + DateTime.Now.ToString() + "][" + entryPrefix.ToUpper() + "] " + entryText);
+                File.AppendAllText(log_path + DateTime.Now.ToShortDateString().Replace(".", "-") + ".log", "[" + DateTime.Now.ToString() + "][" + entryPrefix.ToUpper() + "] " + entryText);
             }
             else if (logtype == EventLogType.Date)
             {
-                File.AppendAllText(log_path + DateTime.Now.ToLongDateString().Replace(".", "-"), "[" + DateTime.Now.ToString() + "][" + entryPrefix.ToUpper() + "] " + entryText);
+                File.AppendAllText(log_path + DateTime.Now.ToShortDateString().Replace(".", "-") + ".log", "[" + DateTime.Now.ToString() + "][" + entryPrefix.ToUpper() + "] " + entryText);
             }
             else if (logtype == EventLogType.Prefix)
             {
-                File.AppendAllText(log_path + DateTime.Now.ToLongDateString().Replace(".", "-"), "[" + entryPrefix.ToUpper() + "] " + entryText);
+                File.AppendAllText(log_path + DateTime.Now.ToShortDateString().Replace(".", "-") + ".log", "[" + entryPrefix.ToUpper() + "] " + entryText);
             }
             else
             {
-                File.AppendAllText(log_path + DateTime.Now.ToLongDateString().Replace(".", "-"), entryText);
+                File.AppendAllText(log_path + DateTime.Now.ToShortDateString().Replace(".", "-") + ".log", entryText);
             }
         }
 

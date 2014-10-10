@@ -57,7 +57,7 @@ namespace MineLauncher.Launcher
                 string status = "";
 
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://authserver.mojang.com/authenticate");
-                request.UserAgent = "MineSurvivalLauncher v0.1";
+                request.UserAgent = "MineLauncher v" + Application.ProductVersion;
                 request.Method = "POST";
                 string json = Newtonsoft.Json.JsonConvert.SerializeObject(new
                 {
@@ -149,7 +149,7 @@ namespace MineLauncher.Launcher
                     string response = "";
 
                     HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://authserver.mojang.com/refresh");
-                    request.UserAgent = "MineLauncher v0.1";
+                    request.UserAgent = "MineLauncher v" + Application.ProductVersion;
                     request.Method = "POST";
                     string json = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\session.json");
 

@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.IO;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading;
 using System.Reflection;
 using System.Windows.Forms;
@@ -58,6 +59,7 @@ namespace MineLauncher.UI.Forms
         {
             Dictionary<string, object> setup = new Dictionary<string, object>();
             Dictionary<string, object> setup_updater = new Dictionary<string, object>();
+            Dictionary<string, object> setup_ingame = new Dictionary<string, object>();
 
             setup.Add("baseofflinemode", toggleLogin_UseOfflineMode.Checked);
             setup.Add("theme", cbTheme.SelectedItem.ToString());
@@ -65,7 +67,11 @@ namespace MineLauncher.UI.Forms
             setup_updater.Add("alpha", false);
             setup_updater.Add("beta", false);
 
+            setup_ingame.Add("randomicon", true);
+            setup_ingame.Add("changeiconrandom", true);
+
             setup.Add("updater", setup_updater);
+            setup.Add("ingame", setup_ingame);
 
             File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));
             Application.Restart();
@@ -413,8 +419,142 @@ namespace MineLauncher.UI.Forms
                 if (this.IsHandleCreated) this.Invoke(new Action(() => cbProfiles_Edit_Version.Enabled = true));
             }).Start();
         }
+        
+        private void btnProfiles_ImportFromOriginalLauncher_Click(object sender, EventArgs e)
+        {
+            new Thread(() =>
+            {
+                try
+                {
+                    dynamic mclauncher_profiles_json = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\launcher_profiles.json"));
+
+                    Newtonsoft.Json.Linq.JObject jTypeMCProfile = (Newtonsoft.Json.Linq.JObject)(mclauncher_profiles_json.profiles);
+                    Dictionary<string, Dictionary<string, object>> mclauncher_profiles = jTypeMCProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
+
+                    rawVersionList = VersionList.getVersionList(new System.Net.WebClient().DownloadString("http://s3.amazonaws.com/Minecraft.Download/versions/versions.json"));
+                    List<string> versions = new VersionList().GetVersionList(rawVersionList, VersionListType.Release);
+
+                    dynamic profilejson;
+                    if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
+                    {
+                        profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
+                    }
+                    else
+                    {
+                        profilejson = JsonConvert.DeserializeObject("{ }");
+                    }
+
+                    Newtonsoft.Json.Linq.JObject jTypeMineLauncherProfile = (Newtonsoft.Json.Linq.JObject)(profilejson);
+                    Dictionary<string, Dictionary<string, object>> profiles;
+                    if (jTypeMineLauncherProfile == null)
+                    {
+                        profiles = new Dictionary<string, Dictionary<string, object>>();
+                    }
+                    else
+                    {
+                        profiles = jTypeMineLauncherProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
+                    }
+
+                    if (profiles == null) profiles = new Dictionary<string, Dictionary<string, object>>();
+
+                    foreach (KeyValuePair<string, Dictionary<string, object>> mclauncher_profile in mclauncher_profiles)
+                    {
+                        Dictionary<string, object> minelauncher_profile_info = new Dictionary<string, object>();
+
+                        if (mclauncher_profile.Value.ContainsKey("lastVersionId"))
+                        {
+                            minelauncher_profile_info.Add("mcversion", mclauncher_profile.Value["lastVersionId"]);
+                        }
+                        else
+                        {
+                            minelauncher_profile_info.Add("mcversion", versions[0]);
+                        }
+
+                        if (mclauncher_profile.Value.Count > 2)
+                        {
+                            minelauncher_profile_info.Add("gamedir", mclauncher_profile.Value["gameDir"]);
+                            minelauncher_profile_info.Add("javapath", mclauncher_profile.Value["javaDir"]);
+                            minelauncher_profile_info.Add("javaargs", mclauncher_profile.Value["javaArgs"]);
+                            minelauncher_profile_info.Add("offline-mode", toggleLogin_UseOfflineMode.Checked);
+                            minelauncher_profile_info.Add("offline-mode-playername", GenerateRandomNickName(9));
+
+                            if (profiles.ContainsKey(mclauncher_profile.Key))
+                            {
+                                profiles.Remove(mclauncher_profile.Key);
+                                profiles.Add(mclauncher_profile.Key, minelauncher_profile_info);
+                            }
+                            else
+                            {
+                                profiles.Add(mclauncher_profile.Key, minelauncher_profile_info);
+                            }
+                        }
+                    }
+
+                    string json = JsonConvert.SerializeObject(profiles);
+                    File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json", json);
+
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "The profiles of the original minecraft launcher were imported", "Import successfully", MessageBoxButtons.OK, MessageBoxIcon.Information)));
+                    this.SafeInvoke(new Action(() => tileProfile_Next.Enabled = true));
+                }
+                catch (Exception)
+                {
+                    this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "The import of the profiles failed", "Import failed", MessageBoxButtons.OK, MessageBoxIcon.Information)));
+                }
+            }).Start();
+        }
 
         #endregion
-                                           
+                
+        #region RandomNickGenerator
+
+        char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'u', 'y' };
+        char[] consonants = new char[] { 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z' };
+        int[] numbers = new int[] { 1, 3, 4, 6, 7, 8 };
+
+        private string GenerateRandomNickName(int length)
+        {
+            StringBuilder sb = new StringBuilder();
+            //initialize our vowel/consonant flag
+            bool flag = (rand.Next(2) == 0);
+            bool numbers1 = (rand.Next(4) == 2);
+            bool numbers2 = (rand.Next(4) == 4);
+
+            int middle_number_rand = rand.Next(44);
+
+            if (numbers1)
+            {
+                sb.Append(numbers[rand.Next(numbers.Length)].ToString());
+                sb.Append(numbers[rand.Next(numbers.Length)].ToString());
+            }
+
+            for (int i = 0; i < length; i++)
+            {
+                bool numbers_middle = (rand.Next(44) == middle_number_rand);
+                if (numbers_middle) sb.Append(numbers[rand.Next(numbers.Length)].ToString());
+
+                sb.Append(GetChar(flag));
+                flag = !flag; //invert the vowel/consonant flag
+            }
+
+            if (numbers2)
+            {
+                sb.Append(numbers[rand.Next(numbers.Length)].ToString());
+                sb.Append(numbers[rand.Next(numbers.Length)].ToString());
+            }
+
+            return sb.ToString();
+        }
+
+        private char GetChar(bool vowel)
+        {
+            if (vowel)
+            {
+                return vowels[rand.Next(vowels.Length)];
+            }
+            return consonants[rand.Next(consonants.Length)];
+        }
+
+        #endregion
+             
     }
 }

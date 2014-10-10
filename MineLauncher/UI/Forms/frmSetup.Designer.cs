@@ -54,6 +54,7 @@
             this.tileProfile_Next = new MetroFramework.Controls.MetroTile();
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.pnlProfiles_Edit = new MetroFramework.Controls.MetroPanel();
+            this.btnProfiles_ImportFromOriginalLauncher = new MetroFramework.Controls.MetroButton();
             this.lblProfiles_Edit_Offline_PlayerName = new MetroFramework.Controls.MetroLabel();
             this.tbProfiles_Edit_Offline_PlayerName = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
@@ -101,7 +102,7 @@
             this.tcMain.ItemSize = new System.Drawing.Size(68, 37);
             this.tcMain.Location = new System.Drawing.Point(23, 63);
             this.tcMain.Name = "tcMain";
-            this.tcMain.SelectedIndex = 0;
+            this.tcMain.SelectedIndex = 3;
             this.tcMain.Size = new System.Drawing.Size(884, 420);
             this.tcMain.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tcMain.TabIndex = 0;
@@ -451,6 +452,7 @@
             this.pnlProfiles_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlProfiles_Edit.Controls.Add(this.btnProfiles_ImportFromOriginalLauncher);
             this.pnlProfiles_Edit.Controls.Add(this.lblProfiles_Edit_Offline_PlayerName);
             this.pnlProfiles_Edit.Controls.Add(this.tbProfiles_Edit_Offline_PlayerName);
             this.pnlProfiles_Edit.Controls.Add(this.metroLabel11);
@@ -481,6 +483,19 @@
             this.pnlProfiles_Edit.VerticalScrollbarBarColor = true;
             this.pnlProfiles_Edit.VerticalScrollbarHighlightOnWheel = false;
             this.pnlProfiles_Edit.VerticalScrollbarSize = 10;
+            // 
+            // btnProfiles_ImportFromOriginalLauncher
+            // 
+            this.btnProfiles_ImportFromOriginalLauncher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProfiles_ImportFromOriginalLauncher.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnProfiles_ImportFromOriginalLauncher.Location = new System.Drawing.Point(13, 198);
+            this.btnProfiles_ImportFromOriginalLauncher.Name = "btnProfiles_ImportFromOriginalLauncher";
+            this.btnProfiles_ImportFromOriginalLauncher.Size = new System.Drawing.Size(257, 42);
+            this.btnProfiles_ImportFromOriginalLauncher.TabIndex = 32;
+            this.btnProfiles_ImportFromOriginalLauncher.Text = "Import from Original Launcher";
+            this.btnProfiles_ImportFromOriginalLauncher.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnProfiles_ImportFromOriginalLauncher.UseSelectable = true;
+            this.btnProfiles_ImportFromOriginalLauncher.Click += new System.EventHandler(this.btnProfiles_ImportFromOriginalLauncher_Click);
             // 
             // lblProfiles_Edit_Offline_PlayerName
             // 
@@ -804,7 +819,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(0, 63);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(930, 43);
+            this.metroPanel1.Size = new System.Drawing.Size(930, 46);
             this.metroPanel1.TabIndex = 1;
             this.metroPanel1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroPanel1.VerticalScrollbarBarColor = true;
@@ -894,5 +909,6 @@
         private MetroFramework.Controls.MetroLabel lblProfiles_Edit_Offline_PlayerName;
         private MetroFramework.Controls.MetroTextBox tbProfiles_Edit_Offline_PlayerName;
         private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroButton btnProfiles_ImportFromOriginalLauncher;
     }
 }
