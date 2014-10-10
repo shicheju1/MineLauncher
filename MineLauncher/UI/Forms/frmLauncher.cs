@@ -14,7 +14,6 @@ using MetroFramework.Forms;
 
 using MineLauncher.Events;
 using MineLauncher.Launcher;
-using MineLauncher.UI.Dialogs;
 using MineLauncher.Win32Api;
 
 using Newtonsoft.Json;

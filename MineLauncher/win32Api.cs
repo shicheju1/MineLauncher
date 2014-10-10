@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Runtime.InteropServices;
 
 namespace MineLauncher.Win32Api
@@ -21,16 +22,16 @@ namespace MineLauncher.Win32Api
             this.dwLength = (uint)Marshal.SizeOf(typeof(MEMORYSTATUSEX));
         }
     }
-    
+
     internal class NativesMethods
     {
 
         internal const int WM_SETICON = 0x80;
         internal const int ICON_SMALL = 0;
         internal const int ICON_BIG = 1;
-
+                
         [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hwnd, int message, int wParam, IntPtr lParam);
+        internal static extern int SendMessage(IntPtr hwnd, int message, int wParam, IntPtr lParam);
         
         [DllImport("User32.dll")]
         internal static extern IntPtr GetDC(IntPtr hwnd);
@@ -43,4 +44,5 @@ namespace MineLauncher.Win32Api
         internal static extern bool GlobalMemoryStatusEx([In, Out] MEMORYSTATUSEX lpBuffer);
 
     }
+
 }
