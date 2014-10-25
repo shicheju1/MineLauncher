@@ -2,7 +2,7 @@
 
 namespace MineLauncher.Events
 {
-    public sealed class LoginEventArgs : BaseEventArgs
+    internal sealed class LoginEventArgs : BaseEventArgs
     {
         
         private LoginEventArgs()

@@ -10,7 +10,7 @@ using MineLauncher.Events;
 namespace MineLauncher.Launcher
 {
 
-    public class MinecraftDownloader
+    internal class MinecraftDownloader
     {
 
         Dictionary<string, string[]> rawVersionData;
@@ -35,11 +35,11 @@ namespace MineLauncher.Launcher
 
         public MinecraftDownloader(string version)
         {
-            _assetspath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\assets\\objects";
-            _legacyassetspath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\assets\\virtual\\legacy";
-            _librariespath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\libraries";
-            _versionpath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\versions\\" + version;
-            _versionspath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\versions";
+            _assetspath = GlobalConfig.AppDataPath + "\\.minecraft\\assets\\objects";
+            _legacyassetspath = GlobalConfig.AppDataPath + "\\.minecraft\\assets\\virtual\\legacy";
+            _librariespath = GlobalConfig.AppDataPath + "\\.minecraft\\libraries";
+            _versionpath = GlobalConfig.AppDataPath + "\\.minecraft\\versions\\" + version;
+            _versionspath = GlobalConfig.AppDataPath + "\\.minecraft\\versions";
 
             string _version_json = "";
 
@@ -116,11 +116,11 @@ namespace MineLauncher.Launcher
             if (!Directory.Exists(_versionpath))
                 Directory.CreateDirectory(_versionpath);
 
-            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\assets\\indexes"))
-                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\assets\\indexes");
+            if (!Directory.Exists(GlobalConfig.AppDataPath + "\\.minecraft\\assets\\indexes"))
+                Directory.CreateDirectory(GlobalConfig.AppDataPath + "\\.minecraft\\assets\\indexes");
 
             File.WriteAllText(_versionpath + "\\" + version + ".json", _version_json);
-            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\assets\\indexes\\" + version + ".json", _version_assets);
+            File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\assets\\indexes\\" + version + ".json", _version_assets);
         }
 
         public void StartDownload()

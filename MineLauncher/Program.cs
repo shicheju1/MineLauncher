@@ -1,25 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
+using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
 
 using MineLauncher.UI.Forms;
+using MineLauncher.Win32Api;
 
 namespace MineLauncher
 {
-    static class Program
+    internal static class Program
     {
 
         public static ExceptionBase.ExceptionBase ExceptionTracker;
+
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            string architcture = Environment.Is64BitOperatingSystem ? "64" : "86";
+            if (File.Exists(Directory.GetCurrentDirectory() + "\\app.prop" + architcture))
+            {
+                if (File.ReadAllLines(Directory.GetCurrentDirectory() + "\\app.prop" + architcture)[2] == "show-console")
+                {
+                    NativesMethods.AllocConsole();
+                }
+            }
+
             AppDomain.CurrentDomain.AssemblyResolve += (sender, args) =>
             {
                 if(args.Name.StartsWith("ExceptionBase"))

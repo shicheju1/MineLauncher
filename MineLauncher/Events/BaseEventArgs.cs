@@ -4,7 +4,7 @@ using System.IO;
 namespace MineLauncher.Events
 {
 
-    public enum EventLogType
+    internal enum EventLogType
     {
         DateAndPrefix,
         Date,
@@ -12,11 +12,11 @@ namespace MineLauncher.Events
         None
     }
 
-    public class BaseEventArgs : EventArgs
+    internal class BaseEventArgs : EventArgs
     {
 
         private string log_prefix = "MineLauncher";
-        private string log_path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\logs\\";
+        private string log_path = GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\logs\\";
 
         private string private_entry;
         private string private_entrywithoutdate;

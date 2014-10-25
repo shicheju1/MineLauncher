@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Collections.Generic;
-using System.Threading;
+using System.Net;
 using System.Reflection;
+using System.Threading;
 using System.Text;
 using System.Windows.Forms;
 
@@ -12,8 +14,10 @@ using MetroFramework.Controls;
 using MetroFramework.Interfaces;
 using MetroFramework.Forms;
 
+using MineLauncher;
 using MineLauncher.Events;
 using MineLauncher.Launcher;
+using MineLauncher.UI.Controls;
 using MineLauncher.Win32Api;
 
 using Newtonsoft.Json;
@@ -25,7 +29,7 @@ using Microsoft.WindowsAPICodePack.Taskbar;
 
 namespace MineLauncher.UI.Forms
 {
-    public partial class frmLauncher : MetroForm
+    internal partial class frmLauncher : MetroForm
     {
 
         string uitheme = "";
@@ -44,19 +48,74 @@ namespace MineLauncher.UI.Forms
         TaskbarManager taskbar;
 
         frmStarting starting;
-
+        
         public frmLauncher()
         {
+            string architcture = Environment.Is64BitOperatingSystem ? "64" : "86";
+            string program_files = Environment.Is64BitOperatingSystem ? Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) : Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+
+            Console.WriteLine("STARTING MINELAUNCHER...");
+            Console.WriteLine("APPDATA: " + GlobalConfig.AppDataPath);
+            Console.WriteLine("APPDATA EXISTS: " + Directory.Exists(GlobalConfig.AppDataPath));
+            Console.WriteLine("JVMPATH: " + GlobalConfig.GetJavaPath(program_files + "\\Java\\jre7\\bin\\javaw.exe"));
+            Console.WriteLine("JVMPATH EXISTS: " + Directory.Exists(GlobalConfig.GetJavaPath(program_files + "\\Java\\jre7\\bin\\javaw.exe")));
+            Console.WriteLine("VERSION: " + Application.ProductVersion);
+            Console.WriteLine("CURRENT USER: " + Environment.UserName);
+            Console.WriteLine("CURRENT TIME: " + DateTime.Now.ToString());
+            Console.WriteLine("PROPS: app.prop" + architcture);
+            Console.WriteLine("INITIALIZING MINELAUNCHER...");
+
+            if (!File.Exists(Application.StartupPath + "\\app.prop" + architcture) && File.Exists(Application.StartupPath + "\\apg.exe"))
+            {
+                Process apg = new Process();
+
+                apg.StartInfo = new ProcessStartInfo();
+                apg.StartInfo.WorkingDirectory = Application.StartupPath;
+                apg.StartInfo.FileName = Application.StartupPath + "\\apg.exe";
+                apg.StartInfo.Arguments = "--show-help";
+
+                apg.Start();
+                apg.WaitForExit();
+
+                Application.Restart();
+            }
+
+            DotMinecraft.CreateDotMinecraftHierarchy();
+
             InitializeComponent();
-            
-            if (!File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"))
+
+            if (File.Exists(Directory.GetCurrentDirectory() + "\\app.prop" + architcture))
+            {
+                if (File.ReadAllLines(Directory.GetCurrentDirectory() + "\\app.prop" + architcture)[3] == "no-setup" && !File.Exists(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json"))
+                {
+                    Dictionary<string, object> setup = new Dictionary<string, object>();
+                    Dictionary<string, object> setup_updater = new Dictionary<string, object>();
+                    Dictionary<string, object> setup_ingame = new Dictionary<string, object>();
+
+                    setup.Add("baseofflinemode", true);
+                    setup.Add("theme", "dark");
+
+                    setup_updater.Add("alpha", false);
+                    setup_updater.Add("beta", false);
+
+                    setup_ingame.Add("randomicon", true);
+                    setup_ingame.Add("changeiconrandom", true);
+
+                    setup.Add("updater", setup_updater);
+                    setup.Add("ingame", setup_ingame);
+
+                    File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));
+                }
+            }
+
+            if (!File.Exists(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json"))
             {
                 this.Enabled = false;
                 new frmSetup().ShowDialog();
             }
             else
             {
-                dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"));
+                dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json"));
 
                 uitheme = (string)setup.theme;
                 updater_include_alpha = (bool)setup.updater.alpha;
@@ -70,8 +129,6 @@ namespace MineLauncher.UI.Forms
 
                 cbSettings_Updater_Including_Alpha.Checked = updater_include_alpha;
                 cbSettings_Updater_Including_Beta.Checked = updater_include_beta;
-
-                ChangeFormTheme(this);
             }
 
             this.Location = new Point(-50000, -50000);
@@ -81,8 +138,8 @@ namespace MineLauncher.UI.Forms
             starting.Show();
 
             new Thread(() =>
-            {
-                DotMinecraft.CreateDotMinecraftHierarchy();
+            {                                
+                // dynamic minelauncher_api = JsonConvert.DeserializeObject(new WebClient().DownloadString("http://api.lukasberger.at/minelauncher"));
 
                 // nUpdate doesn't work yet
 
@@ -117,6 +174,42 @@ namespace MineLauncher.UI.Forms
 
                 MEMORYSTATUSEX memory = new MEMORYSTATUSEX();
                 NativesMethods.GlobalMemoryStatusEx(memory);
+                
+                /* if (nUpdate.Core.ConnectionChecker.IsConnectionAvailable())
+                {
+                    dynamic featured_api = JsonConvert.DeserializeObject(new WebClient().DownloadString((string)minelauncher_api.featuredlink));
+                    if(((JArray)featured_api).HasValues)
+                    {
+                        Dictionary<string, Dictionary<string, string>> featured_api_jobject = new JObject(featured_api).ToObject<Dictionary<string, Dictionary<string, string>>>();
+
+                        int y = 3;
+                        foreach (KeyValuePair<string, Dictionary<string, string>> featured_obj in featured_api_jobject)
+                        {
+                            string title = featured_obj.Value["Title"];
+                            string descr = featured_obj.Value["Description"];
+                            string type = featured_obj.Value["Type"];
+
+                            FeaturedObjectType obj_type = FeaturedObjectType.Other;
+                            if (type.ToLower() == "featured")
+                                obj_type = FeaturedObjectType.Featured;
+                            else if (type.ToLower() == "modpack")
+                                obj_type = FeaturedObjectType.ModPack;
+                            else if (type.ToLower() == "news")
+                                obj_type = FeaturedObjectType.News;
+
+                            this.SafeInvoke(new Action(() =>
+                            {
+                                FeaturedObject objControl = new FeaturedObject(title, descr, obj_type);
+                                objControl.Location = new Point(5, y);
+                                y += objControl.Height;
+
+                                tpFeatured.Controls.Add(objControl);
+                            }));
+                        }
+                    }
+                } */
+                
+                ChangeFormTheme(this);
 
                 ulong availMem = memory.ullAvailPhys;
                 string memStat = "Fine";
@@ -154,7 +247,7 @@ namespace MineLauncher.UI.Forms
                         MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     Application.Exit();
                 }
-
+                
                 this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [STARTUP] Starting MineLauncher Version " + Application.ProductVersion + "\n")));
                 this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [STARTUP] System: " + Environment.OSVersion.GetOSFullName() + ", " + Environment.OSVersion.ToString() + "\n")));
                 this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [STARTUP] Memory: " + Math.Round((double)memory.ullTotalPhys / 1024 / 1024, 2) + "MB\n")));
@@ -198,9 +291,9 @@ namespace MineLauncher.UI.Forms
                     {
                         this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Logged in as " + session.PlayerName + "\n")));
                         this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Session: " + session.Session + "\n")));
-                        new System.Net.WebClient().DownloadFile("https://minotar.net/avatar/" + session.PlayerName, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
+                        new System.Net.WebClient().DownloadFile("https://minotar.net/avatar/" + session.PlayerName, GlobalConfig.AppDataPath +
                             "\\.minecraft\\minelauncher\\" + session.PlayerName + "Head.png");
-                        Icon headIcon = Icon.FromHandle(new Bitmap(Image.FromFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
+                        Icon headIcon = Icon.FromHandle(new Bitmap(Image.FromFile(GlobalConfig.AppDataPath +
                             "\\.minecraft\\minelauncher\\" + session.PlayerName + "Head.png"), new Size(64, 64)).GetHicon());
                         this.BeginInvoke(new Action(() =>
                         {
@@ -236,9 +329,9 @@ namespace MineLauncher.UI.Forms
                         this.SafeInvoke(new Action(() => cbProfiles_Edit_Version.Items.Add(version)));
                     }
 
-                    if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
+                    if (File.Exists(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json"))
                     {
-                        dynamic profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
+                        dynamic profilejson = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json"));
                         Newtonsoft.Json.Linq.JObject jTypeProfile = (Newtonsoft.Json.Linq.JObject)(profilejson);
 
                         Dictionary<string, Dictionary<string, object>> profiles = jTypeProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
@@ -284,8 +377,14 @@ namespace MineLauncher.UI.Forms
         {
             rtbLog.ScrollToCaret();
 
-            string filename = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\logs\\" + DateTime.Now.ToShortDateString().Replace(".", "-") + ".log";
-            if((rtbLog.Lines.Length - 1) >= 0) File.AppendAllText(filename, rtbLog.Lines[rtbLog.Lines.Length - 1] + "\n");
+            string filename = GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\logs\\" + DateTime.Now.ToShortDateString().Replace(".", "-") + ".log";
+            if ((rtbLog.Lines.Length - 1) >= 0)
+            {
+                string log = rtbLog.Lines[rtbLog.Lines.Length - 2];
+                File.AppendAllText(filename, log + "\n");
+                Console.WriteLine(log);
+            } 
+
         }
         
         private void ConvertBitmapToIcon(Bitmap bmp, string path)
@@ -300,7 +399,12 @@ namespace MineLauncher.UI.Forms
         
         private void linkAbout_GitHub_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://github.com/Lukas0610/MineLauncher/");
+            System.Diagnostics.Process.Start("https://github.com/Lukas0610/MineLauncher/");
+        }
+
+        private void lblAbout_MetroFramework_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/viperneo/winforms-modernui/");
         }
 
         private void lblAbout_ExceptionBase_Click(object sender, EventArgs e)
@@ -423,7 +527,7 @@ namespace MineLauncher.UI.Forms
         {
             new Thread(() => 
             {
-                dynamic _profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
+                dynamic _profilejson = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json"));
                 Newtonsoft.Json.Linq.JObject jTypeProfile = (Newtonsoft.Json.Linq.JObject)(_profilejson);
 
                 Dictionary<string, Dictionary<string, object>> profiles = jTypeProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
@@ -431,7 +535,7 @@ namespace MineLauncher.UI.Forms
                 profiles.Remove(tbProfiles_Edit_Name.Text);
 
                 string json = JsonConvert.SerializeObject(profiles);
-                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json", json);
+                File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json", json);
 
                 this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Clear()));
                 this.SafeInvoke(new Action(() => cbFastControl_SelectProfile.Items.Clear()));
@@ -493,9 +597,9 @@ namespace MineLauncher.UI.Forms
                 }
 
                 dynamic profilejson;
-                if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
+                if (File.Exists(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json"))
                 {
-                    profilejson = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json");
+                    profilejson = File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json");
                 }
                 else
                 {
@@ -517,7 +621,7 @@ namespace MineLauncher.UI.Forms
                 profiles.Add(tbProfiles_Edit_Name.Text, profile);
 
                 string json = JsonConvert.SerializeObject(profiles);
-                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json", json);
+                File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json", json);
 
                 this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Clear()));
                 this.SafeInvoke(new Action(() => cbFastControl_SelectProfile.Items.Clear()));
@@ -579,9 +683,9 @@ namespace MineLauncher.UI.Forms
                 }
 
                 dynamic profilejson;
-                if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
+                if (File.Exists(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json"))
                 {
-                    profilejson = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json");
+                    profilejson = File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json");
                 }
                 else
                 {
@@ -610,7 +714,7 @@ namespace MineLauncher.UI.Forms
                 }
 
                 string json = JsonConvert.SerializeObject(profiles);
-                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json", json);
+                File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json", json);
 
                 this.SafeInvoke(new Action(() => cbProfiles_Select.Items.Clear()));
                 this.SafeInvoke(new Action(() => cbFastControl_SelectProfile.Items.Clear()));
@@ -670,7 +774,7 @@ namespace MineLauncher.UI.Forms
             }
             else
             {
-                dynamic profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
+                dynamic profilejson = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json"));
 
                 Newtonsoft.Json.Linq.JObject jTypeProfile = (Newtonsoft.Json.Linq.JObject)(profilejson);
                 Dictionary<string, Dictionary<string, object>> profiles = jTypeProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
@@ -760,7 +864,7 @@ namespace MineLauncher.UI.Forms
                 tbProfiles_Edit_Offline_PlayerName.Enabled = false;
             }
         }
-
+        
         #endregion
 
         #region FastControl
@@ -769,7 +873,7 @@ namespace MineLauncher.UI.Forms
         {
             if (cbFastControl_SelectProfile.SelectedItem == null) return;
 
-            dynamic profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
+            dynamic profilejson = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json"));
             Newtonsoft.Json.Linq.JObject jTypeProfile = (Newtonsoft.Json.Linq.JObject)(profilejson);
 
             Dictionary<string, Dictionary<string, object>> profiles = jTypeProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
@@ -807,9 +911,9 @@ namespace MineLauncher.UI.Forms
                     this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Logged in as " + session.PlayerName + "\n")));
                     this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [LOGIN] Session: " + session.Session + "\n")));
 
-                    new System.Net.WebClient().DownloadFile("https://minotar.net/avatar/" + session.PlayerName, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
+                    new System.Net.WebClient().DownloadFile("https://minotar.net/avatar/" + session.PlayerName, GlobalConfig.AppDataPath +
                         "\\.minecraft\\minelauncher\\" + session.PlayerName + "Head.png");
-                    Icon headIcon = Icon.FromHandle(new Bitmap(Image.FromFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
+                    Icon headIcon = Icon.FromHandle(new Bitmap(Image.FromFile(GlobalConfig.AppDataPath +
                         "\\.minecraft\\minelauncher\\" + session.PlayerName + "Head.png"), new Size(64, 64)).GetHicon());
                     this.SafeInvoke(new Action(() => 
                     {
@@ -839,11 +943,11 @@ namespace MineLauncher.UI.Forms
 
         private void btnLaunch_Click(object sender, EventArgs e)
         {
-            tcMain.SelectedIndex = 1;
+            tcMain.SelectedIndex = 2;
             btnLaunch.Enabled = false;
             if (!currentProfile.Equals(default(KeyValuePair<string, Dictionary<string, object>>)))
             {
-                if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\versions\\" + currentProfile.Value["mcversion"].ToString()))
+                if(!Directory.Exists(GlobalConfig.AppDataPath + "\\.minecraft\\versions\\" + currentProfile.Value["mcversion"].ToString()))
                 {
                     MetroFramework.MetroMessageBox.Show(this, "This version doesn't exists. Maybe the profile was imported and the version was deleted", "Version missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -895,7 +999,7 @@ namespace MineLauncher.UI.Forms
             {
                 try
                 {
-                    dynamic mclauncher_profiles_json = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\launcher_profiles.json"));
+                    dynamic mclauncher_profiles_json = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\launcher_profiles.json"));
                 
                     Newtonsoft.Json.Linq.JObject jTypeMCProfile = (Newtonsoft.Json.Linq.JObject)(mclauncher_profiles_json.profiles);
                     Dictionary<string, Dictionary<string, object>> mclauncher_profiles = jTypeMCProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
@@ -904,9 +1008,9 @@ namespace MineLauncher.UI.Forms
                     List<string> versions = new VersionList().GetVersionList(rawVersionList, VersionListType.Release);
                 
                     dynamic profilejson;
-                    if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
+                    if (File.Exists(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json"))
                     {
-                        profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
+                        profilejson = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json"));
                     }
                     else
                     {
@@ -960,7 +1064,7 @@ namespace MineLauncher.UI.Forms
                     }
 
                     string json = JsonConvert.SerializeObject(profiles);
-                    File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json", json);
+                    File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json", json);
                 
                     this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "The profiles of the original minecraft launcher were imported", "Import successfully", MessageBoxButtons.OK, MessageBoxIcon.Information)));
 
@@ -993,9 +1097,9 @@ namespace MineLauncher.UI.Forms
             try
             {
                 dynamic setupjson;
-                if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"))
+                if (File.Exists(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json"))
                 {
-                    setupjson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"));
+                    setupjson = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json"));
                 }
                 else
                 {
@@ -1022,15 +1126,15 @@ namespace MineLauncher.UI.Forms
                 // ######
                 // Remove everything
 
-                setup.Remove("theme");
-                setup.Remove("updater");
-                setup.Remove("ingame");
+                if (setup.ContainsKey("theme")) setup.Remove("theme");
+                if (setup.ContainsKey("updater")) setup.Remove("updater");
+                if (setup.ContainsKey("ingame")) setup.Remove("ingame");
 
-                ingame.Remove("randomicon");
-                ingame.Remove("changeiconrandom");
+                if (ingame.ContainsKey("randomicon")) ingame.Remove("randomicon");
+                if (ingame.ContainsKey("changeiconrandom")) ingame.Remove("changeiconrandom");
 
-                updater.Remove("alpha");
-                updater.Remove("beta");
+                if (updater.ContainsKey("alpha")) updater.Remove("alpha");
+                if (updater.ContainsKey("beta")) updater.Remove("beta");
 
                 //
                 // ######
@@ -1051,7 +1155,7 @@ namespace MineLauncher.UI.Forms
                 //
                 // ######
 
-                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));
+                File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));
             }
             catch (NullReferenceException) { }
         }
@@ -1106,13 +1210,8 @@ namespace MineLauncher.UI.Forms
         }
 
         #endregion
-
-        private void lblAbout_MetroFramework_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         #endregion
-                                                                       
+                                                                               
     }
 }

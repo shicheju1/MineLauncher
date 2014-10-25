@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.metroProgressSpinner1 = new MetroFramework.Controls.MetroProgressSpinner();
+            this.lblInfo = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // metroProgressSpinner1
@@ -44,11 +45,24 @@
             this.metroProgressSpinner1.UseSelectable = true;
             this.metroProgressSpinner1.Value = 5;
             // 
+            // lblInfo
+            // 
+            this.lblInfo.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblInfo.Location = new System.Drawing.Point(23, 266);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(624, 19);
+            this.lblInfo.TabIndex = 1;
+            this.lblInfo.Text = "It seems to take longer than we thought...";
+            this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblInfo.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lblInfo.Visible = false;
+            // 
             // frmStarting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 286);
+            this.ClientSize = new System.Drawing.Size(670, 305);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.metroProgressSpinner1);
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.MaximizeBox = false;
@@ -69,5 +83,6 @@
         #endregion
 
         private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner1;
+        private MetroFramework.Controls.MetroLabel lblInfo;
     }
 }

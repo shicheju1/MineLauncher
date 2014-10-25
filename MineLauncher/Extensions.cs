@@ -6,16 +6,16 @@ using System.Windows.Forms;
 
 namespace MineLauncher
 {
-    public static class Extensions
+    internal static class Extensions
     {
 
-        public static string Truncate(this string value, int maxLength)
+        internal static string Truncate(this string value, int maxLength)
         {
             if (string.IsNullOrEmpty(value)) return value;
             return value.Length <= maxLength ? value : value.Substring(0, maxLength);
         }
 
-        public static void CreateDirectoryStructure(this DirectoryInfo d)
+        internal static void CreateDirectoryStructure(this DirectoryInfo d)
         {
             string currpath = "";
             foreach (string dir in d.FullName.Split('\\'))
@@ -26,7 +26,7 @@ namespace MineLauncher
             }
         }
 
-        public static bool RemoteExists(this WebClient d, string url)
+        internal static bool RemoteExists(this WebClient d, string url)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace MineLauncher
             }
         }
 
-        public static void SafeInvoke(this Control uiElement, Action updater, bool forceSynchronous = true)
+        internal static void SafeInvoke(this Control uiElement, Action updater, bool forceSynchronous = true)
         {
             if (uiElement == null)
             {
@@ -81,9 +81,9 @@ namespace MineLauncher
             }
         }
 
-        public static string GetOSFullName(this OperatingSystem os)
+        internal static string GetOSFullName(this OperatingSystem os)
         {
-            string name = "Unknow";
+            string name = "Unknown";
 
             switch (os.Version.Major)
             {
@@ -109,7 +109,7 @@ namespace MineLauncher
                     else if (os.Version.Minor == 3)
                         name = "Windows 8.1 \"Blue\"";
                     else if (os.Version.Minor == 4)
-                        name = "Windows 10 \"Threshold\" - Be careful when testing ;)"; /* Supported since 04.10.2014 :D */
+                        name = "Windows 10 \"Threshold\"";
                     break; 
             }
 

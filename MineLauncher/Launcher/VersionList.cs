@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 namespace MineLauncher.Launcher
 {
 
-    public enum VersionListType
+    internal enum VersionListType
     {
         Release,
         Snapshot,
@@ -19,7 +19,7 @@ namespace MineLauncher.Launcher
         All
     }
 
-    public class VersionList
+    internal class VersionList
     {
 
         public delegate void VersionFetchHandler(object sender, string version);
@@ -69,9 +69,9 @@ namespace MineLauncher.Launcher
             {
                 Dictionary<string, string[]> _rawList = new Dictionary<string, string[]>();
 
-                if (Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\versions"))
+                if (Directory.Exists(GlobalConfig.AppDataPath + "\\.minecraft\\versions"))
                 {
-                    foreach (DirectoryInfo versions in new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\versions").GetDirectories())
+                    foreach (DirectoryInfo versions in new DirectoryInfo(GlobalConfig.AppDataPath + "\\.minecraft\\versions").GetDirectories())
                     {
                         if (!rawList.ContainsKey(versions.Name))
                         {
@@ -136,9 +136,9 @@ namespace MineLauncher.Launcher
             {
                 Dictionary<string, string[]> _rawList = new Dictionary<string, string[]>();
 
-                if (Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\versions"))
+                if (Directory.Exists(GlobalConfig.AppDataPath + "\\.minecraft\\versions"))
                 {
-                    foreach (DirectoryInfo versions in new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\versions").GetDirectories())
+                    foreach (DirectoryInfo versions in new DirectoryInfo(GlobalConfig.AppDataPath + "\\.minecraft\\versions").GetDirectories())
                     {
                         if (!rawList.ContainsKey(versions.Name) && File.Exists(versions.FullName + "\\" + versions.Name + ".json"))
                         {

@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace MineLauncher
 {
-    public partial class frmStarting : MetroForm
+    internal partial class frmStarting : MetroForm
     {
 
         string uitheme = "";
@@ -21,9 +21,18 @@ namespace MineLauncher
         {
             InitializeComponent();
 
-            dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"));
+            dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json"));
             uitheme = (string)setup.theme;
             ChangeFormTheme(this);
+
+            Timer tmr = new Timer();
+            tmr.Interval = 10000;
+            tmr.Tick += ((object sender, EventArgs e) =>
+            {
+                lblInfo.Visible = true;
+                tmr.Stop();
+            });
+            tmr.Start();
         }
 
         public void CloseStartingDialog()
@@ -109,8 +118,9 @@ namespace MineLauncher
 
         private void frmStarting_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!canClose) e.Cancel = true;
+            if (!canClose)
+                e.Cancel = true;
         }
-
+        
     }
 }

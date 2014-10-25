@@ -18,7 +18,7 @@ using Newtonsoft.Json;
 namespace MineLauncher.UI.Forms
 {
 
-    public partial class frmMinecraftCrashLog : MetroForm
+    internal partial class frmMinecraftCrashLog : MetroForm
     {
 
         string uitheme = "";
@@ -46,7 +46,7 @@ namespace MineLauncher.UI.Forms
             this._crashlog = crashlog;
             this._version = version;
 
-            dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"));
+            dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json"));
             uitheme = (string)setup.theme;
             ChangeFormTheme(this);
             

@@ -29,19 +29,22 @@ namespace MineLauncher.Win32Api
         internal const int WM_SETICON = 0x80;
         internal const int ICON_SMALL = 0;
         internal const int ICON_BIG = 1;
-                
+
         [DllImport("user32.dll")]
         internal static extern int SendMessage(IntPtr hwnd, int message, int wParam, IntPtr lParam);
-        
-        [DllImport("User32.dll")]
+
+        [DllImport("user32.dll")]
         internal static extern IntPtr GetDC(IntPtr hwnd);
 
-        [DllImport("User32.dll")]
+        [DllImport("user32.dll")]
         internal static extern void ReleaseDC(IntPtr dc);
 
         [return: MarshalAs(UnmanagedType.Bool)]
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         internal static extern bool GlobalMemoryStatusEx([In, Out] MEMORYSTATUSEX lpBuffer);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern bool AllocConsole();
 
     }
 

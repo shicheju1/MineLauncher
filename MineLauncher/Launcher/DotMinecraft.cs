@@ -3,12 +3,12 @@ using System.IO;
 
 namespace MineLauncher.Launcher
 {
-    public class DotMinecraft
+    internal class DotMinecraft
     {
 
         public static void CreateDotMinecraftHierarchy()
         {
-            string basePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft";
+            string basePath = GlobalConfig.AppDataPath + "\\.minecraft";
 
             CreateDirectoryIfNotExists(basePath);
             CreateDirectoryIfNotExists(basePath + "\\assets");

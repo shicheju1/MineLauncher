@@ -117,150 +117,1667 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="tcMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="lblLogPB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>608, 134</value>
-  </metadata>
-  <metadata name="pbLog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>707, 134</value>
-  </metadata>
-  <metadata name="btnProfiles_Edit_JVM_Path_Select.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>793, 134</value>
-  </metadata>
-  <metadata name="btnProfiles_Edit_Directory_Select.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1024, 134</value>
-  </metadata>
-  <metadata name="btnProfile_Edit_Save.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1252, 134</value>
-  </metadata>
-  <metadata name="lblProfiles_Edit_Offline_PlayerName.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 173</value>
-  </metadata>
-  <metadata name="tbProfiles_Edit_Offline_PlayerName.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>260, 173</value>
-  </metadata>
-  <metadata name="metroLabel12.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>501, 173</value>
-  </metadata>
-  <metadata name="toggleProfiles_Edit_Offline.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>627, 173</value>
-  </metadata>
-  <metadata name="metroLabel11.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>821, 173</value>
-  </metadata>
-  <metadata name="toggleProfiles_Edit_ShowVersion_Custom.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>947, 173</value>
-  </metadata>
-  <metadata name="btnProfile_Edit_Delete.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1398, 173</value>
-  </metadata>
-  <metadata name="metroLabel9.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>697, 251</value>
-  </metadata>
-  <metadata name="toggleProfiles_Edit_ShowVersion_Alpha.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 212</value>
-  </metadata>
-  <metadata name="metroLabel8.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>282, 212</value>
-  </metadata>
-  <metadata name="toggleProfiles_Edit_ShowVersion_Beta.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>402, 212</value>
-  </metadata>
-  <metadata name="metroLabel7.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>660, 212</value>
-  </metadata>
-  <metadata name="toggleProfiles_Edit_ShowVersion_Snapshot.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>780, 212</value>
-  </metadata>
-  <metadata name="metroLabel6.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1064, 212</value>
-  </metadata>
-  <metadata name="toggleProfiles_Edit_ShowVersion_Release.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1184, 212</value>
-  </metadata>
-  <metadata name="btnProfile_Edit_SaveNew.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 251</value>
-  </metadata>
-  <metadata name="tbProfiles_Edit_JVM_Args.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>203, 251</value>
-  </metadata>
-  <metadata name="metroLabel5.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>390, 251</value>
-  </metadata>
-  <metadata name="tbProfiles_Edit_JVM_Path.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>510, 251</value>
-  </metadata>
-  <metadata name="metroLabel4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>488, 134</value>
-  </metadata>
-  <metadata name="tbProfiles_Edit_Directory.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>304, 134</value>
-  </metadata>
-  <metadata name="metroLabel3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>184, 134</value>
-  </metadata>
-  <metadata name="tbProfiles_Edit_Name.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 134</value>
-  </metadata>
-  <metadata name="metroLabel2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>106, 17</value>
-  </metadata>
-  <metadata name="metroLabel1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>226, 17</value>
-  </metadata>
-  <metadata name="cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>346, 17</value>
-  </metadata>
-  <metadata name="cbSettings_Launcher_ChangeGameIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>743, 17</value>
-  </metadata>
-  <metadata name="metroLabel13.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1008, 17</value>
-  </metadata>
-  <metadata name="cbSettings_Updater_Including_Beta.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1134, 17</value>
-  </metadata>
-  <metadata name="cbSettings_Updater_Including_Alpha.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
-  <metadata name="metroLabel16.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>267, 56</value>
-  </metadata>
-  <metadata name="metroLabel15.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>393, 56</value>
-  </metadata>
-  <metadata name="btnSettings_ImportFromOriginalLauncher.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>519, 56</value>
-  </metadata>
-  <metadata name="metroLabel14.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>796, 56</value>
-  </metadata>
-  <metadata name="lblAbout_WindowsApiCodePack.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>922, 56</value>
-  </metadata>
-  <metadata name="lblAbout_nUpdate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1148, 56</value>
-  </metadata>
-  <metadata name="lblAbout_IonicZip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1299, 56</value>
-  </metadata>
-  <metadata name="lblAbout_NewtonsoftJson.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 95</value>
-  </metadata>
-  <metadata name="lblAbout_ExceptionBase.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>208, 95</value>
-  </metadata>
-  <metadata name="linkAbout_GitHub.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>389, 95</value>
-  </metadata>
-  <metadata name="lblAbout_MetroFramework.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>537, 95</value>
-  </metadata>
-  <metadata name="lblAbout.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>734, 95</value>
-  </metadata>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tcMain.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="webBrowser1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="webBrowser1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="webBrowser1.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="webBrowser1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>924, 366</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="webBrowser1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;webBrowser1.Name" xml:space="preserve">
+    <value>webBrowser1</value>
+  </data>
+  <data name="&gt;&gt;webBrowser1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.WebBrowser, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;webBrowser1.Parent" xml:space="preserve">
+    <value>tpStart</value>
+  </data>
+  <data name="&gt;&gt;webBrowser1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tpStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 38</value>
+  </data>
+  <data name="tpStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>930, 372</value>
+  </data>
+  <data name="tpStart.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tpStart.Text" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="tpStart.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;tpStart.Name" xml:space="preserve">
+    <value>tpStart</value>
+  </data>
+  <data name="&gt;&gt;tpStart.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tpStart.Parent" xml:space="preserve">
+    <value>tcMain</value>
+  </data>
+  <data name="&gt;&gt;tpStart.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tpFeatured.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tpFeatured.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 38</value>
+  </data>
+  <data name="tpFeatured.Size" type="System.Drawing.Size, System.Drawing">
+    <value>930, 372</value>
+  </data>
+  <data name="tpFeatured.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="tpFeatured.Text" xml:space="preserve">
+    <value>Featured</value>
+  </data>
+  <data name="&gt;&gt;tpFeatured.Name" xml:space="preserve">
+    <value>tpFeatured</value>
+  </data>
+  <data name="&gt;&gt;tpFeatured.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tpFeatured.Parent" xml:space="preserve">
+    <value>tcMain</value>
+  </data>
+  <data name="&gt;&gt;tpFeatured.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblLogPB.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="lblLogPB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 345</value>
+  </data>
+  <data name="lblLogPB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>314, 15</value>
+  </data>
+  <data name="lblLogPB.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;lblLogPB.Name" xml:space="preserve">
+    <value>lblLogPB</value>
+  </data>
+  <data name="&gt;&gt;lblLogPB.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;lblLogPB.Parent" xml:space="preserve">
+    <value>tpConsole</value>
+  </data>
+  <data name="&gt;&gt;lblLogPB.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pbLog.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="pbLog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 333</value>
+  </data>
+  <data name="pbLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>924, 39</value>
+  </data>
+  <data name="pbLog.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;pbLog.Name" xml:space="preserve">
+    <value>pbLog</value>
+  </data>
+  <data name="&gt;&gt;pbLog.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroProgressBar, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;pbLog.Parent" xml:space="preserve">
+    <value>tpConsole</value>
+  </data>
+  <data name="&gt;&gt;pbLog.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="rtbLog.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="rtbLog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="rtbLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>924, 324</value>
+  </data>
+  <data name="rtbLog.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="rtbLog.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;rtbLog.Name" xml:space="preserve">
+    <value>rtbLog</value>
+  </data>
+  <data name="&gt;&gt;rtbLog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rtbLog.Parent" xml:space="preserve">
+    <value>tpConsole</value>
+  </data>
+  <data name="&gt;&gt;rtbLog.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tpConsole.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 38</value>
+  </data>
+  <data name="tpConsole.Size" type="System.Drawing.Size, System.Drawing">
+    <value>930, 372</value>
+  </data>
+  <data name="tpConsole.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tpConsole.Text" xml:space="preserve">
+    <value>Console</value>
+  </data>
+  <data name="tpConsole.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;tpConsole.Name" xml:space="preserve">
+    <value>tpConsole</value>
+  </data>
+  <data name="&gt;&gt;tpConsole.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tpConsole.Parent" xml:space="preserve">
+    <value>tcMain</value>
+  </data>
+  <data name="&gt;&gt;tpConsole.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlProfiles_Edit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="pnlProfiles_Edit.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="btnProfiles_Edit_JVM_Path_Select.Location" type="System.Drawing.Point, System.Drawing">
+    <value>892, 147</value>
+  </data>
+  <data name="btnProfiles_Edit_JVM_Path_Select.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="btnProfiles_Edit_JVM_Path_Select.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="btnProfiles_Edit_JVM_Path_Select.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;btnProfiles_Edit_JVM_Path_Select.Name" xml:space="preserve">
+    <value>btnProfiles_Edit_JVM_Path_Select</value>
+  </data>
+  <data name="&gt;&gt;btnProfiles_Edit_JVM_Path_Select.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroButton, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;btnProfiles_Edit_JVM_Path_Select.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;btnProfiles_Edit_JVM_Path_Select.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnProfiles_Edit_Directory_Select.Location" type="System.Drawing.Point, System.Drawing">
+    <value>892, 114</value>
+  </data>
+  <data name="btnProfiles_Edit_Directory_Select.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="btnProfiles_Edit_Directory_Select.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="btnProfiles_Edit_Directory_Select.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;btnProfiles_Edit_Directory_Select.Name" xml:space="preserve">
+    <value>btnProfiles_Edit_Directory_Select</value>
+  </data>
+  <data name="&gt;&gt;btnProfiles_Edit_Directory_Select.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroButton, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;btnProfiles_Edit_Directory_Select.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;btnProfiles_Edit_Directory_Select.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnProfile_Edit_Save.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btnProfile_Edit_Save.Location" type="System.Drawing.Point, System.Drawing">
+    <value>736, 283</value>
+  </data>
+  <data name="btnProfile_Edit_Save.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 42</value>
+  </data>
+  <data name="btnProfile_Edit_Save.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="btnProfile_Edit_Save.Text" xml:space="preserve">
+    <value>Save profile</value>
+  </data>
+  <data name="&gt;&gt;btnProfile_Edit_Save.Name" xml:space="preserve">
+    <value>btnProfile_Edit_Save</value>
+  </data>
+  <data name="&gt;&gt;btnProfile_Edit_Save.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroButton, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;btnProfile_Edit_Save.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;btnProfile_Edit_Save.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblProfiles_Edit_Offline_PlayerName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblProfiles_Edit_Offline_PlayerName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>584, 240</value>
+  </data>
+  <data name="lblProfiles_Edit_Offline_PlayerName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 19</value>
+  </data>
+  <data name="lblProfiles_Edit_Offline_PlayerName.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="lblProfiles_Edit_Offline_PlayerName.Text" xml:space="preserve">
+    <value>Offline-Mode playername:</value>
+  </data>
+  <data name="&gt;&gt;lblProfiles_Edit_Offline_PlayerName.Name" xml:space="preserve">
+    <value>lblProfiles_Edit_Offline_PlayerName</value>
+  </data>
+  <data name="&gt;&gt;lblProfiles_Edit_Offline_PlayerName.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;lblProfiles_Edit_Offline_PlayerName.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;lblProfiles_Edit_Offline_PlayerName.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="tbProfiles_Edit_Offline_PlayerName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tbProfiles_Edit_Offline_PlayerName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>755, 237</value>
+  </data>
+  <data name="tbProfiles_Edit_Offline_PlayerName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 24</value>
+  </data>
+  <data name="tbProfiles_Edit_Offline_PlayerName.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_Offline_PlayerName.Name" xml:space="preserve">
+    <value>tbProfiles_Edit_Offline_PlayerName</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_Offline_PlayerName.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTextBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_Offline_PlayerName.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_Offline_PlayerName.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="metroLabel12.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="metroLabel12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>755, 210</value>
+  </data>
+  <data name="metroLabel12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 19</value>
+  </data>
+  <data name="metroLabel12.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="metroLabel12.Text" xml:space="preserve">
+    <value>Play offline</value>
+  </data>
+  <data name="&gt;&gt;metroLabel12.Name" xml:space="preserve">
+    <value>metroLabel12</value>
+  </data>
+  <data name="&gt;&gt;metroLabel12.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel12.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;metroLabel12.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="toggleProfiles_Edit_Offline.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="toggleProfiles_Edit_Offline.Location" type="System.Drawing.Point, System.Drawing">
+    <value>834, 207</value>
+  </data>
+  <data name="toggleProfiles_Edit_Offline.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 24</value>
+  </data>
+  <data name="toggleProfiles_Edit_Offline.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="toggleProfiles_Edit_Offline.Text" xml:space="preserve">
+    <value>An</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_Offline.Name" xml:space="preserve">
+    <value>toggleProfiles_Edit_Offline</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_Offline.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroToggle, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_Offline.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_Offline.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="metroLabel11.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="metroLabel11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>763, 43</value>
+  </data>
+  <data name="metroLabel11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 19</value>
+  </data>
+  <data name="metroLabel11.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="metroLabel11.Text" xml:space="preserve">
+    <value>Show 'Custom'</value>
+  </data>
+  <data name="&gt;&gt;metroLabel11.Name" xml:space="preserve">
+    <value>metroLabel11</value>
+  </data>
+  <data name="&gt;&gt;metroLabel11.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel11.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;metroLabel11.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Custom.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Custom.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Custom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>864, 45</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Custom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 17</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Custom.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Custom.Text" xml:space="preserve">
+    <value>An</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Custom.Name" xml:space="preserve">
+    <value>toggleProfiles_Edit_ShowVersion_Custom</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Custom.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroToggle, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Custom.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Custom.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="btnProfile_Edit_Delete.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btnProfile_Edit_Delete.Location" type="System.Drawing.Point, System.Drawing">
+    <value>354, 283</value>
+  </data>
+  <data name="btnProfile_Edit_Delete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 42</value>
+  </data>
+  <data name="btnProfile_Edit_Delete.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="btnProfile_Edit_Delete.Text" xml:space="preserve">
+    <value>Delete profile</value>
+  </data>
+  <data name="&gt;&gt;btnProfile_Edit_Delete.Name" xml:space="preserve">
+    <value>btnProfile_Edit_Delete</value>
+  </data>
+  <data name="&gt;&gt;btnProfile_Edit_Delete.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroButton, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;btnProfile_Edit_Delete.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;btnProfile_Edit_Delete.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="metroLabel9.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="metroLabel9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>607, 43</value>
+  </data>
+  <data name="metroLabel9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 19</value>
+  </data>
+  <data name="metroLabel9.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="metroLabel9.Text" xml:space="preserve">
+    <value>Show 'Alpha'</value>
+  </data>
+  <data name="&gt;&gt;metroLabel9.Name" xml:space="preserve">
+    <value>metroLabel9</value>
+  </data>
+  <data name="&gt;&gt;metroLabel9.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel9.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;metroLabel9.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Alpha.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Alpha.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Alpha.Location" type="System.Drawing.Point, System.Drawing">
+    <value>697, 45</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Alpha.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 17</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Alpha.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Alpha.Text" xml:space="preserve">
+    <value>An</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Alpha.Name" xml:space="preserve">
+    <value>toggleProfiles_Edit_ShowVersion_Alpha</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Alpha.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroToggle, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Alpha.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Alpha.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="metroLabel8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="metroLabel8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>459, 43</value>
+  </data>
+  <data name="metroLabel8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 19</value>
+  </data>
+  <data name="metroLabel8.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="metroLabel8.Text" xml:space="preserve">
+    <value>Show 'Beta'</value>
+  </data>
+  <data name="&gt;&gt;metroLabel8.Name" xml:space="preserve">
+    <value>metroLabel8</value>
+  </data>
+  <data name="&gt;&gt;metroLabel8.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel8.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;metroLabel8.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Beta.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Beta.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Beta.Location" type="System.Drawing.Point, System.Drawing">
+    <value>541, 45</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Beta.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 17</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Beta.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Beta.Text" xml:space="preserve">
+    <value>An</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Beta.Name" xml:space="preserve">
+    <value>toggleProfiles_Edit_ShowVersion_Beta</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Beta.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroToggle, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Beta.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Beta.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="metroLabel7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="metroLabel7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>279, 43</value>
+  </data>
+  <data name="metroLabel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 19</value>
+  </data>
+  <data name="metroLabel7.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="metroLabel7.Text" xml:space="preserve">
+    <value>Show 'Snapshots'</value>
+  </data>
+  <data name="&gt;&gt;metroLabel7.Name" xml:space="preserve">
+    <value>metroLabel7</value>
+  </data>
+  <data name="&gt;&gt;metroLabel7.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel7.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;metroLabel7.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Snapshot.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Snapshot.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Snapshot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>393, 45</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Snapshot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 17</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Snapshot.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Snapshot.Text" xml:space="preserve">
+    <value>An</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Snapshot.Name" xml:space="preserve">
+    <value>toggleProfiles_Edit_ShowVersion_Snapshot</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Snapshot.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroToggle, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Snapshot.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Snapshot.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="metroLabel6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="metroLabel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>114, 43</value>
+  </data>
+  <data name="metroLabel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 19</value>
+  </data>
+  <data name="metroLabel6.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="metroLabel6.Text" xml:space="preserve">
+    <value>Show 'Release'</value>
+  </data>
+  <data name="&gt;&gt;metroLabel6.Name" xml:space="preserve">
+    <value>metroLabel6</value>
+  </data>
+  <data name="&gt;&gt;metroLabel6.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel6.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;metroLabel6.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Release.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Release.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Release.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 45</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Release.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 17</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Release.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="toggleProfiles_Edit_ShowVersion_Release.Text" xml:space="preserve">
+    <value>An</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Release.Name" xml:space="preserve">
+    <value>toggleProfiles_Edit_ShowVersion_Release</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Release.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroToggle, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Release.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;toggleProfiles_Edit_ShowVersion_Release.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="btnProfile_Edit_SaveNew.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btnProfile_Edit_SaveNew.Location" type="System.Drawing.Point, System.Drawing">
+    <value>545, 283</value>
+  </data>
+  <data name="btnProfile_Edit_SaveNew.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 42</value>
+  </data>
+  <data name="btnProfile_Edit_SaveNew.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="btnProfile_Edit_SaveNew.Text" xml:space="preserve">
+    <value>Copy &amp;&amp; Save profile</value>
+  </data>
+  <data name="&gt;&gt;btnProfile_Edit_SaveNew.Name" xml:space="preserve">
+    <value>btnProfile_Edit_SaveNew</value>
+  </data>
+  <data name="&gt;&gt;btnProfile_Edit_SaveNew.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroButton, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;btnProfile_Edit_SaveNew.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;btnProfile_Edit_SaveNew.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="tbProfiles_Edit_JVM_Args.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tbProfiles_Edit_JVM_Args.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 177</value>
+  </data>
+  <data name="tbProfiles_Edit_JVM_Args.Size" type="System.Drawing.Size, System.Drawing">
+    <value>797, 24</value>
+  </data>
+  <data name="tbProfiles_Edit_JVM_Args.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_JVM_Args.Name" xml:space="preserve">
+    <value>tbProfiles_Edit_JVM_Args</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_JVM_Args.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTextBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_JVM_Args.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_JVM_Args.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="metroLabel5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="metroLabel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 179</value>
+  </data>
+  <data name="metroLabel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 19</value>
+  </data>
+  <data name="metroLabel5.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="metroLabel5.Text" xml:space="preserve">
+    <value>Java arguments</value>
+  </data>
+  <data name="&gt;&gt;metroLabel5.Name" xml:space="preserve">
+    <value>metroLabel5</value>
+  </data>
+  <data name="&gt;&gt;metroLabel5.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel5.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;metroLabel5.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="tbProfiles_Edit_JVM_Path.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tbProfiles_Edit_JVM_Path.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 147</value>
+  </data>
+  <data name="tbProfiles_Edit_JVM_Path.Size" type="System.Drawing.Size, System.Drawing">
+    <value>767, 24</value>
+  </data>
+  <data name="tbProfiles_Edit_JVM_Path.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_JVM_Path.Name" xml:space="preserve">
+    <value>tbProfiles_Edit_JVM_Path</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_JVM_Path.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTextBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_JVM_Path.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_JVM_Path.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="metroLabel4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="metroLabel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 149</value>
+  </data>
+  <data name="metroLabel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 19</value>
+  </data>
+  <data name="metroLabel4.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="metroLabel4.Text" xml:space="preserve">
+    <value>Java path</value>
+  </data>
+  <data name="&gt;&gt;metroLabel4.Name" xml:space="preserve">
+    <value>metroLabel4</value>
+  </data>
+  <data name="&gt;&gt;metroLabel4.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel4.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;metroLabel4.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="tbProfiles_Edit_Directory.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tbProfiles_Edit_Directory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 114</value>
+  </data>
+  <data name="tbProfiles_Edit_Directory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>767, 24</value>
+  </data>
+  <data name="tbProfiles_Edit_Directory.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_Directory.Name" xml:space="preserve">
+    <value>tbProfiles_Edit_Directory</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_Directory.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTextBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_Directory.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_Directory.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="metroLabel3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="metroLabel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 116</value>
+  </data>
+  <data name="metroLabel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 19</value>
+  </data>
+  <data name="metroLabel3.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="metroLabel3.Text" xml:space="preserve">
+    <value>Game directory</value>
+  </data>
+  <data name="&gt;&gt;metroLabel3.Name" xml:space="preserve">
+    <value>metroLabel3</value>
+  </data>
+  <data name="&gt;&gt;metroLabel3.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel3.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;metroLabel3.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="tbProfiles_Edit_Name.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tbProfiles_Edit_Name.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 81</value>
+  </data>
+  <data name="tbProfiles_Edit_Name.Size" type="System.Drawing.Size, System.Drawing">
+    <value>797, 24</value>
+  </data>
+  <data name="tbProfiles_Edit_Name.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_Name.Name" xml:space="preserve">
+    <value>tbProfiles_Edit_Name</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_Name.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTextBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_Name.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;tbProfiles_Edit_Name.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="metroLabel2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="metroLabel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 83</value>
+  </data>
+  <data name="metroLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 19</value>
+  </data>
+  <data name="metroLabel2.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="metroLabel2.Text" xml:space="preserve">
+    <value>Profile name</value>
+  </data>
+  <data name="&gt;&gt;metroLabel2.Name" xml:space="preserve">
+    <value>metroLabel2</value>
+  </data>
+  <data name="&gt;&gt;metroLabel2.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel2.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;metroLabel2.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="cbProfiles_Edit_Version.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="cbProfiles_Edit_Version.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cbProfiles_Edit_Version.ItemHeight" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="cbProfiles_Edit_Version.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 8</value>
+  </data>
+  <data name="cbProfiles_Edit_Version.Size" type="System.Drawing.Size, System.Drawing">
+    <value>797, 29</value>
+  </data>
+  <data name="cbProfiles_Edit_Version.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;cbProfiles_Edit_Version.Name" xml:space="preserve">
+    <value>cbProfiles_Edit_Version</value>
+  </data>
+  <data name="&gt;&gt;cbProfiles_Edit_Version.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroComboBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;cbProfiles_Edit_Version.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;cbProfiles_Edit_Version.ZOrder" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="metroLabel1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="metroLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 13</value>
+  </data>
+  <data name="metroLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 19</value>
+  </data>
+  <data name="metroLabel1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="metroLabel1.Text" xml:space="preserve">
+    <value>Minecraft Version</value>
+  </data>
+  <data name="&gt;&gt;metroLabel1.Name" xml:space="preserve">
+    <value>metroLabel1</value>
+  </data>
+  <data name="&gt;&gt;metroLabel1.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel1.Parent" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;metroLabel1.ZOrder" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="pnlProfiles_Edit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 41</value>
+  </data>
+  <data name="pnlProfiles_Edit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>924, 328</value>
+  </data>
+  <data name="pnlProfiles_Edit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;pnlProfiles_Edit.Name" xml:space="preserve">
+    <value>pnlProfiles_Edit</value>
+  </data>
+  <data name="&gt;&gt;pnlProfiles_Edit.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroPanel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;pnlProfiles_Edit.Parent" xml:space="preserve">
+    <value>tpProfiles</value>
+  </data>
+  <data name="&gt;&gt;pnlProfiles_Edit.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cbProfiles_Select.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="cbProfiles_Select.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cbProfiles_Select.ItemHeight" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="cbProfiles_Select.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 6</value>
+  </data>
+  <data name="cbProfiles_Select.Size" type="System.Drawing.Size, System.Drawing">
+    <value>924, 29</value>
+  </data>
+  <data name="cbProfiles_Select.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;cbProfiles_Select.Name" xml:space="preserve">
+    <value>cbProfiles_Select</value>
+  </data>
+  <data name="&gt;&gt;cbProfiles_Select.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroComboBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;cbProfiles_Select.Parent" xml:space="preserve">
+    <value>tpProfiles</value>
+  </data>
+  <data name="&gt;&gt;cbProfiles_Select.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tpProfiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 38</value>
+  </data>
+  <data name="tpProfiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>930, 372</value>
+  </data>
+  <data name="tpProfiles.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tpProfiles.Text" xml:space="preserve">
+    <value>Profiles</value>
+  </data>
+  <data name="tpProfiles.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;tpProfiles.Name" xml:space="preserve">
+    <value>tpProfiles</value>
+  </data>
+  <data name="&gt;&gt;tpProfiles.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tpProfiles.Parent" xml:space="preserve">
+    <value>tcMain</value>
+  </data>
+  <data name="&gt;&gt;tpProfiles.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 59</value>
+  </data>
+  <data name="cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Size" type="System.Drawing.Size, System.Drawing">
+    <value>238, 15</value>
+  </data>
+  <data name="cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Text" xml:space="preserve">
+    <value>Change Icon randomly every 5 seconds</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Name" xml:space="preserve">
+    <value>cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroCheckBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Parent" xml:space="preserve">
+    <value>metroPanel6</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cbSettings_Launcher_ChangeGameIcon.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbSettings_Launcher_ChangeGameIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 38</value>
+  </data>
+  <data name="cbSettings_Launcher_ChangeGameIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 15</value>
+  </data>
+  <data name="cbSettings_Launcher_ChangeGameIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="cbSettings_Launcher_ChangeGameIcon.Text" xml:space="preserve">
+    <value>Change Game-Icon</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon.Name" xml:space="preserve">
+    <value>cbSettings_Launcher_ChangeGameIcon</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroCheckBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon.Parent" xml:space="preserve">
+    <value>metroPanel6</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="metroLabel13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 6</value>
+  </data>
+  <data name="metroLabel13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>291, 23</value>
+  </data>
+  <data name="metroLabel13.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="metroLabel13.Text" xml:space="preserve">
+    <value>Launcher</value>
+  </data>
+  <data name="metroLabel13.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;metroLabel13.Name" xml:space="preserve">
+    <value>metroLabel13</value>
+  </data>
+  <data name="&gt;&gt;metroLabel13.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel13.Parent" xml:space="preserve">
+    <value>metroPanel6</value>
+  </data>
+  <data name="&gt;&gt;metroLabel13.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="metroPanel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 133</value>
+  </data>
+  <data name="metroPanel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>297, 124</value>
+  </data>
+  <data name="metroPanel6.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;metroPanel6.Name" xml:space="preserve">
+    <value>metroPanel6</value>
+  </data>
+  <data name="&gt;&gt;metroPanel6.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroPanel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroPanel6.Parent" xml:space="preserve">
+    <value>tpSettings</value>
+  </data>
+  <data name="&gt;&gt;metroPanel6.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cbSettings_Updater_Including_Beta.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbSettings_Updater_Including_Beta.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 59</value>
+  </data>
+  <data name="cbSettings_Updater_Including_Beta.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 15</value>
+  </data>
+  <data name="cbSettings_Updater_Including_Beta.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="cbSettings_Updater_Including_Beta.Text" xml:space="preserve">
+    <value>Including Beta-Versions</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Updater_Including_Beta.Name" xml:space="preserve">
+    <value>cbSettings_Updater_Including_Beta</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Updater_Including_Beta.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroCheckBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Updater_Including_Beta.Parent" xml:space="preserve">
+    <value>metroPanel5</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Updater_Including_Beta.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cbSettings_Updater_Including_Alpha.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbSettings_Updater_Including_Alpha.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 38</value>
+  </data>
+  <data name="cbSettings_Updater_Including_Alpha.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 15</value>
+  </data>
+  <data name="cbSettings_Updater_Including_Alpha.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="cbSettings_Updater_Including_Alpha.Text" xml:space="preserve">
+    <value>Including Alpha-Versions</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Updater_Including_Alpha.Name" xml:space="preserve">
+    <value>cbSettings_Updater_Including_Alpha</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Updater_Including_Alpha.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroCheckBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Updater_Including_Alpha.Parent" xml:space="preserve">
+    <value>metroPanel5</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Updater_Including_Alpha.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="metroLabel16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 6</value>
+  </data>
+  <data name="metroLabel16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 23</value>
+  </data>
+  <data name="metroLabel16.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="metroLabel16.Text" xml:space="preserve">
+    <value>Updater
+
+</value>
+  </data>
+  <data name="metroLabel16.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;metroLabel16.Name" xml:space="preserve">
+    <value>metroLabel16</value>
+  </data>
+  <data name="&gt;&gt;metroLabel16.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel16.Parent" xml:space="preserve">
+    <value>metroPanel5</value>
+  </data>
+  <data name="&gt;&gt;metroLabel16.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="metroPanel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>615, 3</value>
+  </data>
+  <data name="metroPanel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 124</value>
+  </data>
+  <data name="metroPanel5.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;metroPanel5.Name" xml:space="preserve">
+    <value>metroPanel5</value>
+  </data>
+  <data name="&gt;&gt;metroPanel5.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroPanel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroPanel5.Parent" xml:space="preserve">
+    <value>tpSettings</value>
+  </data>
+  <data name="&gt;&gt;metroPanel5.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cbSettings_Themes.ItemHeight" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="cbSettings_Themes.Items" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="cbSettings_Themes.Items1" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="cbSettings_Themes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 59</value>
+  </data>
+  <data name="cbSettings_Themes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 29</value>
+  </data>
+  <data name="cbSettings_Themes.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Themes.Name" xml:space="preserve">
+    <value>cbSettings_Themes</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Themes.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroComboBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Themes.Parent" xml:space="preserve">
+    <value>metroPanel4</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_Themes.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="metroLabel15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 6</value>
+  </data>
+  <data name="metroLabel15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 23</value>
+  </data>
+  <data name="metroLabel15.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="metroLabel15.Text" xml:space="preserve">
+    <value>Theme for the launcher
+</value>
+  </data>
+  <data name="metroLabel15.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;metroLabel15.Name" xml:space="preserve">
+    <value>metroLabel15</value>
+  </data>
+  <data name="&gt;&gt;metroLabel15.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel15.Parent" xml:space="preserve">
+    <value>metroPanel4</value>
+  </data>
+  <data name="&gt;&gt;metroLabel15.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="metroPanel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>309, 3</value>
+  </data>
+  <data name="metroPanel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 124</value>
+  </data>
+  <data name="metroPanel4.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;metroPanel4.Name" xml:space="preserve">
+    <value>metroPanel4</value>
+  </data>
+  <data name="&gt;&gt;metroPanel4.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroPanel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroPanel4.Parent" xml:space="preserve">
+    <value>tpSettings</value>
+  </data>
+  <data name="&gt;&gt;metroPanel4.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnSettings_ImportFromOriginalLauncher.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 38</value>
+  </data>
+  <data name="btnSettings_ImportFromOriginalLauncher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 71</value>
+  </data>
+  <data name="btnSettings_ImportFromOriginalLauncher.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnSettings_ImportFromOriginalLauncher.Text" xml:space="preserve">
+    <value>Start import</value>
+  </data>
+  <data name="&gt;&gt;btnSettings_ImportFromOriginalLauncher.Name" xml:space="preserve">
+    <value>btnSettings_ImportFromOriginalLauncher</value>
+  </data>
+  <data name="&gt;&gt;btnSettings_ImportFromOriginalLauncher.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroButton, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;btnSettings_ImportFromOriginalLauncher.Parent" xml:space="preserve">
+    <value>metroPanel2</value>
+  </data>
+  <data name="&gt;&gt;btnSettings_ImportFromOriginalLauncher.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="metroLabel14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 6</value>
+  </data>
+  <data name="metroLabel14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 23</value>
+  </data>
+  <data name="metroLabel14.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="metroLabel14.Text" xml:space="preserve">
+    <value>Import profiles from Minecraft Launcher</value>
+  </data>
+  <data name="metroLabel14.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;metroLabel14.Name" xml:space="preserve">
+    <value>metroLabel14</value>
+  </data>
+  <data name="&gt;&gt;metroLabel14.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel14.Parent" xml:space="preserve">
+    <value>metroPanel2</value>
+  </data>
+  <data name="&gt;&gt;metroLabel14.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="metroPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="metroPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 124</value>
+  </data>
+  <data name="metroPanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;metroPanel2.Name" xml:space="preserve">
+    <value>metroPanel2</value>
+  </data>
+  <data name="&gt;&gt;metroPanel2.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroPanel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroPanel2.Parent" xml:space="preserve">
+    <value>tpSettings</value>
+  </data>
+  <data name="&gt;&gt;metroPanel2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="tpSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 38</value>
+  </data>
+  <data name="tpSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>930, 372</value>
+  </data>
+  <data name="tpSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tpSettings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="&gt;&gt;tpSettings.Name" xml:space="preserve">
+    <value>tpSettings</value>
+  </data>
+  <data name="&gt;&gt;tpSettings.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tpSettings.Parent" xml:space="preserve">
+    <value>tcMain</value>
+  </data>
+  <data name="&gt;&gt;tpSettings.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblAbout_WindowsApiCodePack.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblAbout_WindowsApiCodePack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 165</value>
+  </data>
+  <data name="lblAbout_WindowsApiCodePack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 19</value>
+  </data>
+  <data name="lblAbout_WindowsApiCodePack.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="lblAbout_WindowsApiCodePack.Text" xml:space="preserve">
+    <value>WindowsAPICodePack by Microsoft</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_WindowsApiCodePack.Name" xml:space="preserve">
+    <value>lblAbout_WindowsApiCodePack</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_WindowsApiCodePack.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_WindowsApiCodePack.Parent" xml:space="preserve">
+    <value>tpAbout</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_WindowsApiCodePack.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblAbout_nUpdate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblAbout_nUpdate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 146</value>
+  </data>
+  <data name="lblAbout_nUpdate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 19</value>
+  </data>
+  <data name="lblAbout_nUpdate.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lblAbout_nUpdate.Text" xml:space="preserve">
+    <value>nUpdate by Dominic Beger</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_nUpdate.Name" xml:space="preserve">
+    <value>lblAbout_nUpdate</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_nUpdate.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_nUpdate.Parent" xml:space="preserve">
+    <value>tpAbout</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_nUpdate.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblAbout_IonicZip.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblAbout_IonicZip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 127</value>
+  </data>
+  <data name="lblAbout_IonicZip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 19</value>
+  </data>
+  <data name="lblAbout_IonicZip.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lblAbout_IonicZip.Text" xml:space="preserve">
+    <value>Ionic.Zip by Dino Chiesa</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_IonicZip.Name" xml:space="preserve">
+    <value>lblAbout_IonicZip</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_IonicZip.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_IonicZip.Parent" xml:space="preserve">
+    <value>tpAbout</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_IonicZip.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblAbout_NewtonsoftJson.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblAbout_NewtonsoftJson.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 108</value>
+  </data>
+  <data name="lblAbout_NewtonsoftJson.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 19</value>
+  </data>
+  <data name="lblAbout_NewtonsoftJson.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lblAbout_NewtonsoftJson.Text" xml:space="preserve">
+    <value>Newtonsoft.Json by James Newton-King</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_NewtonsoftJson.Name" xml:space="preserve">
+    <value>lblAbout_NewtonsoftJson</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_NewtonsoftJson.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_NewtonsoftJson.Parent" xml:space="preserve">
+    <value>tpAbout</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_NewtonsoftJson.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblAbout_ExceptionBase.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblAbout_ExceptionBase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 89</value>
+  </data>
+  <data name="lblAbout_ExceptionBase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>242, 19</value>
+  </data>
+  <data name="lblAbout_ExceptionBase.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lblAbout_ExceptionBase.Text" xml:space="preserve">
+    <value>ExceptionBase.NET by Leo Bernard</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_ExceptionBase.Name" xml:space="preserve">
+    <value>lblAbout_ExceptionBase</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_ExceptionBase.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_ExceptionBase.Parent" xml:space="preserve">
+    <value>tpAbout</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_ExceptionBase.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="linkAbout_GitHub.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 346</value>
+  </data>
+  <data name="linkAbout_GitHub.Size" type="System.Drawing.Size, System.Drawing">
+    <value>341, 23</value>
+  </data>
+  <data name="linkAbout_GitHub.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="linkAbout_GitHub.Text" xml:space="preserve">
+    <value>MineLauncher on GitHub</value>
+  </data>
+  <data name="&gt;&gt;linkAbout_GitHub.Name" xml:space="preserve">
+    <value>linkAbout_GitHub</value>
+  </data>
+  <data name="&gt;&gt;linkAbout_GitHub.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLink, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;linkAbout_GitHub.Parent" xml:space="preserve">
+    <value>tpAbout</value>
+  </data>
+  <data name="&gt;&gt;linkAbout_GitHub.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lblAbout_MetroFramework.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblAbout_MetroFramework.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 70</value>
+  </data>
+  <data name="lblAbout_MetroFramework.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 19</value>
+  </data>
+  <data name="lblAbout_MetroFramework.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lblAbout_MetroFramework.Text" xml:space="preserve">
+    <value>MetroFramework by Sven Walter</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_MetroFramework.Name" xml:space="preserve">
+    <value>lblAbout_MetroFramework</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_MetroFramework.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_MetroFramework.Parent" xml:space="preserve">
+    <value>tpAbout</value>
+  </data>
+  <data name="&gt;&gt;lblAbout_MetroFramework.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblAbout.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblAbout.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="lblAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 57</value>
+  </data>
+  <data name="lblAbout.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblAbout.Text" xml:space="preserve">
+    <value>MineLauncher 
+Version {0}.{1} Build {2} Revision {3} 
+by Lukas Berger, http://lukasberger.at</value>
+  </data>
+  <data name="&gt;&gt;lblAbout.Name" xml:space="preserve">
+    <value>lblAbout</value>
+  </data>
+  <data name="&gt;&gt;lblAbout.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;lblAbout.Parent" xml:space="preserve">
+    <value>tpAbout</value>
+  </data>
+  <data name="&gt;&gt;lblAbout.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="rtbAbout_Licenses.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Right</value>
+  </data>
+  <data name="rtbAbout_Licenses.Location" type="System.Drawing.Point, System.Drawing">
+    <value>350, 3</value>
+  </data>
+  <data name="rtbAbout_Licenses.Size" type="System.Drawing.Size, System.Drawing">
+    <value>577, 366</value>
+  </data>
+  <data name="rtbAbout_Licenses.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="rtbAbout_Licenses.Text" xml:space="preserve">
     <value>Licences:
 
@@ -336,28 +1853,418 @@ A "contributor" is any person that distributes its contribution under this licen
 (D) If you distribute any portion of the software in source code form, you may do so only under this license by including a complete copy of this license with your distribution. If you distribute any portion of the software in compiled or object code form, you may only do so under a license that complies with this license.
 (E) The software is licensed "as-is." You bear the risk of using it. The contributors give no express warranties, guarantees or conditions. You may have additional consumer rights under your local laws which this license cannot change. To the extent permitted under your local laws, the contributors exclude the implied warranties of merchantability, fitness for a particular purpose and non-infringement.</value>
   </data>
-  <metadata name="metroLabel10.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>832, 95</value>
-  </metadata>
-  <metadata name="lblFastInfo_Welcome.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>958, 95</value>
-  </metadata>
-  <metadata name="tbFastLogin_Password.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1122, 95</value>
-  </metadata>
-  <metadata name="btnFastLogin_Login.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1294, 95</value>
-  </metadata>
-  <metadata name="tbFastLogin_Username.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1223, 173</value>
-  </metadata>
-  <metadata name="btnLaunch.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>817, 251</value>
+  <data name="&gt;&gt;rtbAbout_Licenses.Name" xml:space="preserve">
+    <value>rtbAbout_Licenses</value>
+  </data>
+  <data name="&gt;&gt;rtbAbout_Licenses.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rtbAbout_Licenses.Parent" xml:space="preserve">
+    <value>tpAbout</value>
+  </data>
+  <data name="&gt;&gt;rtbAbout_Licenses.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="tpAbout.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 38</value>
+  </data>
+  <data name="tpAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>930, 372</value>
+  </data>
+  <data name="tpAbout.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="tpAbout.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="tpAbout.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;tpAbout.Name" xml:space="preserve">
+    <value>tpAbout</value>
+  </data>
+  <data name="&gt;&gt;tpAbout.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tpAbout.Parent" xml:space="preserve">
+    <value>tcMain</value>
+  </data>
+  <data name="&gt;&gt;tpAbout.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="tcMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 63</value>
+  </data>
+  <data name="tcMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>938, 414</value>
+  </data>
+  <data name="tcMain.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tcMain.Name" xml:space="preserve">
+    <value>tcMain</value>
+  </data>
+  <data name="&gt;&gt;tcMain.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTabControl, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tcMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tcMain.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbFastControl_SelectProfile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="cbFastControl_SelectProfile.ItemHeight" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="cbFastControl_SelectProfile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 42</value>
+  </data>
+  <data name="cbFastControl_SelectProfile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 29</value>
+  </data>
+  <data name="cbFastControl_SelectProfile.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cbFastControl_SelectProfile.Name" xml:space="preserve">
+    <value>cbFastControl_SelectProfile</value>
+  </data>
+  <data name="&gt;&gt;cbFastControl_SelectProfile.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroComboBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;cbFastControl_SelectProfile.Parent" xml:space="preserve">
+    <value>metroPanel1</value>
+  </data>
+  <data name="&gt;&gt;cbFastControl_SelectProfile.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="metroLabel10.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="metroLabel10.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="metroLabel10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 20</value>
+  </data>
+  <data name="metroLabel10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 19</value>
+  </data>
+  <data name="metroLabel10.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="metroLabel10.Text" xml:space="preserve">
+    <value>Profile:</value>
+  </data>
+  <data name="&gt;&gt;metroLabel10.Name" xml:space="preserve">
+    <value>metroLabel10</value>
+  </data>
+  <data name="&gt;&gt;metroLabel10.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel10.Parent" xml:space="preserve">
+    <value>metroPanel1</value>
+  </data>
+  <data name="&gt;&gt;metroLabel10.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="metroPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="metroPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="metroPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 96</value>
+  </data>
+  <data name="metroPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;metroPanel1.Name" xml:space="preserve">
+    <value>metroPanel1</value>
+  </data>
+  <data name="&gt;&gt;metroPanel1.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroPanel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroPanel1.Parent" xml:space="preserve">
+    <value>pnlFastControl</value>
+  </data>
+  <data name="&gt;&gt;metroPanel1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlFastInfo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Right</value>
+  </data>
+  <data name="lblFastInfo_Welcome.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lblFastInfo_Welcome.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 0</value>
+  </data>
+  <data name="lblFastInfo_Welcome.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 96</value>
+  </data>
+  <data name="lblFastInfo_Welcome.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblFastInfo_Welcome.Text" xml:space="preserve">
+    <value>Welcome,
+{0}</value>
+  </data>
+  <data name="lblFastInfo_Welcome.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblFastInfo_Welcome.Name" xml:space="preserve">
+    <value>lblFastInfo_Welcome</value>
+  </data>
+  <data name="&gt;&gt;lblFastInfo_Welcome.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;lblFastInfo_Welcome.Parent" xml:space="preserve">
+    <value>pnlFastInfo</value>
+  </data>
+  <data name="&gt;&gt;lblFastInfo_Welcome.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pbFastInfo_Avatar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="pbFastInfo_Avatar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 16</value>
+  </data>
+  <data name="pbFastInfo_Avatar.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>64, 64</value>
+  </data>
+  <data name="pbFastInfo_Avatar.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>64, 64</value>
+  </data>
+  <data name="pbFastInfo_Avatar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 64</value>
+  </data>
+  <data name="pbFastInfo_Avatar.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pbFastInfo_Avatar.Name" xml:space="preserve">
+    <value>pbFastInfo_Avatar</value>
+  </data>
+  <data name="&gt;&gt;pbFastInfo_Avatar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbFastInfo_Avatar.Parent" xml:space="preserve">
+    <value>metroPanel3</value>
+  </data>
+  <data name="&gt;&gt;pbFastInfo_Avatar.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="metroPanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="metroPanel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="metroPanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 96</value>
+  </data>
+  <data name="metroPanel3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;metroPanel3.Name" xml:space="preserve">
+    <value>metroPanel3</value>
+  </data>
+  <data name="&gt;&gt;metroPanel3.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroPanel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroPanel3.Parent" xml:space="preserve">
+    <value>pnlFastInfo</value>
+  </data>
+  <data name="&gt;&gt;metroPanel3.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="pnlFastInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>729, 0</value>
+  </data>
+  <data name="pnlFastInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 96</value>
+  </data>
+  <data name="pnlFastInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="pnlFastInfo.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pnlFastInfo.Name" xml:space="preserve">
+    <value>pnlFastInfo</value>
+  </data>
+  <data name="&gt;&gt;pnlFastInfo.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroPanel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;pnlFastInfo.Parent" xml:space="preserve">
+    <value>pnlFastControl</value>
+  </data>
+  <data name="&gt;&gt;pnlFastInfo.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="pnlFastLogin.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Right</value>
+  </data>
+  <data name="tbFastLogin_Password.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 32</value>
+  </data>
+  <data name="tbFastLogin_Password.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 23</value>
+  </data>
+  <data name="tbFastLogin_Password.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;tbFastLogin_Password.Name" xml:space="preserve">
+    <value>tbFastLogin_Password</value>
+  </data>
+  <data name="&gt;&gt;tbFastLogin_Password.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTextBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tbFastLogin_Password.Parent" xml:space="preserve">
+    <value>pnlFastLogin</value>
+  </data>
+  <data name="&gt;&gt;tbFastLogin_Password.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnFastLogin_Login.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 61</value>
+  </data>
+  <data name="btnFastLogin_Login.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 28</value>
+  </data>
+  <data name="btnFastLogin_Login.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnFastLogin_Login.Text" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="&gt;&gt;btnFastLogin_Login.Name" xml:space="preserve">
+    <value>btnFastLogin_Login</value>
+  </data>
+  <data name="&gt;&gt;btnFastLogin_Login.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroButton, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;btnFastLogin_Login.Parent" xml:space="preserve">
+    <value>pnlFastLogin</value>
+  </data>
+  <data name="&gt;&gt;btnFastLogin_Login.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tbFastLogin_Username.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 3</value>
+  </data>
+  <data name="tbFastLogin_Username.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 23</value>
+  </data>
+  <data name="tbFastLogin_Username.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;tbFastLogin_Username.Name" xml:space="preserve">
+    <value>tbFastLogin_Username</value>
+  </data>
+  <data name="&gt;&gt;tbFastLogin_Username.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTextBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tbFastLogin_Username.Parent" xml:space="preserve">
+    <value>pnlFastLogin</value>
+  </data>
+  <data name="&gt;&gt;tbFastLogin_Username.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="pnlFastLogin.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="pnlFastLogin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>729, 0</value>
+  </data>
+  <data name="pnlFastLogin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 96</value>
+  </data>
+  <data name="pnlFastLogin.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;pnlFastLogin.Name" xml:space="preserve">
+    <value>pnlFastLogin</value>
+  </data>
+  <data name="&gt;&gt;pnlFastLogin.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroPanel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;pnlFastLogin.Parent" xml:space="preserve">
+    <value>pnlFastControl</value>
+  </data>
+  <data name="&gt;&gt;pnlFastLogin.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnLaunch.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="btnLaunch.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnLaunch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>312, 3</value>
+  </data>
+  <data name="btnLaunch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 90</value>
+  </data>
+  <data name="btnLaunch.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnLaunch.Text" xml:space="preserve">
+    <value>Start Minecraft</value>
+  </data>
+  <data name="&gt;&gt;btnLaunch.Name" xml:space="preserve">
+    <value>btnLaunch</value>
+  </data>
+  <data name="&gt;&gt;btnLaunch.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroButton, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;btnLaunch.Parent" xml:space="preserve">
+    <value>pnlFastControl</value>
+  </data>
+  <data name="&gt;&gt;btnLaunch.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="pnlFastControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 484</value>
+  </data>
+  <data name="pnlFastControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>924, 96</value>
+  </data>
+  <data name="pnlFastControl.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlFastControl.Name" xml:space="preserve">
+    <value>pnlFastControl</value>
+  </data>
+  <data name="&gt;&gt;pnlFastControl.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroPanel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;pnlFastControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlFastControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>984, 595</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAcAAAAAAAEAIACtBwAAdgAAAICAAAABACAAKAgBACMIAABAQAAAAQAgAChCAABLEAEAMDAAAAEA
@@ -2097,5 +4004,23 @@ A "contributor" is any person that distributes its contribution under this licen
         jgD/EI4A/xCOAP8AAAAAAAAAAAAAAAAEIAAABCAAAAfgAAAH4AAAB+AAAAPAAAADwAAAHDgAABw4AAAc
         OAAAAAAAAAAAAAAAAAAA
 </value>
+  </data>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>984, 595</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>984, 595</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>Manual</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>MineLauncher</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmLauncher</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>MetroFramework.Forms.MetroForm, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
 </root>

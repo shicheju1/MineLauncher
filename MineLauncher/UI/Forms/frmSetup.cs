@@ -18,7 +18,7 @@ using Newtonsoft.Json;
 
 namespace MineLauncher.UI.Forms
 {
-    public partial class frmSetup : MetroForm
+    internal partial class frmSetup : MetroForm
     {
 
         string uitheme = "Dark";
@@ -73,7 +73,7 @@ namespace MineLauncher.UI.Forms
             setup.Add("updater", setup_updater);
             setup.Add("ingame", setup_ingame);
 
-            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));
+            File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));
             Application.Restart();
         }
 
@@ -294,9 +294,9 @@ namespace MineLauncher.UI.Forms
             }
 
             dynamic profilejson;
-            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
+            if (File.Exists(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json"))
             {
-                profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
+                profilejson = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json"));
             }
             else
             {
@@ -308,7 +308,7 @@ namespace MineLauncher.UI.Forms
 
             if(File.Exists(""))
             {
-                dynamic _profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
+                dynamic _profilejson = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json"));
                 Newtonsoft.Json.Linq.JObject jTypeProfile = (Newtonsoft.Json.Linq.JObject)(_profilejson);
 
                 profiles = jTypeProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
@@ -336,7 +336,7 @@ namespace MineLauncher.UI.Forms
             }
 
             string json = JsonConvert.SerializeObject(profiles);
-            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json", json);
+            File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json", json);
 
             tileProfile_Next.Enabled = true;
         }
@@ -426,7 +426,7 @@ namespace MineLauncher.UI.Forms
             {
                 try
                 {
-                    dynamic mclauncher_profiles_json = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\launcher_profiles.json"));
+                    dynamic mclauncher_profiles_json = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\launcher_profiles.json"));
 
                     Newtonsoft.Json.Linq.JObject jTypeMCProfile = (Newtonsoft.Json.Linq.JObject)(mclauncher_profiles_json.profiles);
                     Dictionary<string, Dictionary<string, object>> mclauncher_profiles = jTypeMCProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
@@ -435,9 +435,9 @@ namespace MineLauncher.UI.Forms
                     List<string> versions = new VersionList().GetVersionList(rawVersionList, VersionListType.Release);
 
                     dynamic profilejson;
-                    if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"))
+                    if (File.Exists(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json"))
                     {
-                        profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
+                        profilejson = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json"));
                     }
                     else
                     {
@@ -491,7 +491,7 @@ namespace MineLauncher.UI.Forms
                     }
 
                     string json = JsonConvert.SerializeObject(profiles);
-                    File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json", json);
+                    File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json", json);
 
                     this.SafeInvoke(new Action(() => MetroFramework.MetroMessageBox.Show(this, "The profiles of the original minecraft launcher were imported", "Import successfully", MessageBoxButtons.OK, MessageBoxIcon.Information)));
                     this.SafeInvoke(new Action(() => tileProfile_Next.Enabled = true));
@@ -555,6 +555,27 @@ namespace MineLauncher.UI.Forms
         }
 
         #endregion
+
+        private void frmSetup_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Dictionary<string, object> setup = new Dictionary<string, object>();
+            Dictionary<string, object> setup_updater = new Dictionary<string, object>();
+            Dictionary<string, object> setup_ingame = new Dictionary<string, object>();
+
+            setup.Add("baseofflinemode", true);
+            setup.Add("theme", "dark");
+
+            setup_updater.Add("alpha", false);
+            setup_updater.Add("beta", false);
+
+            setup_ingame.Add("randomicon", true);
+            setup_ingame.Add("changeiconrandom", true);
+
+            setup.Add("updater", setup_updater);
+            setup.Add("ingame", setup_ingame);
+
+            File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));
+        }
              
     }
 }

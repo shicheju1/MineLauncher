@@ -18,7 +18,7 @@ using MineLauncher.Win32Api;
 
 namespace MineLauncher.Launcher
 {
-    public class MinecraftLauncher
+    internal class MinecraftLauncher
     {
 
         private List<string[]> _libraries = new List<string[]>();
@@ -43,7 +43,7 @@ namespace MineLauncher.Launcher
 
         public MinecraftLauncher(string profilename)
         {
-            dynamic profilejson = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\profiles.json"));
+            dynamic profilejson = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\profiles.json"));
             Newtonsoft.Json.Linq.JObject jTypeProfile = (Newtonsoft.Json.Linq.JObject)(profilejson);
 
             Dictionary<string, Dictionary<string, object>> profiles = jTypeProfile.ToObject<Dictionary<string, Dictionary<string, object>>>();
@@ -51,9 +51,9 @@ namespace MineLauncher.Launcher
             {
                 if (profile.Key == profilename)
                 {
-                    _assetspath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\assets\\objects";
-                    _librariespath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\libraries";
-                    _versionpath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\versions\\" + profile.Value["mcversion"];
+                    _assetspath = GlobalConfig.AppDataPath + "\\.minecraft\\assets\\objects";
+                    _librariespath = GlobalConfig.AppDataPath + "\\.minecraft\\libraries";
+                    _versionpath = GlobalConfig.AppDataPath + "\\.minecraft\\versions\\" + profile.Value["mcversion"];
                     _version = profile.Value["mcversion"].ToString();
                     
                     if (OnLauncherLog != null) OnLauncherLog(this, new LauncherEventArgs("Preparing launcher vor version " + profile.Value["mcversion"]));
@@ -66,7 +66,7 @@ namespace MineLauncher.Launcher
                     _data_assets = rawVersionData["assets"][0];
 
                     _profile_gamepath = profile.Value["gamedir"].ToString();
-                    _profile_jvmfile = profile.Value["javapath"].ToString();
+                    _profile_jvmfile = GlobalConfig.GetJavaPath(profile.Value["javapath"].ToString());
                     _profile_jvmargs = profile.Value["javaargs"].ToString();
 
                     foreach (string library in rawVersionData["libraries"])
@@ -93,14 +93,14 @@ namespace MineLauncher.Launcher
 
             string cmd = "";
             string ver = _version;
-            string mcLocation = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\.minecraft";
+            string mcLocation = GlobalConfig.AppDataPath + @"\.minecraft";
 
             string mcJava = _profile_jvmfile;
             string mcJavaFile = "javaw";
             string mcLibraries = "-cp ";
 
             string mojangIntelTrick = "-XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump";
-            string mcNatives = "-Djava.library.path=\"" + Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\.minecraft\versions\" + ver + @"\" + ver + "-natives-AL74\"";
+            string mcNatives = "-Djava.library.path=\"" + GlobalConfig.AppDataPath + @"\.minecraft\versions\" + ver + @"\" + ver + "-natives-AL74\"";
 
             if(mcJavaFile == "")
             {
@@ -175,11 +175,9 @@ namespace MineLauncher.Launcher
             mcProcessStartInfo.RedirectStandardOutput = true;
 
             Process mcProcess = Process.Start(mcProcessStartInfo);
-
-            StreamReader mcProcessOutputReader = mcProcess.StandardOutput;          
-                        
-            dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\setup.json"));
-
+            StreamReader mcProcessOutputReader = mcProcess.StandardOutput;
+            
+            dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json"));
             if ((bool)setup.ingame.randomicon)
             {
                 new Thread(() =>

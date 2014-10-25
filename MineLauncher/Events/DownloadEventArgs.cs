@@ -2,7 +2,7 @@
 
 namespace MineLauncher.Events
 {
-    public sealed class DownloadEventArgs : BaseEventArgs
+    internal sealed class DownloadEventArgs : BaseEventArgs
     {
 
         private int private_downloadmax;

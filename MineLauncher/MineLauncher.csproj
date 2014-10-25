@@ -38,7 +38,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -76,7 +76,6 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.WindowsAPICodePack">
       <HintPath>..\..\..\..\AudioVisualizer\AudioVisualizer\AudioVisualizer\bin\Debug\bin\Microsoft.WindowsAPICodePack.dll</HintPath>
       <Private>False</Private>
@@ -90,15 +89,14 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="nUpdate">
-      <HintPath>..\..\..\..\#nUpdate\nUpdate\bin\Debug\nUpdate.dll</HintPath>
+      <HintPath>..\..\..\..\..\#nUpdate\nUpdate\bin\Debug\nUpdate.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
@@ -116,10 +114,14 @@
     <Compile Include="frmStarting.Designer.cs">
       <DependentUpon>frmStarting.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalConfig.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\FeaturedObject.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Forms\frmLauncher.cs">
       <SubType>Form</SubType>
@@ -149,6 +151,9 @@
     <Compile Include="Win32Api.cs" />
     <EmbeddedResource Include="frmStarting.resx">
       <DependentUpon>frmStarting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\FeaturedObject.resx">
+      <DependentUpon>FeaturedObject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\frmLauncher.resx">
       <DependentUpon>frmLauncher.cs</DependentUpon>

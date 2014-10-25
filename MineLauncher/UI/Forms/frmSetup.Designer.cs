@@ -844,6 +844,7 @@
             this.Text = "MineLauncher - Setup";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSetup_FormClosing);
             this.Shown += new System.EventHandler(this.frmSetup_Shown);
             this.tcMain.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);

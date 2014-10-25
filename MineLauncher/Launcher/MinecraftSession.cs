@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 namespace MineLauncher.Launcher
 {
 
-    public class MinecraftSession
+    internal class MinecraftSession
     {
 
         private string _Session = "";
@@ -104,7 +104,7 @@ namespace MineLauncher.Launcher
                             logininfos.Add("clientToken", responseJson.clientToken);
 
                             string _json = Newtonsoft.Json.JsonConvert.SerializeObject(logininfos);
-                            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\session.json", _json);
+                            File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\session.json", _json);
                         }
                         else
                         {
@@ -142,7 +142,7 @@ namespace MineLauncher.Launcher
 
         public static MinecraftSession LoginWithSavedSession()
         {
-            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\session.json"))
+            if (File.Exists(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\session.json"))
             {
                 try
                 {
@@ -151,7 +151,7 @@ namespace MineLauncher.Launcher
                     HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://authserver.mojang.com/refresh");
                     request.UserAgent = "MineLauncher v" + Application.ProductVersion;
                     request.Method = "POST";
-                    string json = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\session.json");
+                    string json = File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\session.json");
 
                     byte[] uploadBytes = Encoding.UTF8.GetBytes(json);
                     request.ContentType = "application/json";
@@ -182,7 +182,7 @@ namespace MineLauncher.Launcher
                                 logininfos.Add("clientToken", responseJson.clientToken);
 
                                 string _json = Newtonsoft.Json.JsonConvert.SerializeObject(logininfos);
-                                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\minelauncher\\session.json", _json);
+                                File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\session.json", _json);
 
                                 return new MinecraftSession(responseJson.accessToken, responseJson.clientToken, responseJson.selectedProfile.name, responseJson.selectedProfile.id);
                             }
