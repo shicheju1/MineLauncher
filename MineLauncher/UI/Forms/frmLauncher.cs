@@ -23,7 +23,7 @@ using MineLauncher.Win32Api;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-using nUpdate.Internal;
+//using nUpdate.Internal;
 
 using Microsoft.WindowsAPICodePack.Taskbar;
 
@@ -35,8 +35,8 @@ namespace MineLauncher.UI.Forms
         string uitheme = "";
         bool base_offline_mode = false;
 
-        UpdateManager updater;
-        UpdaterUI updaterui;
+        /* UpdateManager updater;
+        UpdaterUI updaterui; */
         bool updater_include_alpha = false;
         bool updater_include_beta = false;
 
@@ -158,7 +158,7 @@ namespace MineLauncher.UI.Forms
                 MEMORYSTATUSEX memory = new MEMORYSTATUSEX();
                 NativesMethods.GlobalMemoryStatusEx(memory);
                                 
-                ChangeFormTheme(this);
+                ChangeFormTheme(this);           
 
                 ulong availMem = memory.ullAvailPhys;
                 string memStat = "Fine";
@@ -232,7 +232,7 @@ namespace MineLauncher.UI.Forms
                         new System.Net.WebClient().DownloadFile("https://minotar.net/avatar/" + session.PlayerName, GlobalConfig.AppDataPath +
                             "\\.minecraft\\minelauncher\\" + session.PlayerName + "Head.png");
                         Icon headIcon = Icon.FromHandle(new Bitmap(Image.FromFile(GlobalConfig.AppDataPath +
-                            "\\.minecraft\\minelauncher\\" + session.PlayerName + "Head.png"), new Size(64, 64)).GetHicon());
+                            "\\.minecraft\\minelauncher\\" + session.PlayerName + "Head.png"), new Size(72, 72)).GetHicon());
                         this.BeginInvoke(new Action(() =>
                         {
                             tbFastLogin_Password.Text = "";
@@ -299,6 +299,8 @@ namespace MineLauncher.UI.Forms
                     this.Focus();
                     starting.CloseStartingDialog();
                     starting = null;
+
+                    pbLog.BackColor = Color.DodgerBlue;
                 }));
 
                 this.SafeInvoke(new Action(() => this.Icon = icons[rand.Next(0, 6)]));
@@ -876,7 +878,7 @@ namespace MineLauncher.UI.Forms
                     new System.Net.WebClient().DownloadFile("https://minotar.net/avatar/" + session.PlayerName, GlobalConfig.AppDataPath +
                         "\\.minecraft\\minelauncher\\" + session.PlayerName + "Head.png");
                     Icon headIcon = Icon.FromHandle(new Bitmap(Image.FromFile(GlobalConfig.AppDataPath +
-                        "\\.minecraft\\minelauncher\\" + session.PlayerName + "Head.png"), new Size(64, 64)).GetHicon());
+                        "\\.minecraft\\minelauncher\\" + session.PlayerName + "Head.png"), new Size(72, 72)).GetHicon());
                     this.SafeInvoke(new Action(() => 
                     {
                         tbFastLogin_Password.Text = "";
@@ -1203,8 +1205,12 @@ namespace MineLauncher.UI.Forms
         }
 
         #endregion
-        
+
+        private void wbStart_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+        }
+
         #endregion
-                                                                               
+                                                                                       
     }
 }

@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLauncher));
             this.tcMain = new MetroFramework.Controls.MetroTabControl();
             this.tpStart = new MetroFramework.Controls.MetroTabPage();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.wbStart = new System.Windows.Forms.WebBrowser();
             this.tpConsole = new MetroFramework.Controls.MetroTabPage();
             this.lblLogPB = new MetroFramework.Controls.MetroLabel();
             this.pbLog = new MetroFramework.Controls.MetroProgressBar();
@@ -101,12 +101,12 @@
             this.pnlFastInfo = new MetroFramework.Controls.MetroPanel();
             this.lblFastInfo_Welcome = new MetroFramework.Controls.MetroLabel();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
-            this.pbFastInfo_Avatar = new System.Windows.Forms.PictureBox();
             this.pnlFastLogin = new MetroFramework.Controls.MetroPanel();
             this.tbFastLogin_Password = new MetroFramework.Controls.MetroTextBox();
             this.btnFastLogin_Login = new MetroFramework.Controls.MetroButton();
             this.tbFastLogin_Username = new MetroFramework.Controls.MetroTextBox();
             this.btnLaunch = new MetroFramework.Controls.MetroButton();
+            this.pbFastInfo_Avatar = new System.Windows.Forms.PictureBox();
             this.tcMain.SuspendLayout();
             this.tpStart.SuspendLayout();
             this.tpConsole.SuspendLayout();
@@ -121,9 +121,8 @@
             this.pnlFastControl.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.pnlFastInfo.SuspendLayout();
-            this.metroPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFastInfo_Avatar)).BeginInit();
             this.pnlFastLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFastInfo_Avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // tcMain
@@ -134,15 +133,16 @@
             this.tcMain.Controls.Add(this.tpProfiles);
             this.tcMain.Controls.Add(this.tpSettings);
             this.tcMain.Controls.Add(this.tpAbout);
+            this.tcMain.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.tcMain.Name = "tcMain";
-            this.tcMain.SelectedIndex = 4;
+            this.tcMain.SelectedIndex = 2;
             this.tcMain.Style = MetroFramework.MetroColorStyle.Blue;
             this.tcMain.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.tcMain.UseSelectable = true;
             // 
             // tpStart
             // 
-            this.tpStart.Controls.Add(this.webBrowser1);
+            this.tpStart.Controls.Add(this.wbStart);
             this.tpStart.HorizontalScrollbarBarColor = true;
             this.tpStart.HorizontalScrollbarHighlightOnWheel = false;
             this.tpStart.HorizontalScrollbarSize = 10;
@@ -153,15 +153,16 @@
             this.tpStart.VerticalScrollbarHighlightOnWheel = false;
             this.tpStart.VerticalScrollbarSize = 10;
             // 
-            // webBrowser1
+            // wbStart
             // 
-            this.webBrowser1.AllowNavigation = false;
-            resources.ApplyResources(this.webBrowser1, "webBrowser1");
-            this.webBrowser1.IsWebBrowserContextMenuEnabled = false;
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.ScrollBarsEnabled = false;
-            this.webBrowser1.Url = new System.Uri("http://mcupdate.tumblr.com/", System.UriKind.Absolute);
-            this.webBrowser1.WebBrowserShortcutsEnabled = false;
+            this.wbStart.AllowNavigation = false;
+            resources.ApplyResources(this.wbStart, "wbStart");
+            this.wbStart.IsWebBrowserContextMenuEnabled = false;
+            this.wbStart.Name = "wbStart";
+            this.wbStart.ScrollBarsEnabled = false;
+            this.wbStart.Url = new System.Uri("http://mcupdate.tumblr.com/", System.UriKind.Absolute);
+            this.wbStart.WebBrowserShortcutsEnabled = false;
+            this.wbStart.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.wbStart_DocumentCompleted);
             // 
             // tpConsole
             // 
@@ -181,15 +182,17 @@
             // lblLogPB
             // 
             resources.ApplyResources(this.lblLogPB, "lblLogPB");
-            this.lblLogPB.BackColor = System.Drawing.Color.Transparent;
+            this.lblLogPB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.lblLogPB.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lblLogPB.Name = "lblLogPB";
+            this.lblLogPB.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // pbLog
             // 
             resources.ApplyResources(this.pbLog, "pbLog");
             this.pbLog.HideProgressText = false;
             this.pbLog.Name = "pbLog";
+            this.pbLog.Style = MetroFramework.MetroColorStyle.Blue;
             // 
             // rtbLog
             // 
@@ -726,7 +729,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = global::MineLauncher.Properties.Resources.Logo;
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
@@ -879,7 +881,6 @@
             // 
             // metroPanel3
             // 
-            this.metroPanel3.Controls.Add(this.pbFastInfo_Avatar);
             resources.ApplyResources(this.metroPanel3, "metroPanel3");
             this.metroPanel3.HorizontalScrollbarBarColor = true;
             this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
@@ -888,13 +889,6 @@
             this.metroPanel3.VerticalScrollbarBarColor = true;
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel3.VerticalScrollbarSize = 10;
-            // 
-            // pbFastInfo_Avatar
-            // 
-            resources.ApplyResources(this.pbFastInfo_Avatar, "pbFastInfo_Avatar");
-            this.pbFastInfo_Avatar.BackColor = System.Drawing.Color.Transparent;
-            this.pbFastInfo_Avatar.Name = "pbFastInfo_Avatar";
-            this.pbFastInfo_Avatar.TabStop = false;
             // 
             // pnlFastLogin
             // 
@@ -950,10 +944,18 @@
             this.btnLaunch.UseSelectable = true;
             this.btnLaunch.Click += new System.EventHandler(this.btnLaunch_Click);
             // 
+            // pbFastInfo_Avatar
+            // 
+            resources.ApplyResources(this.pbFastInfo_Avatar, "pbFastInfo_Avatar");
+            this.pbFastInfo_Avatar.BackColor = System.Drawing.Color.Transparent;
+            this.pbFastInfo_Avatar.Name = "pbFastInfo_Avatar";
+            this.pbFastInfo_Avatar.TabStop = false;
+            // 
             // frmLauncher
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pbFastInfo_Avatar);
             this.Controls.Add(this.pnlFastControl);
             this.Controls.Add(this.tcMain);
             this.MaximizeBox = false;
@@ -982,9 +984,8 @@
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             this.pnlFastInfo.ResumeLayout(false);
-            this.metroPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbFastInfo_Avatar)).EndInit();
             this.pnlFastLogin.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbFastInfo_Avatar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1044,7 +1045,7 @@
         private MetroFramework.Controls.MetroProgressBar pbLog;
         private MetroFramework.Controls.MetroLabel lblLogPB;
         private MetroFramework.Controls.MetroButton btnProfile_Edit_Save;
-        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.WebBrowser wbStart;
         private MetroFramework.Controls.MetroPanel metroPanel2;
         private MetroFramework.Controls.MetroButton btnSettings_ImportFromOriginalLauncher;
         private MetroFramework.Controls.MetroLabel metroLabel14;

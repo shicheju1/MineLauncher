@@ -33,12 +33,6 @@ namespace MineLauncher.Win32Api
         [DllImport("user32.dll")]
         internal static extern int SendMessage(IntPtr hwnd, int message, int wParam, IntPtr lParam);
 
-        [DllImport("user32.dll")]
-        internal static extern IntPtr GetDC(IntPtr hwnd);
-
-        [DllImport("user32.dll")]
-        internal static extern void ReleaseDC(IntPtr dc);
-
         [return: MarshalAs(UnmanagedType.Bool)]
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         internal static extern bool GlobalMemoryStatusEx([In, Out] MEMORYSTATUSEX lpBuffer);

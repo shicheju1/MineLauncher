@@ -36,10 +36,10 @@ namespace MineLauncher
                 {
                     return Assembly.Load(MineLauncher.Properties.Resources.ExceptionBase);
                 }
-                else if(args.Name.StartsWith("nUpdate"))
+                /* else if(args.Name.StartsWith("nUpdate"))
                 {
                     return Assembly.Load(MineLauncher.Properties.Resources.nUpdate);
-                }
+                } */
                 else if (args.Name.StartsWith("Newtonsoft.Json"))
                 {
                     return Assembly.Load(MineLauncher.Properties.Resources.Newtonsoft_Json);

@@ -88,10 +88,6 @@
       <HintPath>Resources\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="nUpdate">
-      <HintPath>..\..\..\..\..\#nUpdate\nUpdate\bin\Debug\nUpdate.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -193,7 +189,6 @@
     <None Include="Resources\MetroFramework.Fonts.dll" />
     <None Include="Resources\MetroFramework.dll" />
     <None Include="Resources\MetroFramework.Design.dll" />
-    <EmbeddedResource Include="Resources\nUpdate.dll" />
     <EmbeddedResource Include="Resources\ExceptionBase.dll" />
     <EmbeddedResource Include="Resources\Ionic.Zip.dll" />
     <EmbeddedResource Include="Resources\Microsoft.WindowsAPICodePack.dll" />
