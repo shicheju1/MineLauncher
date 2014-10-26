@@ -68,7 +68,6 @@
             this.cbProfiles_Edit_Version = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.cbProfiles_Select = new MetroFramework.Controls.MetroComboBox();
-            this.tpFeatured = new MetroFramework.Controls.MetroTabPage();
             this.tpSettings = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
             this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds = new MetroFramework.Controls.MetroCheckBox();
@@ -85,6 +84,7 @@
             this.btnSettings_ImportFromOriginalLauncher = new MetroFramework.Controls.MetroButton();
             this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
             this.tpAbout = new MetroFramework.Controls.MetroTabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.lblAbout_WindowsApiCodePack = new MetroFramework.Controls.MetroLabel();
             this.lblAbout_nUpdate = new MetroFramework.Controls.MetroLabel();
             this.lblAbout_IonicZip = new MetroFramework.Controls.MetroLabel();
@@ -130,7 +130,6 @@
             // 
             resources.ApplyResources(this.tcMain, "tcMain");
             this.tcMain.Controls.Add(this.tpStart);
-            this.tcMain.Controls.Add(this.tpFeatured);
             this.tcMain.Controls.Add(this.tpConsole);
             this.tcMain.Controls.Add(this.tpProfiles);
             this.tcMain.Controls.Add(this.tpSettings);
@@ -541,19 +540,6 @@
             this.cbProfiles_Select.UseSelectable = true;
             this.cbProfiles_Select.SelectedIndexChanged += new System.EventHandler(this.cbProfiles_Select_SelectedIndexChanged);
             // 
-            // tpFeatured
-            // 
-            resources.ApplyResources(this.tpFeatured, "tpFeatured");
-            this.tpFeatured.HorizontalScrollbar = true;
-            this.tpFeatured.HorizontalScrollbarBarColor = true;
-            this.tpFeatured.HorizontalScrollbarHighlightOnWheel = false;
-            this.tpFeatured.HorizontalScrollbarSize = 10;
-            this.tpFeatured.Name = "tpFeatured";
-            this.tpFeatured.VerticalScrollbar = true;
-            this.tpFeatured.VerticalScrollbarBarColor = true;
-            this.tpFeatured.VerticalScrollbarHighlightOnWheel = true;
-            this.tpFeatured.VerticalScrollbarSize = 10;
-            // 
             // tpSettings
             // 
             this.tpSettings.Controls.Add(this.metroPanel6);
@@ -716,6 +702,7 @@
             // 
             // tpAbout
             // 
+            this.tpAbout.Controls.Add(this.panel1);
             this.tpAbout.Controls.Add(this.lblAbout_WindowsApiCodePack);
             this.tpAbout.Controls.Add(this.lblAbout_nUpdate);
             this.tpAbout.Controls.Add(this.lblAbout_IonicZip);
@@ -735,6 +722,13 @@
             this.tpAbout.VerticalScrollbarBarColor = true;
             this.tpAbout.VerticalScrollbarHighlightOnWheel = false;
             this.tpAbout.VerticalScrollbarSize = 10;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = global::MineLauncher.Properties.Resources.Logo;
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
             // 
             // lblAbout_WindowsApiCodePack
             // 
@@ -969,7 +963,6 @@
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLauncher_FormClosing);
-            this.Shown += new System.EventHandler(this.frmLauncher_Shown);
             this.tcMain.ResumeLayout(false);
             this.tpStart.ResumeLayout(false);
             this.tpConsole.ResumeLayout(false);
@@ -1075,7 +1068,7 @@
         private MetroFramework.Controls.MetroButton btnProfiles_Edit_JVM_Path_Select;
         private MetroFramework.Controls.MetroButton btnProfiles_Edit_Directory_Select;
         private MetroFramework.Controls.MetroButton btnLaunch;
-        private MetroFramework.Controls.MetroTabPage tpFeatured;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

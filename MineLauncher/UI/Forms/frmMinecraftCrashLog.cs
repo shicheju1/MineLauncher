@@ -77,31 +77,34 @@ namespace MineLauncher.UI.Forms
             this.rtbCrashLog.Text = File.ReadAllText(report.FullName);
         }
 
-        #region ThemeChanger
+        #region Theme
 
         public void ChangeFormTheme(MetroForm form)
         {
-            form.Theme = GetMetroThemeFromConfig();
+            this.SafeInvoke(new Action(() => form.Theme = GetMetroThemeFromConfig()));
+            this.SafeInvoke(new Action(() => form.Refresh()));
+
             foreach (Control ctrl in ((Control)form).Controls)
             {
                 if (ctrl is IMetroControl)
                 {
-                    ((IMetroControl)ctrl).Theme = GetMetroThemeFromConfig();
+                    this.SafeInvoke(new Action(() => ((IMetroControl)ctrl).Theme = GetMetroThemeFromConfig()));
                 }
                 else if (ctrl is Control)
                 {
                     if (GetMetroThemeFromConfig() == MetroThemeStyle.Dark)
                     {
-                        ((Control)ctrl).BackColor = Color.FromArgb(17, 17, 17);
-                        ((Control)ctrl).ForeColor = Color.FromArgb(170, 170, 170);
+                        this.SafeInvoke(new Action(() => ((Control)ctrl).BackColor = Color.FromArgb(17, 17, 17)));
+                        this.SafeInvoke(new Action(() => ((Control)ctrl).ForeColor = Color.FromArgb(170, 170, 170)));
                     }
                     else
                     {
-                        ((Control)ctrl).BackColor = Color.FromArgb(255, 255, 255);
-                        ((Control)ctrl).ForeColor = Color.FromArgb(0, 0, 0);
+                        this.SafeInvoke(new Action(() => ((Control)ctrl).BackColor = Color.FromArgb(255, 255, 255)));
+                        this.SafeInvoke(new Action(() => ((Control)ctrl).ForeColor = Color.FromArgb(0, 0, 0)));
                     }
                 }
 
+                this.SafeInvoke(new Action(() => ctrl.Refresh()));
                 ChangeControlTheme(ctrl);
             }
         }
@@ -110,24 +113,44 @@ namespace MineLauncher.UI.Forms
         {
             if (ctrl is IMetroControl)
             {
-                ((IMetroControl)ctrl).Theme = GetMetroThemeFromConfig();
+                this.SafeInvoke(new Action(() => ((IMetroControl)ctrl).Theme = GetMetroThemeFromConfig()));
             }
             else
             {
-                ctrl.BackColor = MetroFramework.Drawing.MetroPaint.BorderColor.Button.Normal(GetMetroThemeFromConfig());
-                ctrl.ForeColor = MetroFramework.Drawing.MetroPaint.ForeColor.Button.Normal(GetMetroThemeFromConfig());
+                if (GetMetroThemeFromConfig() == MetroThemeStyle.Dark)
+                {
+                    this.SafeInvoke(new Action(() => ((Control)ctrl).BackColor = Color.FromArgb(17, 17, 17)));
+                    this.SafeInvoke(new Action(() => ((Control)ctrl).ForeColor = Color.FromArgb(170, 170, 170)));
+                }
+                else
+                {
+                    this.SafeInvoke(new Action(() => ((Control)ctrl).BackColor = Color.FromArgb(255, 255, 255)));
+                    this.SafeInvoke(new Action(() => ((Control)ctrl).ForeColor = Color.FromArgb(0, 0, 0)));
+                }
             }
+            this.SafeInvoke(new Action(() => ctrl.Refresh()));
+
             foreach (Control subctrl in ctrl.Controls)
             {
                 if (subctrl is IMetroControl)
                 {
-                    ChangeControlTheme(subctrl);
+                    this.SafeInvoke(new Action(() => ((IMetroControl)subctrl).Theme = GetMetroThemeFromConfig()));
                 }
-                else
+                else if (subctrl is Control)
                 {
-                    subctrl.BackColor = MetroFramework.Drawing.MetroPaint.BorderColor.Button.Normal(GetMetroThemeFromConfig());
-                    subctrl.ForeColor = MetroFramework.Drawing.MetroPaint.ForeColor.Button.Normal(GetMetroThemeFromConfig());
+                    if (GetMetroThemeFromConfig() == MetroThemeStyle.Dark)
+                    {
+                        this.SafeInvoke(new Action(() => ((Control)subctrl).BackColor = Color.FromArgb(17, 17, 17)));
+                        this.SafeInvoke(new Action(() => ((Control)subctrl).ForeColor = Color.FromArgb(170, 170, 170)));
+                    }
+                    else
+                    {
+                        this.SafeInvoke(new Action(() => ((Control)subctrl).BackColor = Color.FromArgb(255, 255, 255)));
+                        this.SafeInvoke(new Action(() => ((Control)subctrl).ForeColor = Color.FromArgb(0, 0, 0)));
+                    }
                 }
+                this.SafeInvoke(new Action(() => subctrl.Refresh()));
+                ChangeControlTheme(subctrl);
             }
         }
 

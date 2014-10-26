@@ -225,7 +225,6 @@
             this.cbTheme.TabIndex = 4;
             this.cbTheme.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.cbTheme.UseSelectable = true;
-            this.cbTheme.SelectedIndexChanged += new System.EventHandler(this.cbTheme_SelectedIndexChanged);
             // 
             // metroLabel2
             // 

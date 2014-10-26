@@ -120,8 +120,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UI\Controls\FeaturedObject.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="UI\Controls\WaitingSpinner.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\Windows8ProgressRing.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\Forms\frmLauncher.cs">
       <SubType>Form</SubType>
@@ -151,9 +154,6 @@
     <Compile Include="Win32Api.cs" />
     <EmbeddedResource Include="frmStarting.resx">
       <DependentUpon>frmStarting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Controls\FeaturedObject.resx">
-      <DependentUpon>FeaturedObject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\frmLauncher.resx">
       <DependentUpon>frmLauncher.cs</DependentUpon>
@@ -189,6 +189,7 @@
     <Content Include="Resources\Creeper_Standard.ico" />
     <Content Include="Resources\Creeper_Violet.ico" />
     <Content Include="Resources\Creeper_Yellow.ico" />
+    <None Include="Resources\Logo.png" />
     <None Include="Resources\MetroFramework.Fonts.dll" />
     <None Include="Resources\MetroFramework.dll" />
     <None Include="Resources\MetroFramework.Design.dll" />
@@ -223,6 +224,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>cmd /c D:\Projekte\Windows\Minecraft\MineLauncher\MineLauncher\MineLauncher\bin\Debug\workspace.bat</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

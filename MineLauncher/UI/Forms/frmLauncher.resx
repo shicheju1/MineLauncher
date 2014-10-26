@@ -177,33 +177,6 @@
   <data name="&gt;&gt;tpStart.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="tpFeatured.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="tpFeatured.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 38</value>
-  </data>
-  <data name="tpFeatured.Size" type="System.Drawing.Size, System.Drawing">
-    <value>930, 372</value>
-  </data>
-  <data name="tpFeatured.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="tpFeatured.Text" xml:space="preserve">
-    <value>Featured</value>
-  </data>
-  <data name="&gt;&gt;tpFeatured.Name" xml:space="preserve">
-    <value>tpFeatured</value>
-  </data>
-  <data name="&gt;&gt;tpFeatured.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;tpFeatured.Parent" xml:space="preserve">
-    <value>tcMain</value>
-  </data>
-  <data name="&gt;&gt;tpFeatured.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="lblLogPB.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
@@ -304,7 +277,7 @@
     <value>tcMain</value>
   </data>
   <data name="&gt;&gt;tpConsole.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="pnlProfiles_Edit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -1168,7 +1141,7 @@
     <value>tcMain</value>
   </data>
   <data name="&gt;&gt;tpProfiles.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1177,13 +1150,13 @@
     <value>18, 59</value>
   </data>
   <data name="cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Size" type="System.Drawing.Size, System.Drawing">
-    <value>238, 15</value>
+    <value>229, 15</value>
   </data>
   <data name="cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Text" xml:space="preserve">
-    <value>Change Icon randomly every 5 seconds</value>
+    <value>Change Icon every 5 seconds random</value>
   </data>
   <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Name" xml:space="preserve">
     <value>cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds</value>
@@ -1204,13 +1177,13 @@
     <value>3, 38</value>
   </data>
   <data name="cbSettings_Launcher_ChangeGameIcon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 15</value>
+    <value>150, 15</value>
   </data>
   <data name="cbSettings_Launcher_ChangeGameIcon.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="cbSettings_Launcher_ChangeGameIcon.Text" xml:space="preserve">
-    <value>Change Game-Icon</value>
+    <value>Change Minecraft-Icon</value>
   </data>
   <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon.Name" xml:space="preserve">
     <value>cbSettings_Launcher_ChangeGameIcon</value>
@@ -1549,7 +1522,31 @@
     <value>tcMain</value>
   </data>
   <data name="&gt;&gt;tpSettings.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
+  </data>
+  <data name="panel1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 237</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>341, 103</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>tpAbout</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="lblAbout_WindowsApiCodePack.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1576,7 +1573,7 @@
     <value>tpAbout</value>
   </data>
   <data name="&gt;&gt;lblAbout_WindowsApiCodePack.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="lblAbout_nUpdate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1603,7 +1600,7 @@
     <value>tpAbout</value>
   </data>
   <data name="&gt;&gt;lblAbout_nUpdate.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="lblAbout_IonicZip.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1630,7 +1627,7 @@
     <value>tpAbout</value>
   </data>
   <data name="&gt;&gt;lblAbout_IonicZip.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="lblAbout_NewtonsoftJson.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1657,7 +1654,7 @@
     <value>tpAbout</value>
   </data>
   <data name="&gt;&gt;lblAbout_NewtonsoftJson.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="lblAbout_ExceptionBase.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1684,7 +1681,7 @@
     <value>tpAbout</value>
   </data>
   <data name="&gt;&gt;lblAbout_ExceptionBase.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="linkAbout_GitHub.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 346</value>
@@ -1708,7 +1705,7 @@
     <value>tpAbout</value>
   </data>
   <data name="&gt;&gt;linkAbout_GitHub.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="lblAbout_MetroFramework.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1735,7 +1732,7 @@
     <value>tpAbout</value>
   </data>
   <data name="&gt;&gt;lblAbout_MetroFramework.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="lblAbout.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1764,7 +1761,7 @@ by Lukas Berger, http://lukasberger.at</value>
     <value>tpAbout</value>
   </data>
   <data name="&gt;&gt;lblAbout.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="rtbAbout_Licenses.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Right</value>
@@ -1863,7 +1860,7 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>tpAbout</value>
   </data>
   <data name="&gt;&gt;rtbAbout_Licenses.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="tpAbout.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 38</value>
@@ -1890,7 +1887,7 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>tcMain</value>
   </data>
   <data name="&gt;&gt;tpAbout.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="tcMain.Location" type="System.Drawing.Point, System.Drawing">
     <value>23, 63</value>
@@ -2206,10 +2203,10 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>False</value>
   </data>
   <data name="btnLaunch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>312, 3</value>
+    <value>220, 3</value>
   </data>
   <data name="btnLaunch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 90</value>
+    <value>503, 90</value>
   </data>
   <data name="btnLaunch.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
