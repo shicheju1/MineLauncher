@@ -1779,12 +1779,21 @@ by Lukas Berger, http://lukasberger.at</value>
     <value>Licences:
 
 "MineLauncher"
-Copyright (c) 2014 Lukas Berger, see also on http://stor.lukasberger.at/license-en.txt
-You are free to use, copy and share this application under the following conditions:
- a.) The Selling / Commercial use of this application is prohibited
- b.) The publication of modified version of this application is prohibited
- c.) The brading ("MineLauncher"), the author ("Lukas Berger"), the credits for the libraries and the licenses must be same as in the original
- d.) The creator of this application ("Lukas Berger") shall not be liable for changes in the third-party-licenses
+    MineLauncher - Simple Minecraft Launcher
+    Copyright (C) 2014  Lukas Berger
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
 
 "MetroFramework"
 MetroFramework - Modern UI for WinForms

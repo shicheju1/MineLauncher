@@ -10,8 +10,8 @@ using System.Resources;
 [assembly: AssemblyDescription("Simple Minecraft-Launcher")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Lukas Berger <http://lukasberger.at>")]
-[assembly: AssemblyProduct("MineSurvival")]
-[assembly: AssemblyCopyright("Copyright © Lukas Berger 2014")]
+[assembly: AssemblyProduct("MineSurvival, licensed under the GPLv3")]
+[assembly: AssemblyCopyright("Copyright © 2014 Lukas Berger")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

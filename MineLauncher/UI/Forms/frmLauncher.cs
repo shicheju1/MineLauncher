@@ -197,7 +197,7 @@ namespace MineLauncher.UI.Forms
                     Application.Exit();
                 }
                 
-                this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [STARTUP] Starting MineLauncher Version " + Application.ProductVersion + "\n")));
+                this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [STARTUP] Starting MineLauncher \"Miner\" Version " + Application.ProductVersion + "\n")));
                 this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [STARTUP] System: " + Environment.OSVersion.GetOSFullName() + ", " + Environment.OSVersion.ToString() + "\n")));
                 this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [STARTUP] Memory: " + Math.Round((double)memory.ullTotalPhys / 1024 / 1024, 2) + "MB\n")));
                 this.SafeInvoke(new Action(() => rtbLog.AppendText("[" + DateTime.Now.ToString() + "] [STARTUP] Available Memory: " + Math.Round((double)memory.ullAvailPhys / 1024 / 1024, 2) + "MB - " + memStat + "\n")));

@@ -55,6 +55,27 @@ namespace MineLauncher.UI.Forms
             }).Start();
         }
 
+        private void frmSetup_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Dictionary<string, object> setup = new Dictionary<string, object>();
+            Dictionary<string, object> setup_updater = new Dictionary<string, object>();
+            Dictionary<string, object> setup_ingame = new Dictionary<string, object>();
+
+            setup.Add("baseofflinemode", true);
+            setup.Add("theme", "dark");
+
+            setup_updater.Add("alpha", false);
+            setup_updater.Add("beta", false);
+
+            setup_ingame.Add("randomicon", true);
+            setup_ingame.Add("changeiconrandom", true);
+
+            setup.Add("updater", setup_updater);
+            setup.Add("ingame", setup_ingame);
+
+            File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));
+        }
+             
         private void tileStartLauncher_Click(object sender, EventArgs e)
         {
             Dictionary<string, object> setup = new Dictionary<string, object>();
@@ -572,26 +593,5 @@ namespace MineLauncher.UI.Forms
 
         #endregion
 
-        private void frmSetup_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Dictionary<string, object> setup = new Dictionary<string, object>();
-            Dictionary<string, object> setup_updater = new Dictionary<string, object>();
-            Dictionary<string, object> setup_ingame = new Dictionary<string, object>();
-
-            setup.Add("baseofflinemode", true);
-            setup.Add("theme", "dark");
-
-            setup_updater.Add("alpha", false);
-            setup_updater.Add("beta", false);
-
-            setup_ingame.Add("randomicon", true);
-            setup_ingame.Add("changeiconrandom", true);
-
-            setup.Add("updater", setup_updater);
-            setup.Add("ingame", setup_ingame);
-
-            File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json", JsonConvert.SerializeObject(setup));
-        }
-             
     }
 }

@@ -135,7 +135,7 @@
             this.tcMain.Controls.Add(this.tpSettings);
             this.tcMain.Controls.Add(this.tpAbout);
             this.tcMain.Name = "tcMain";
-            this.tcMain.SelectedIndex = 0;
+            this.tcMain.SelectedIndex = 4;
             this.tcMain.Style = MetroFramework.MetroColorStyle.Blue;
             this.tcMain.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.tcMain.UseSelectable = true;
