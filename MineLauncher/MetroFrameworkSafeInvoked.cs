@@ -1,46 +1,44 @@
-﻿using System;
-using System.IO;
-using System.Drawing;
-using System.Windows.Forms;
-
-using MetroFramework;
-using MetroFramework.Interfaces;
-using MetroFramework.Forms;
-
-using Newtonsoft.Json;
-
-namespace MineLauncher
-{
-    internal partial class frmStarting : MetroForm
-    {
-
-        string uitheme = "";
-        bool canClose = false;
-
-        public frmStarting()
+        public static void SafeInvoke(this Control uiElement, Action updater, bool forceSynchronous = true)
         {
-            InitializeComponent();
-
-            dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json"));
-            uitheme = (string)setup.theme;
-            ChangeFormTheme(this);
-
-            Timer tmr = new Timer();
-            tmr.Interval = 10000;
-            tmr.Tick += ((object sender, EventArgs e) =>
+            if (uiElement == null)
             {
-                lblInfo.Visible = true;
-                tmr.Stop();
-            });
-            tmr.Start();
+                throw new ArgumentNullException("uiElement");
+            }
+
+            if (uiElement.InvokeRequired)
+            {
+                if (forceSynchronous)
+                {
+                    try
+                    {
+                        uiElement.Invoke((Action)delegate { SafeInvoke(uiElement, updater, forceSynchronous); });
+                    }
+                    catch (ObjectDisposedException)
+                    {
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        uiElement.BeginInvoke((Action)delegate { SafeInvoke(uiElement, updater, forceSynchronous); });
+                    }
+                    catch (ObjectDisposedException)
+                    {
+                    }
+                }
+            }
+            else
+            {
+                if (!uiElement.IsDisposed)
+                {
+                    updater();
+                }
+            }
         }
 
-        public void CloseStartingDialog()
-        {
-            canClose = true;
-            this.Close();
-        }
-
+private string uitheme = "Dark";
+        
         #region Theme
 
         public void ChangeFormTheme(MetroForm form)
@@ -131,12 +129,3 @@ namespace MineLauncher
         }
 
         #endregion
-
-        private void frmStarting_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (!canClose)
-                e.Cancel = true;
-        }
-                
-    }
-}

@@ -169,4 +169,37 @@
   <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="destroy_stage_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\destroy_stage_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroy_stage_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\destroy_stage_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroy_stage_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\destroy_stage_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroy_stage_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\destroy_stage_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroy_stage_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\destroy_stage_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroy_stage_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\destroy_stage_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroy_stage_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\destroy_stage_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroy_stage_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\destroy_stage_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroy_stage_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\destroy_stage_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="destroy_stage_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\destroy_stage_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="diamond_ore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\diamond_ore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

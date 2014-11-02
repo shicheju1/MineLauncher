@@ -22,13 +22,6 @@ namespace MineLauncher
         static void Main()
         {
             string architcture = Environment.Is64BitOperatingSystem ? "64" : "86";
-            if (File.Exists(Directory.GetCurrentDirectory() + "\\app.prop" + architcture))
-            {
-                if (File.ReadAllLines(Directory.GetCurrentDirectory() + "\\app.prop" + architcture)[2] == "show-console")
-                {
-                    NativesMethods.AllocConsole();
-                }
-            }
 
             AppDomain.CurrentDomain.AssemblyResolve += (sender, args) =>
             {

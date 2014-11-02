@@ -91,6 +91,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
@@ -116,7 +117,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UI\Controls\WaitingSpinner.cs">
+    <Compile Include="UI\Controls\MinecraftLoadingAnimation.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\Controls\Windows8ProgressRing.cs">
@@ -185,6 +186,18 @@
     <Content Include="Resources\Creeper_Standard.ico" />
     <Content Include="Resources\Creeper_Violet.ico" />
     <Content Include="Resources\Creeper_Yellow.ico" />
+    <None Include="Resources\destroy_stage_9.png" />
+    <None Include="Resources\destroy_stage_8.png" />
+    <None Include="Resources\destroy_stage_7.png" />
+    <None Include="Resources\destroy_stage_6.png" />
+    <None Include="Resources\destroy_stage_5.png" />
+    <None Include="Resources\destroy_stage_4.png" />
+    <None Include="Resources\destroy_stage_3.png" />
+    <None Include="Resources\destroy_stage_2.png" />
+    <None Include="Resources\destroy_stage_1.png" />
+    <None Include="Resources\destroy_stage_0.png" />
+    <None Include="Resources\diamond_ore.png" />
+    <None Include="Resources\steve.png" />
     <None Include="Resources\Logo.png" />
     <None Include="Resources\MetroFramework.Fonts.dll" />
     <None Include="Resources\MetroFramework.dll" />
@@ -195,7 +208,6 @@
     <EmbeddedResource Include="Resources\Microsoft.WindowsAPICodePack.Shell.dll" />
     <EmbeddedResource Include="Resources\Newtonsoft.Json.dll" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
       <Visible>False</Visible>
@@ -224,7 +236,8 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>cmd /c D:\Projekte\Windows\Minecraft\MineLauncher\MineLauncher\MineLauncher\bin\Debug\workspace.bat</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

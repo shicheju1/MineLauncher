@@ -69,10 +69,6 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.cbProfiles_Select = new MetroFramework.Controls.MetroComboBox();
             this.tpSettings = new MetroFramework.Controls.MetroTabPage();
-            this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
-            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds = new MetroFramework.Controls.MetroCheckBox();
-            this.cbSettings_Launcher_ChangeGameIcon = new MetroFramework.Controls.MetroCheckBox();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
             this.cbSettings_Updater_Including_Beta = new MetroFramework.Controls.MetroCheckBox();
             this.cbSettings_Updater_Including_Alpha = new MetroFramework.Controls.MetroCheckBox();
@@ -113,7 +109,6 @@
             this.tpProfiles.SuspendLayout();
             this.pnlProfiles_Edit.SuspendLayout();
             this.tpSettings.SuspendLayout();
-            this.metroPanel6.SuspendLayout();
             this.metroPanel5.SuspendLayout();
             this.metroPanel4.SuspendLayout();
             this.metroPanel2.SuspendLayout();
@@ -135,7 +130,7 @@
             this.tcMain.Controls.Add(this.tpAbout);
             this.tcMain.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.tcMain.Name = "tcMain";
-            this.tcMain.SelectedIndex = 2;
+            this.tcMain.SelectedIndex = 3;
             this.tcMain.Style = MetroFramework.MetroColorStyle.Blue;
             this.tcMain.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.tcMain.UseSelectable = true;
@@ -162,7 +157,6 @@
             this.wbStart.ScrollBarsEnabled = false;
             this.wbStart.Url = new System.Uri("http://mcupdate.tumblr.com/", System.UriKind.Absolute);
             this.wbStart.WebBrowserShortcutsEnabled = false;
-            this.wbStart.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.wbStart_DocumentCompleted);
             // 
             // tpConsole
             // 
@@ -193,6 +187,7 @@
             this.pbLog.HideProgressText = false;
             this.pbLog.Name = "pbLog";
             this.pbLog.Style = MetroFramework.MetroColorStyle.Blue;
+            this.pbLog.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // rtbLog
             // 
@@ -545,7 +540,6 @@
             // 
             // tpSettings
             // 
-            this.tpSettings.Controls.Add(this.metroPanel6);
             this.tpSettings.Controls.Add(this.metroPanel5);
             this.tpSettings.Controls.Add(this.metroPanel4);
             this.tpSettings.Controls.Add(this.metroPanel2);
@@ -559,46 +553,6 @@
             this.tpSettings.VerticalScrollbarBarColor = true;
             this.tpSettings.VerticalScrollbarHighlightOnWheel = false;
             this.tpSettings.VerticalScrollbarSize = 10;
-            // 
-            // metroPanel6
-            // 
-            this.metroPanel6.Controls.Add(this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds);
-            this.metroPanel6.Controls.Add(this.cbSettings_Launcher_ChangeGameIcon);
-            this.metroPanel6.Controls.Add(this.metroLabel13);
-            this.metroPanel6.HorizontalScrollbarBarColor = true;
-            this.metroPanel6.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel6.HorizontalScrollbarSize = 10;
-            resources.ApplyResources(this.metroPanel6, "metroPanel6");
-            this.metroPanel6.Name = "metroPanel6";
-            this.metroPanel6.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroPanel6.VerticalScrollbarBarColor = true;
-            this.metroPanel6.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel6.VerticalScrollbarSize = 10;
-            // 
-            // cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds
-            // 
-            resources.ApplyResources(this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds, "cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds");
-            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
-            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Name = "cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds";
-            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.UseSelectable = true;
-            this.cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.CheckedChanged += new System.EventHandler(this.cbSettings_CheckedChanged);
-            // 
-            // cbSettings_Launcher_ChangeGameIcon
-            // 
-            resources.ApplyResources(this.cbSettings_Launcher_ChangeGameIcon, "cbSettings_Launcher_ChangeGameIcon");
-            this.cbSettings_Launcher_ChangeGameIcon.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
-            this.cbSettings_Launcher_ChangeGameIcon.Name = "cbSettings_Launcher_ChangeGameIcon";
-            this.cbSettings_Launcher_ChangeGameIcon.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.cbSettings_Launcher_ChangeGameIcon.UseSelectable = true;
-            this.cbSettings_Launcher_ChangeGameIcon.CheckedChanged += new System.EventHandler(this.cbSettings_CheckedChanged);
-            // 
-            // metroLabel13
-            // 
-            this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            resources.ApplyResources(this.metroLabel13, "metroLabel13");
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // metroPanel5
             // 
@@ -830,6 +784,7 @@
             this.pnlFastControl.HorizontalScrollbarSize = 10;
             resources.ApplyResources(this.pnlFastControl, "pnlFastControl");
             this.pnlFastControl.Name = "pnlFastControl";
+            this.pnlFastControl.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.pnlFastControl.VerticalScrollbarBarColor = true;
             this.pnlFastControl.VerticalScrollbarHighlightOnWheel = false;
             this.pnlFastControl.VerticalScrollbarSize = 10;
@@ -843,6 +798,7 @@
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
@@ -852,6 +808,7 @@
             resources.ApplyResources(this.cbFastControl_SelectProfile, "cbFastControl_SelectProfile");
             this.cbFastControl_SelectProfile.FormattingEnabled = true;
             this.cbFastControl_SelectProfile.Name = "cbFastControl_SelectProfile";
+            this.cbFastControl_SelectProfile.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.cbFastControl_SelectProfile.UseSelectable = true;
             this.cbFastControl_SelectProfile.SelectedIndexChanged += new System.EventHandler(this.cbFastControl_SelectProfile_SelectedIndexChanged);
             // 
@@ -859,6 +816,7 @@
             // 
             resources.ApplyResources(this.metroLabel10, "metroLabel10");
             this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // pnlFastInfo
             // 
@@ -878,6 +836,7 @@
             resources.ApplyResources(this.lblFastInfo_Welcome, "lblFastInfo_Welcome");
             this.lblFastInfo_Welcome.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblFastInfo_Welcome.Name = "lblFastInfo_Welcome";
+            this.lblFastInfo_Welcome.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // metroPanel3
             // 
@@ -886,6 +845,7 @@
             this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel3.HorizontalScrollbarSize = 10;
             this.metroPanel3.Name = "metroPanel3";
+            this.metroPanel3.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroPanel3.VerticalScrollbarBarColor = true;
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel3.VerticalScrollbarSize = 10;
@@ -941,6 +901,7 @@
             resources.ApplyResources(this.btnLaunch, "btnLaunch");
             this.btnLaunch.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnLaunch.Name = "btnLaunch";
+            this.btnLaunch.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btnLaunch.UseSelectable = true;
             this.btnLaunch.Click += new System.EventHandler(this.btnLaunch_Click);
             // 
@@ -972,8 +933,6 @@
             this.pnlProfiles_Edit.ResumeLayout(false);
             this.pnlProfiles_Edit.PerformLayout();
             this.tpSettings.ResumeLayout(false);
-            this.metroPanel6.ResumeLayout(false);
-            this.metroPanel6.PerformLayout();
             this.metroPanel5.ResumeLayout(false);
             this.metroPanel5.PerformLayout();
             this.metroPanel4.ResumeLayout(false);
@@ -1062,10 +1021,6 @@
         private MetroFramework.Controls.MetroLabel lblAbout_IonicZip;
         private MetroFramework.Controls.MetroLabel lblAbout_NewtonsoftJson;
         private MetroFramework.Controls.MetroLabel lblAbout_ExceptionBase;
-        private MetroFramework.Controls.MetroPanel metroPanel6;
-        private MetroFramework.Controls.MetroCheckBox cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds;
-        private MetroFramework.Controls.MetroCheckBox cbSettings_Launcher_ChangeGameIcon;
-        private MetroFramework.Controls.MetroLabel metroLabel13;
         private MetroFramework.Controls.MetroButton btnProfiles_Edit_JVM_Path_Select;
         private MetroFramework.Controls.MetroButton btnProfiles_Edit_Directory_Select;
         private MetroFramework.Controls.MetroButton btnLaunch;

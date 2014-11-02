@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStarting));
             this.lblInfo = new MetroFramework.Controls.MetroLabel();
-            this.win8ProgressRing1 = new MineLauncher.UI.Controls.Win8ProgressRing();
+            this.minecraftLoadingAnimation1 = new MineLauncher.UI.Controls.MinecraftLoadingAnimation();
             this.SuspendLayout();
             // 
             // lblInfo
@@ -45,25 +45,26 @@
             this.lblInfo.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.lblInfo.Visible = false;
             // 
-            // win8ProgressRing1
+            // minecraftLoadingAnimation1
             // 
-            this.win8ProgressRing1.Control_Height = 200;
-            this.win8ProgressRing1.Indicator_Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            this.win8ProgressRing1.Location = new System.Drawing.Point(235, 63);
-            this.win8ProgressRing1.Name = "win8ProgressRing1";
-            this.win8ProgressRing1.Refresh_Rate = 40;
-            this.win8ProgressRing1.Size = new System.Drawing.Size(200, 200);
-            this.win8ProgressRing1.TabIndex = 3;
+            this.minecraftLoadingAnimation1.BackColor = System.Drawing.Color.White;
+            this.minecraftLoadingAnimation1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.minecraftLoadingAnimation1.Location = new System.Drawing.Point(235, 68);
+            this.minecraftLoadingAnimation1.Name = "minecraftLoadingAnimation1";
+            this.minecraftLoadingAnimation1.Size = new System.Drawing.Size(180, 180);
+            this.minecraftLoadingAnimation1.TabIndex = 4;
+            this.minecraftLoadingAnimation1.Text = "minecraftLoadingAnimation1";
             // 
             // frmStarting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 302);
-            this.Controls.Add(this.win8ProgressRing1);
+            this.Controls.Add(this.minecraftLoadingAnimation1);
             this.Controls.Add(this.lblInfo);
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(670, 302);
             this.MinimizeBox = false;
@@ -84,6 +85,6 @@
         #endregion
 
         private MetroFramework.Controls.MetroLabel lblInfo;
-        private UI.Controls.Win8ProgressRing win8ProgressRing1;
+        private UI.Controls.MinecraftLoadingAnimation minecraftLoadingAnimation1;
     }
 }

@@ -177,35 +177,6 @@ namespace MineLauncher.Launcher
             Process mcProcess = Process.Start(mcProcessStartInfo);
             StreamReader mcProcessOutputReader = mcProcess.StandardOutput;
             
-            dynamic setup = JsonConvert.DeserializeObject(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\setup.json"));
-            if ((bool)setup.ingame.randomicon)
-            {
-                new Thread(() =>
-                {
-
-                    if ((bool)setup.ingame.changeiconrandom)
-                    {
-                        while (!mcProcess.HasExited)
-                        {
-                            Icon icon = icons[rand.Next(0, 6)];
-
-                            NativesMethods.SendMessage(mcProcess.MainWindowHandle, NativesMethods.WM_SETICON, NativesMethods.ICON_BIG, icon.Handle);
-                            NativesMethods.SendMessage(mcProcess.MainWindowHandle, NativesMethods.WM_SETICON, NativesMethods.ICON_SMALL, icon.Handle);
-
-                            Thread.Sleep(5000);
-                        }
-                    }
-                    else
-                    {
-                        while (mcProcess.MainWindowHandle == IntPtr.Zero) { int i = 0; i++; /* Do something */ }
-                        Icon icon = icons[rand.Next(0, 6)];
-
-                        NativesMethods.SendMessage(mcProcess.MainWindowHandle, NativesMethods.WM_SETICON, NativesMethods.ICON_BIG, icon.Handle);
-                        NativesMethods.SendMessage(mcProcess.MainWindowHandle, NativesMethods.WM_SETICON, NativesMethods.ICON_SMALL, icon.Handle);
-                    }
-                }).Start();
-            }
-
             while (!mcProcess.HasExited)
             {
                 string read = mcProcessOutputReader.ReadLine();

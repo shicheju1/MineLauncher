@@ -106,10 +106,7 @@ namespace MineLauncher.UI.Forms
                 updater_include_alpha = (bool)setup.updater.alpha;
                 updater_include_beta = (bool)setup.updater.beta;
                 base_offline_mode = (bool)setup.baseofflinemode;
-
-                cbSettings_Launcher_ChangeGameIcon.Checked = (bool)setup.ingame.randomicon;
-                cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Checked = (bool)setup.ingame.changeiconrandom;
-
+                
                 cbSettings_Themes.SelectedItem = uitheme;
 
                 cbSettings_Updater_Including_Alpha.Checked = updater_include_alpha;
@@ -260,7 +257,8 @@ namespace MineLauncher.UI.Forms
                         }));
                     }
 
-                    rawVersionList = VersionList.getVersionList(new System.Net.WebClient().DownloadString("http://s3.amazonaws.com/Minecraft.Download/versions/versions.json"));
+                    string version_list_json = new System.Net.WebClient().DownloadString("http://s3.amazonaws.com/Minecraft.Download/versions/versions.json");
+                    rawVersionList = VersionList.getVersionList(version_list_json);
                     List<string> versions = new VersionList().GetVersionList(rawVersionList, VersionListType.All);
                     foreach (string version in versions)
                     {
@@ -1124,10 +1122,7 @@ namespace MineLauncher.UI.Forms
                 if (setup.ContainsKey("theme")) setup.Remove("theme");
                 if (setup.ContainsKey("updater")) setup.Remove("updater");
                 if (setup.ContainsKey("ingame")) setup.Remove("ingame");
-
-                if (ingame.ContainsKey("randomicon")) ingame.Remove("randomicon");
-                if (ingame.ContainsKey("changeiconrandom")) ingame.Remove("changeiconrandom");
-
+                
                 if (updater.ContainsKey("alpha")) updater.Remove("alpha");
                 if (updater.ContainsKey("beta")) updater.Remove("beta");
 
@@ -1136,9 +1131,6 @@ namespace MineLauncher.UI.Forms
 
                 // ######
                 // Readd everything
-
-                ingame.Add("randomicon", cbSettings_Launcher_ChangeGameIcon.Checked);
-                ingame.Add("changeiconrandom", cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Checked);
 
                 updater.Add("alpha", cbSettings_Updater_Including_Alpha.Checked);
                 updater.Add("beta", cbSettings_Updater_Including_Beta.Checked);
@@ -1205,11 +1197,7 @@ namespace MineLauncher.UI.Forms
         }
 
         #endregion
-
-        private void wbStart_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-        }
-
+        
         #endregion
                                                                                        
     }

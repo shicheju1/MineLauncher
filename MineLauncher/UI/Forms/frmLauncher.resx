@@ -340,7 +340,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnProfile_Edit_Save.Location" type="System.Drawing.Point, System.Drawing">
-    <value>747, 283</value>
+    <value>752, 283</value>
   </data>
   <data name="btnProfile_Edit_Save.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 33</value>
@@ -529,7 +529,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnProfile_Edit_Delete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>397, 283</value>
+    <value>402, 283</value>
   </data>
   <data name="btnProfile_Edit_Delete.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 33</value>
@@ -784,7 +784,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnProfile_Edit_SaveNew.Location" type="System.Drawing.Point, System.Drawing">
-    <value>572, 283</value>
+    <value>577, 283</value>
   </data>
   <data name="btnProfile_Edit_SaveNew.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 33</value>
@@ -1146,108 +1146,6 @@
   <data name="&gt;&gt;tpProfiles.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 59</value>
-  </data>
-  <data name="cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 15</value>
-  </data>
-  <data name="cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Text" xml:space="preserve">
-    <value>Change Icon every 5 seconds random</value>
-  </data>
-  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Name" xml:space="preserve">
-    <value>cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds</value>
-  </data>
-  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroCheckBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.Parent" xml:space="preserve">
-    <value>metroPanel6</value>
-  </data>
-  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon_RandomEvery5Seconds.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="cbSettings_Launcher_ChangeGameIcon.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="cbSettings_Launcher_ChangeGameIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 38</value>
-  </data>
-  <data name="cbSettings_Launcher_ChangeGameIcon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 15</value>
-  </data>
-  <data name="cbSettings_Launcher_ChangeGameIcon.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="cbSettings_Launcher_ChangeGameIcon.Text" xml:space="preserve">
-    <value>Change Minecraft-Icon</value>
-  </data>
-  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon.Name" xml:space="preserve">
-    <value>cbSettings_Launcher_ChangeGameIcon</value>
-  </data>
-  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroCheckBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon.Parent" xml:space="preserve">
-    <value>metroPanel6</value>
-  </data>
-  <data name="&gt;&gt;cbSettings_Launcher_ChangeGameIcon.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="metroLabel13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 6</value>
-  </data>
-  <data name="metroLabel13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>291, 23</value>
-  </data>
-  <data name="metroLabel13.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="metroLabel13.Text" xml:space="preserve">
-    <value>Launcher</value>
-  </data>
-  <data name="metroLabel13.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;metroLabel13.Name" xml:space="preserve">
-    <value>metroLabel13</value>
-  </data>
-  <data name="&gt;&gt;metroLabel13.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;metroLabel13.Parent" xml:space="preserve">
-    <value>metroPanel6</value>
-  </data>
-  <data name="&gt;&gt;metroLabel13.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="metroPanel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 133</value>
-  </data>
-  <data name="metroPanel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>297, 124</value>
-  </data>
-  <data name="metroPanel6.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;metroPanel6.Name" xml:space="preserve">
-    <value>metroPanel6</value>
-  </data>
-  <data name="&gt;&gt;metroPanel6.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroPanel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;metroPanel6.Parent" xml:space="preserve">
-    <value>tpSettings</value>
-  </data>
-  <data name="&gt;&gt;metroPanel6.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="cbSettings_Updater_Including_Beta.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1350,7 +1248,7 @@
     <value>tpSettings</value>
   </data>
   <data name="&gt;&gt;metroPanel5.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="cbSettings_Themes.ItemHeight" type="System.Int32, mscorlib">
     <value>23</value>
@@ -1429,7 +1327,7 @@
     <value>tpSettings</value>
   </data>
   <data name="&gt;&gt;metroPanel4.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="btnSettings_ImportFromOriginalLauncher.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 38</value>
@@ -1501,7 +1399,7 @@
     <value>tpSettings</value>
   </data>
   <data name="&gt;&gt;metroPanel2.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="tpSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 47</value>
@@ -4021,7 +3919,7 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>Manual</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>MineLauncher 0.1.5.3</value>
+    <value>MineLauncher 0.1.5.5</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmLauncher</value>
