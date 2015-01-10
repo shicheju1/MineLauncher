@@ -18,6 +18,7 @@ namespace MineLauncher.Launcher
             CreateDirectoryIfNotExists(basePath + "\\versions");
             CreateDirectoryIfNotExists(basePath + "\\minelauncher");
             CreateDirectoryIfNotExists(basePath + "\\minelauncher\\logs");
+            CreateDirectoryIfNotExists(basePath + "\\minelauncher\\head");
         }
 
         private static void CreateDirectoryIfNotExists(string path)

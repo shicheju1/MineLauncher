@@ -36,6 +36,8 @@
             this.lblLogPB = new MetroFramework.Controls.MetroLabel();
             this.pbLog = new MetroFramework.Controls.MetroProgressBar();
             this.rtbLog = new System.Windows.Forms.RichTextBox();
+            this.tpChat = new MetroFramework.Controls.MetroTabPage();
+            this.rtbChat = new System.Windows.Forms.RichTextBox();
             this.tpProfiles = new MetroFramework.Controls.MetroTabPage();
             this.pnlProfiles_Edit = new MetroFramework.Controls.MetroPanel();
             this.btnProfiles_Edit_JVM_Path_Select = new MetroFramework.Controls.MetroButton();
@@ -69,6 +71,9 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.cbProfiles_Select = new MetroFramework.Controls.MetroComboBox();
             this.tpSettings = new MetroFramework.Controls.MetroTabPage();
+            this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
+            this.cbSettings_HeadSource = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
             this.cbSettings_Updater_Including_Beta = new MetroFramework.Controls.MetroCheckBox();
             this.cbSettings_Updater_Including_Alpha = new MetroFramework.Controls.MetroCheckBox();
@@ -90,6 +95,7 @@
             this.lblAbout_MetroFramework = new MetroFramework.Controls.MetroLabel();
             this.lblAbout = new MetroFramework.Controls.MetroLabel();
             this.rtbAbout_Licenses = new System.Windows.Forms.RichTextBox();
+            this.btnDonate = new MetroFramework.Controls.MetroButton();
             this.pnlFastControl = new MetroFramework.Controls.MetroPanel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.cbFastControl_SelectProfile = new MetroFramework.Controls.MetroComboBox();
@@ -97,18 +103,20 @@
             this.pnlFastInfo = new MetroFramework.Controls.MetroPanel();
             this.lblFastInfo_Welcome = new MetroFramework.Controls.MetroLabel();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.pbFastInfo_Avatar = new System.Windows.Forms.PictureBox();
             this.pnlFastLogin = new MetroFramework.Controls.MetroPanel();
             this.tbFastLogin_Password = new MetroFramework.Controls.MetroTextBox();
             this.btnFastLogin_Login = new MetroFramework.Controls.MetroButton();
             this.tbFastLogin_Username = new MetroFramework.Controls.MetroTextBox();
             this.btnLaunch = new MetroFramework.Controls.MetroButton();
-            this.pbFastInfo_Avatar = new System.Windows.Forms.PictureBox();
             this.tcMain.SuspendLayout();
             this.tpStart.SuspendLayout();
             this.tpConsole.SuspendLayout();
+            this.tpChat.SuspendLayout();
             this.tpProfiles.SuspendLayout();
             this.pnlProfiles_Edit.SuspendLayout();
             this.tpSettings.SuspendLayout();
+            this.metroPanel6.SuspendLayout();
             this.metroPanel5.SuspendLayout();
             this.metroPanel4.SuspendLayout();
             this.metroPanel2.SuspendLayout();
@@ -116,8 +124,9 @@
             this.pnlFastControl.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.pnlFastInfo.SuspendLayout();
-            this.pnlFastLogin.SuspendLayout();
+            this.metroPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFastInfo_Avatar)).BeginInit();
+            this.pnlFastLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcMain
@@ -125,12 +134,13 @@
             resources.ApplyResources(this.tcMain, "tcMain");
             this.tcMain.Controls.Add(this.tpStart);
             this.tcMain.Controls.Add(this.tpConsole);
+            this.tcMain.Controls.Add(this.tpChat);
             this.tcMain.Controls.Add(this.tpProfiles);
             this.tcMain.Controls.Add(this.tpSettings);
             this.tcMain.Controls.Add(this.tpAbout);
             this.tcMain.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.tcMain.Name = "tcMain";
-            this.tcMain.SelectedIndex = 3;
+            this.tcMain.SelectedIndex = 1;
             this.tcMain.Style = MetroFramework.MetroColorStyle.Blue;
             this.tcMain.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.tcMain.UseSelectable = true;
@@ -154,7 +164,7 @@
             resources.ApplyResources(this.wbStart, "wbStart");
             this.wbStart.IsWebBrowserContextMenuEnabled = false;
             this.wbStart.Name = "wbStart";
-            this.wbStart.ScrollBarsEnabled = false;
+            this.wbStart.ScriptErrorsSuppressed = true;
             this.wbStart.Url = new System.Uri("http://mcupdate.tumblr.com/", System.UriKind.Absolute);
             this.wbStart.WebBrowserShortcutsEnabled = false;
             // 
@@ -200,7 +210,31 @@
             this.rtbLog.HideSelection = false;
             this.rtbLog.Name = "rtbLog";
             this.rtbLog.ReadOnly = true;
-            this.rtbLog.TextChanged += new System.EventHandler(this.rtbLog_TextChanged);
+            // 
+            // tpChat
+            // 
+            this.tpChat.Controls.Add(this.rtbChat);
+            this.tpChat.HorizontalScrollbarBarColor = true;
+            this.tpChat.HorizontalScrollbarHighlightOnWheel = false;
+            this.tpChat.HorizontalScrollbarSize = 10;
+            resources.ApplyResources(this.tpChat, "tpChat");
+            this.tpChat.Name = "tpChat";
+            this.tpChat.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.tpChat.VerticalScrollbarBarColor = true;
+            this.tpChat.VerticalScrollbarHighlightOnWheel = false;
+            this.tpChat.VerticalScrollbarSize = 10;
+            // 
+            // rtbChat
+            // 
+            this.rtbChat.AcceptsTab = true;
+            resources.ApplyResources(this.rtbChat, "rtbChat");
+            this.rtbChat.BackColor = System.Drawing.SystemColors.Window;
+            this.rtbChat.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbChat.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.rtbChat.DetectUrls = false;
+            this.rtbChat.HideSelection = false;
+            this.rtbChat.Name = "rtbChat";
+            this.rtbChat.ReadOnly = true;
             // 
             // tpProfiles
             // 
@@ -540,6 +574,7 @@
             // 
             // tpSettings
             // 
+            this.tpSettings.Controls.Add(this.metroPanel6);
             this.tpSettings.Controls.Add(this.metroPanel5);
             this.tpSettings.Controls.Add(this.metroPanel4);
             this.tpSettings.Controls.Add(this.metroPanel2);
@@ -553,6 +588,40 @@
             this.tpSettings.VerticalScrollbarBarColor = true;
             this.tpSettings.VerticalScrollbarHighlightOnWheel = false;
             this.tpSettings.VerticalScrollbarSize = 10;
+            // 
+            // metroPanel6
+            // 
+            this.metroPanel6.Controls.Add(this.cbSettings_HeadSource);
+            this.metroPanel6.Controls.Add(this.metroLabel13);
+            this.metroPanel6.HorizontalScrollbarBarColor = true;
+            this.metroPanel6.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel6.HorizontalScrollbarSize = 10;
+            resources.ApplyResources(this.metroPanel6, "metroPanel6");
+            this.metroPanel6.Name = "metroPanel6";
+            this.metroPanel6.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel6.VerticalScrollbarBarColor = true;
+            this.metroPanel6.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel6.VerticalScrollbarSize = 10;
+            // 
+            // cbSettings_HeadSource
+            // 
+            this.cbSettings_HeadSource.FormattingEnabled = true;
+            resources.ApplyResources(this.cbSettings_HeadSource, "cbSettings_HeadSource");
+            this.cbSettings_HeadSource.Items.AddRange(new object[] {
+            resources.GetString("cbSettings_HeadSource.Items"),
+            resources.GetString("cbSettings_HeadSource.Items1"),
+            resources.GetString("cbSettings_HeadSource.Items2")});
+            this.cbSettings_HeadSource.Name = "cbSettings_HeadSource";
+            this.cbSettings_HeadSource.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.cbSettings_HeadSource.UseSelectable = true;
+            this.cbSettings_HeadSource.SelectedIndexChanged += new System.EventHandler(this.cbSettings_CheckedChanged);
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            resources.ApplyResources(this.metroLabel13, "metroLabel13");
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // metroPanel5
             // 
@@ -773,6 +842,15 @@
             this.rtbAbout_Licenses.Name = "rtbAbout_Licenses";
             this.rtbAbout_Licenses.ReadOnly = true;
             // 
+            // btnDonate
+            // 
+            resources.ApplyResources(this.btnDonate, "btnDonate");
+            this.btnDonate.Name = "btnDonate";
+            this.btnDonate.Style = MetroFramework.MetroColorStyle.Orange;
+            this.btnDonate.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnDonate.UseSelectable = true;
+            this.btnDonate.Click += new System.EventHandler(this.btnDonate_Click);
+            // 
             // pnlFastControl
             // 
             this.pnlFastControl.Controls.Add(this.metroPanel1);
@@ -840,6 +918,7 @@
             // 
             // metroPanel3
             // 
+            this.metroPanel3.Controls.Add(this.pbFastInfo_Avatar);
             resources.ApplyResources(this.metroPanel3, "metroPanel3");
             this.metroPanel3.HorizontalScrollbarBarColor = true;
             this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
@@ -849,6 +928,13 @@
             this.metroPanel3.VerticalScrollbarBarColor = true;
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel3.VerticalScrollbarSize = 10;
+            // 
+            // pbFastInfo_Avatar
+            // 
+            resources.ApplyResources(this.pbFastInfo_Avatar, "pbFastInfo_Avatar");
+            this.pbFastInfo_Avatar.BackColor = System.Drawing.Color.Transparent;
+            this.pbFastInfo_Avatar.Name = "pbFastInfo_Avatar";
+            this.pbFastInfo_Avatar.TabStop = false;
             // 
             // pnlFastLogin
             // 
@@ -905,20 +991,13 @@
             this.btnLaunch.UseSelectable = true;
             this.btnLaunch.Click += new System.EventHandler(this.btnLaunch_Click);
             // 
-            // pbFastInfo_Avatar
-            // 
-            resources.ApplyResources(this.pbFastInfo_Avatar, "pbFastInfo_Avatar");
-            this.pbFastInfo_Avatar.BackColor = System.Drawing.Color.Transparent;
-            this.pbFastInfo_Avatar.Name = "pbFastInfo_Avatar";
-            this.pbFastInfo_Avatar.TabStop = false;
-            // 
             // frmLauncher
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pbFastInfo_Avatar);
             this.Controls.Add(this.pnlFastControl);
             this.Controls.Add(this.tcMain);
+            this.Controls.Add(this.btnDonate);
             this.MaximizeBox = false;
             this.Name = "frmLauncher";
             this.Resizable = false;
@@ -929,10 +1008,12 @@
             this.tcMain.ResumeLayout(false);
             this.tpStart.ResumeLayout(false);
             this.tpConsole.ResumeLayout(false);
+            this.tpChat.ResumeLayout(false);
             this.tpProfiles.ResumeLayout(false);
             this.pnlProfiles_Edit.ResumeLayout(false);
             this.pnlProfiles_Edit.PerformLayout();
             this.tpSettings.ResumeLayout(false);
+            this.metroPanel6.ResumeLayout(false);
             this.metroPanel5.ResumeLayout(false);
             this.metroPanel5.PerformLayout();
             this.metroPanel4.ResumeLayout(false);
@@ -943,8 +1024,9 @@
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             this.pnlFastInfo.ResumeLayout(false);
-            this.pnlFastLogin.ResumeLayout(false);
+            this.metroPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbFastInfo_Avatar)).EndInit();
+            this.pnlFastLogin.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1025,6 +1107,12 @@
         private MetroFramework.Controls.MetroButton btnProfiles_Edit_Directory_Select;
         private MetroFramework.Controls.MetroButton btnLaunch;
         private System.Windows.Forms.Panel panel1;
+        private MetroFramework.Controls.MetroTabPage tpChat;
+        private System.Windows.Forms.RichTextBox rtbChat;
+        private MetroFramework.Controls.MetroPanel metroPanel6;
+        private MetroFramework.Controls.MetroComboBox cbSettings_HeadSource;
+        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroButton btnDonate;
     }
 }
 

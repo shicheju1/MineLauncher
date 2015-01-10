@@ -8,11 +8,33 @@ namespace MineLauncher
 {
     internal static class Extensions
     {
-
+        
         internal static string Truncate(this string value, int maxLength)
         {
             if (string.IsNullOrEmpty(value)) return value;
             return value.Length <= maxLength ? value : value.Substring(0, maxLength);
+        }
+
+        internal static string ToByteFormatted(this short value)
+        {
+            return ((long)value).ToByteFormatted();
+        }
+
+        internal static string ToByteFormatted(this int value)
+        {
+            return ((long)value).ToByteFormatted();
+        }
+
+        internal static string ToByteFormatted(this long value)
+        {
+            string[] sizes = { "Bytes", "KB", "MB", "GB", "TB" };
+            int order = 0;
+            while (value >= 1024 && order + 1 < sizes.Length)
+            {
+                order++;
+                value = value / 1024;
+            }
+            return String.Format("{0:0.##} {1}", value, sizes[order]);
         }
 
         internal static void CreateDirectoryStructure(this DirectoryInfo d)
@@ -57,9 +79,8 @@ namespace MineLauncher
                     {
                         uiElement.Invoke((Action)delegate { SafeInvoke(uiElement, updater, forceSynchronous); });
                     }
-                    catch (ObjectDisposedException)
-                    {
-                    }
+                    catch (ObjectDisposedException) { }
+                    catch (NullReferenceException) { }
                 }
                 else
                 {
@@ -67,9 +88,8 @@ namespace MineLauncher
                     {
                         uiElement.BeginInvoke((Action)delegate { SafeInvoke(uiElement, updater, forceSynchronous); });
                     }
-                    catch (ObjectDisposedException)
-                    {
-                    }
+                    catch (ObjectDisposedException) { }
+                    catch (NullReferenceException) { }
                 }
             }
             else

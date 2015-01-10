@@ -2,21 +2,25 @@
 
 namespace MineLauncher.Events
 {
-    internal sealed class LoginEventArgs : BaseEventArgs
-    {
+    internal sealed class LoginEventArgs : EventArgs
+    {               
         
-        private LoginEventArgs()
+        private string log_prefix = "MineLauncher";
+        private string log_path = GlobalConfig.AppDataPath + "\\.minecraft\\minelauncher\\logs\\";
+
+        private string private_entry;
+
+        public string Entry { get { return this.private_entry; } }
+        
+        public LoginEventArgs(string content)
         {
+            this.private_entry = content;
         }
 
-        public LoginEventArgs(string entryText, EventLogType logtype = EventLogType.DateAndPrefix)
+        public LoginEventArgs(string prefix, string content)
         {
-            base.OnEvent("Login", entryText, logtype);
-        }
-
-        public LoginEventArgs(string entryPrefix, string entryText, EventLogType logtype = EventLogType.DateAndPrefix)
-        {
-            base.OnEvent(entryPrefix, entryText, logtype);
+            this.log_prefix = prefix;
+            this.private_entry = content;
         }
 
     }

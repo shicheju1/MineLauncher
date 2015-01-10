@@ -129,13 +129,13 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="wbStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 3</value>
+    <value>3, 3</value>
   </data>
   <data name="wbStart.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
   </data>
   <data name="wbStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>921, 357</value>
+    <value>1044, 409</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="wbStart.TabIndex" type="System.Int32, mscorlib">
@@ -157,7 +157,7 @@
     <value>4, 47</value>
   </data>
   <data name="tpStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>930, 363</value>
+    <value>1050, 415</value>
   </data>
   <data name="tpStart.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -184,7 +184,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="lblLogPB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 336</value>
+    <value>16, 388</value>
   </data>
   <data name="lblLogPB.Size" type="System.Drawing.Size, System.Drawing">
     <value>314, 15</value>
@@ -208,10 +208,10 @@
     <value>Bottom, Left, Right</value>
   </data>
   <data name="pbLog.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 324</value>
+    <value>3, 376</value>
   </data>
   <data name="pbLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>924, 39</value>
+    <value>1044, 39</value>
   </data>
   <data name="pbLog.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -235,7 +235,7 @@
     <value>3, 3</value>
   </data>
   <data name="rtbLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>924, 315</value>
+    <value>1044, 367</value>
   </data>
   <data name="rtbLog.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -259,7 +259,7 @@
     <value>4, 47</value>
   </data>
   <data name="tpConsole.Size" type="System.Drawing.Size, System.Drawing">
-    <value>930, 363</value>
+    <value>1050, 415</value>
   </data>
   <data name="tpConsole.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -282,6 +282,57 @@
   <data name="&gt;&gt;tpConsole.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="rtbChat.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="rtbChat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="rtbChat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1044, 409</value>
+  </data>
+  <data name="rtbChat.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="rtbChat.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;rtbChat.Name" xml:space="preserve">
+    <value>rtbChat</value>
+  </data>
+  <data name="&gt;&gt;rtbChat.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rtbChat.Parent" xml:space="preserve">
+    <value>tpChat</value>
+  </data>
+  <data name="&gt;&gt;rtbChat.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tpChat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 47</value>
+  </data>
+  <data name="tpChat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1050, 415</value>
+  </data>
+  <data name="tpChat.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="tpChat.Text" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="&gt;&gt;tpChat.Name" xml:space="preserve">
+    <value>tpChat</value>
+  </data>
+  <data name="&gt;&gt;tpChat.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tpChat.Parent" xml:space="preserve">
+    <value>tcMain</value>
+  </data>
+  <data name="&gt;&gt;tpChat.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="pnlProfiles_Edit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -289,7 +340,7 @@
     <value>Zoom</value>
   </data>
   <data name="btnProfiles_Edit_JVM_Path_Select.Location" type="System.Drawing.Point, System.Drawing">
-    <value>892, 147</value>
+    <value>1012, 147</value>
   </data>
   <data name="btnProfiles_Edit_JVM_Path_Select.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -313,7 +364,7 @@
     <value>2</value>
   </data>
   <data name="btnProfiles_Edit_Directory_Select.Location" type="System.Drawing.Point, System.Drawing">
-    <value>892, 114</value>
+    <value>1012, 114</value>
   </data>
   <data name="btnProfiles_Edit_Directory_Select.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -340,7 +391,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnProfile_Edit_Save.Location" type="System.Drawing.Point, System.Drawing">
-    <value>752, 283</value>
+    <value>867, 330</value>
   </data>
   <data name="btnProfile_Edit_Save.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 33</value>
@@ -367,7 +418,7 @@
     <value>True</value>
   </data>
   <data name="lblProfiles_Edit_Offline_PlayerName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>584, 240</value>
+    <value>584, 272</value>
   </data>
   <data name="lblProfiles_Edit_Offline_PlayerName.Size" type="System.Drawing.Size, System.Drawing">
     <value>165, 19</value>
@@ -394,10 +445,10 @@
     <value>Top, Left, Right</value>
   </data>
   <data name="tbProfiles_Edit_Offline_PlayerName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>755, 237</value>
+    <value>755, 269</value>
   </data>
   <data name="tbProfiles_Edit_Offline_PlayerName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 24</value>
+    <value>281, 24</value>
   </data>
   <data name="tbProfiles_Edit_Offline_PlayerName.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -418,7 +469,7 @@
     <value>True</value>
   </data>
   <data name="metroLabel12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>755, 210</value>
+    <value>875, 242</value>
   </data>
   <data name="metroLabel12.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 19</value>
@@ -445,7 +496,7 @@
     <value>MiddleCenter</value>
   </data>
   <data name="toggleProfiles_Edit_Offline.Location" type="System.Drawing.Point, System.Drawing">
-    <value>834, 207</value>
+    <value>954, 239</value>
   </data>
   <data name="toggleProfiles_Edit_Offline.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 24</value>
@@ -529,7 +580,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnProfile_Edit_Delete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>402, 283</value>
+    <value>517, 330</value>
   </data>
   <data name="btnProfile_Edit_Delete.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 33</value>
@@ -784,7 +835,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnProfile_Edit_SaveNew.Location" type="System.Drawing.Point, System.Drawing">
-    <value>577, 283</value>
+    <value>692, 330</value>
   </data>
   <data name="btnProfile_Edit_SaveNew.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 33</value>
@@ -814,7 +865,7 @@
     <value>119, 177</value>
   </data>
   <data name="tbProfiles_Edit_JVM_Args.Size" type="System.Drawing.Size, System.Drawing">
-    <value>797, 24</value>
+    <value>917, 24</value>
   </data>
   <data name="tbProfiles_Edit_JVM_Args.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -865,7 +916,7 @@
     <value>119, 147</value>
   </data>
   <data name="tbProfiles_Edit_JVM_Path.Size" type="System.Drawing.Size, System.Drawing">
-    <value>767, 24</value>
+    <value>887, 24</value>
   </data>
   <data name="tbProfiles_Edit_JVM_Path.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -916,7 +967,7 @@
     <value>119, 114</value>
   </data>
   <data name="tbProfiles_Edit_Directory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>767, 24</value>
+    <value>887, 24</value>
   </data>
   <data name="tbProfiles_Edit_Directory.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -967,7 +1018,7 @@
     <value>119, 81</value>
   </data>
   <data name="tbProfiles_Edit_Name.Size" type="System.Drawing.Size, System.Drawing">
-    <value>797, 24</value>
+    <value>917, 24</value>
   </data>
   <data name="tbProfiles_Edit_Name.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -1024,7 +1075,7 @@
     <value>119, 8</value>
   </data>
   <data name="cbProfiles_Edit_Version.Size" type="System.Drawing.Size, System.Drawing">
-    <value>797, 29</value>
+    <value>917, 29</value>
   </data>
   <data name="cbProfiles_Edit_Version.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1072,7 +1123,7 @@
     <value>3, 41</value>
   </data>
   <data name="pnlProfiles_Edit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>924, 319</value>
+    <value>1044, 371</value>
   </data>
   <data name="pnlProfiles_Edit.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1102,7 +1153,7 @@
     <value>3, 6</value>
   </data>
   <data name="cbProfiles_Select.Size" type="System.Drawing.Size, System.Drawing">
-    <value>924, 29</value>
+    <value>1044, 29</value>
   </data>
   <data name="cbProfiles_Select.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1123,7 +1174,7 @@
     <value>4, 47</value>
   </data>
   <data name="tpProfiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>930, 363</value>
+    <value>1050, 415</value>
   </data>
   <data name="tpProfiles.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1144,6 +1195,87 @@
     <value>tcMain</value>
   </data>
   <data name="&gt;&gt;tpProfiles.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="cbSettings_HeadSource.ItemHeight" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="cbSettings_HeadSource.Items" xml:space="preserve">
+    <value>Minotar (Head only)</value>
+  </data>
+  <data name="cbSettings_HeadSource.Items1" xml:space="preserve">
+    <value>Minotar (Head with overlay)</value>
+  </data>
+  <data name="cbSettings_HeadSource.Items2" xml:space="preserve">
+    <value>Minotar (Isometric Head)</value>
+  </data>
+  <data name="cbSettings_HeadSource.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 59</value>
+  </data>
+  <data name="cbSettings_HeadSource.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 29</value>
+  </data>
+  <data name="cbSettings_HeadSource.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_HeadSource.Name" xml:space="preserve">
+    <value>cbSettings_HeadSource</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_HeadSource.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroComboBox, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_HeadSource.Parent" xml:space="preserve">
+    <value>metroPanel6</value>
+  </data>
+  <data name="&gt;&gt;cbSettings_HeadSource.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="metroLabel13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 6</value>
+  </data>
+  <data name="metroLabel13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 23</value>
+  </data>
+  <data name="metroLabel13.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="metroLabel13.Text" xml:space="preserve">
+    <value>Source for the head</value>
+  </data>
+  <data name="metroLabel13.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;metroLabel13.Name" xml:space="preserve">
+    <value>metroLabel13</value>
+  </data>
+  <data name="&gt;&gt;metroLabel13.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroLabel13.Parent" xml:space="preserve">
+    <value>metroPanel6</value>
+  </data>
+  <data name="&gt;&gt;metroLabel13.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="metroPanel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 133</value>
+  </data>
+  <data name="metroPanel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 124</value>
+  </data>
+  <data name="metroPanel6.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;metroPanel6.Name" xml:space="preserve">
+    <value>metroPanel6</value>
+  </data>
+  <data name="&gt;&gt;metroPanel6.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroPanel, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;metroPanel6.Parent" xml:space="preserve">
+    <value>tpSettings</value>
+  </data>
+  <data name="&gt;&gt;metroPanel6.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="cbSettings_Updater_Including_Beta.AutoSize" type="System.Boolean, mscorlib">
@@ -1248,7 +1380,7 @@
     <value>tpSettings</value>
   </data>
   <data name="&gt;&gt;metroPanel5.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="cbSettings_Themes.ItemHeight" type="System.Int32, mscorlib">
     <value>23</value>
@@ -1327,7 +1459,7 @@
     <value>tpSettings</value>
   </data>
   <data name="&gt;&gt;metroPanel4.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btnSettings_ImportFromOriginalLauncher.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 38</value>
@@ -1399,13 +1531,13 @@
     <value>tpSettings</value>
   </data>
   <data name="&gt;&gt;metroPanel2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="tpSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 47</value>
   </data>
   <data name="tpSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>930, 363</value>
+    <value>1050, 415</value>
   </data>
   <data name="tpSettings.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1423,7 +1555,7 @@
     <value>tcMain</value>
   </data>
   <data name="&gt;&gt;tpSettings.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="panel1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1483,13 +1615,13 @@
     <value>3, 146</value>
   </data>
   <data name="lblAbout_nUpdate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>305, 19</value>
+    <value>190, 19</value>
   </data>
   <data name="lblAbout_nUpdate.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
   <data name="lblAbout_nUpdate.Text" xml:space="preserve">
-    <value>nUpdate by Dominic Beger (Comming soon)</value>
+    <value>nUpdate by Dominic Beger</value>
   </data>
   <data name="&gt;&gt;lblAbout_nUpdate.Name" xml:space="preserve">
     <value>lblAbout_nUpdate</value>
@@ -1588,7 +1720,7 @@
     <value>3, 346</value>
   </data>
   <data name="linkAbout_GitHub.Size" type="System.Drawing.Size, System.Drawing">
-    <value>341, 23</value>
+    <value>341, 66</value>
   </data>
   <data name="linkAbout_GitHub.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1668,10 +1800,10 @@ by Lukas Berger, http://lukasberger.at</value>
     <value>Top, Bottom, Right</value>
   </data>
   <data name="rtbAbout_Licenses.Location" type="System.Drawing.Point, System.Drawing">
-    <value>350, 3</value>
+    <value>470, 3</value>
   </data>
   <data name="rtbAbout_Licenses.Size" type="System.Drawing.Size, System.Drawing">
-    <value>577, 357</value>
+    <value>577, 409</value>
   </data>
   <data name="rtbAbout_Licenses.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1776,7 +1908,7 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>4, 47</value>
   </data>
   <data name="tpAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>930, 363</value>
+    <value>1050, 415</value>
   </data>
   <data name="tpAbout.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1797,13 +1929,13 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>tcMain</value>
   </data>
   <data name="&gt;&gt;tpAbout.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="tcMain.Location" type="System.Drawing.Point, System.Drawing">
     <value>23, 63</value>
   </data>
   <data name="tcMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>938, 414</value>
+    <value>1058, 466</value>
   </data>
   <data name="tcMain.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1818,6 +1950,30 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tcMain.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnDonate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 19</value>
+  </data>
+  <data name="btnDonate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 38</value>
+  </data>
+  <data name="btnDonate.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnDonate.Text" xml:space="preserve">
+    <value>Donate to the MineLauncher-Developer</value>
+  </data>
+  <data name="&gt;&gt;btnDonate.Name" xml:space="preserve">
+    <value>btnDonate</value>
+  </data>
+  <data name="&gt;&gt;btnDonate.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroButton, MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;btnDonate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnDonate.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="cbFastControl_SelectProfile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -1827,7 +1983,7 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>23</value>
   </data>
   <data name="cbFastControl_SelectProfile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 42</value>
+    <value>3, 43</value>
   </data>
   <data name="cbFastControl_SelectProfile.Size" type="System.Drawing.Size, System.Drawing">
     <value>208, 29</value>
@@ -1854,7 +2010,7 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>True</value>
   </data>
   <data name="metroLabel10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 20</value>
+    <value>3, 21</value>
   </data>
   <data name="metroLabel10.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 19</value>
@@ -1884,7 +2040,7 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>0, 0</value>
   </data>
   <data name="metroPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 96</value>
+    <value>214, 99</value>
   </data>
   <data name="metroPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -1911,7 +2067,7 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>64, 0</value>
   </data>
   <data name="lblFastInfo_Welcome.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 96</value>
+    <value>131, 99</value>
   </data>
   <data name="lblFastInfo_Welcome.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1935,6 +2091,36 @@ A "contributor" is any person that distributes its contribution under this licen
   <data name="&gt;&gt;lblFastInfo_Welcome.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="pbFastInfo_Avatar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="pbFastInfo_Avatar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 17</value>
+  </data>
+  <data name="pbFastInfo_Avatar.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>64, 64</value>
+  </data>
+  <data name="pbFastInfo_Avatar.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>64, 64</value>
+  </data>
+  <data name="pbFastInfo_Avatar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 64</value>
+  </data>
+  <data name="pbFastInfo_Avatar.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pbFastInfo_Avatar.Name" xml:space="preserve">
+    <value>pbFastInfo_Avatar</value>
+  </data>
+  <data name="&gt;&gt;pbFastInfo_Avatar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbFastInfo_Avatar.Parent" xml:space="preserve">
+    <value>metroPanel3</value>
+  </data>
+  <data name="&gt;&gt;pbFastInfo_Avatar.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="metroPanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
   </data>
@@ -1942,7 +2128,7 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>0, 0</value>
   </data>
   <data name="metroPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 96</value>
+    <value>64, 99</value>
   </data>
   <data name="metroPanel3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1960,10 +2146,10 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>3</value>
   </data>
   <data name="pnlFastInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>729, 0</value>
+    <value>849, 0</value>
   </data>
   <data name="pnlFastInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 96</value>
+    <value>195, 99</value>
   </data>
   <data name="pnlFastInfo.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -2056,10 +2242,10 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>False</value>
   </data>
   <data name="pnlFastLogin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>729, 0</value>
+    <value>849, 0</value>
   </data>
   <data name="pnlFastLogin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 96</value>
+    <value>195, 99</value>
   </data>
   <data name="pnlFastLogin.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -2086,7 +2272,7 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>300, 10</value>
   </data>
   <data name="btnLaunch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>324, 76</value>
+    <value>444, 79</value>
   </data>
   <data name="btnLaunch.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2107,10 +2293,10 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>5</value>
   </data>
   <data name="pnlFastControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 484</value>
+    <value>30, 535</value>
   </data>
   <data name="pnlFastControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>924, 96</value>
+    <value>1044, 99</value>
   </data>
   <data name="pnlFastControl.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2125,33 +2311,6 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pnlFastControl.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="pbFastInfo_Avatar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="pbFastInfo_Avatar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>845, 16</value>
-  </data>
-  <data name="pbFastInfo_Avatar.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>64, 64</value>
-  </data>
-  <data name="pbFastInfo_Avatar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 72</value>
-  </data>
-  <data name="pbFastInfo_Avatar.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;pbFastInfo_Avatar.Name" xml:space="preserve">
-    <value>pbFastInfo_Avatar</value>
-  </data>
-  <data name="&gt;&gt;pbFastInfo_Avatar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbFastInfo_Avatar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pbFastInfo_Avatar.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -2167,7 +2326,7 @@ A "contributor" is any person that distributes its contribution under this licen
     <value>GrowAndShrink</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>984, 595</value>
+    <value>1104, 657</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3910,16 +4069,16 @@ A "contributor" is any person that distributes its contribution under this licen
 </value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>984, 595</value>
+    <value>1104, 657</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>984, 595</value>
+    <value>1104, 657</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>Manual</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>MineLauncher 0.1.5.5</value>
+    <value>MineLauncher {0} {1}</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmLauncher</value>

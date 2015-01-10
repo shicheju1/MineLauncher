@@ -100,7 +100,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Events\BaseEventArgs.cs" />
     <Compile Include="Events\DownloadEventArgs.cs" />
     <Compile Include="Events\LauncherEventArgs.cs" />
     <Compile Include="Events\LoginEventArgs.cs" />
@@ -118,9 +117,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\MinecraftLoadingAnimation.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UI\Controls\Windows8ProgressRing.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\Forms\frmLauncher.cs">
@@ -148,7 +144,7 @@
     <Compile Include="Launcher\VersionList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Win32Api.cs" />
+    <Compile Include="NativeMethods.cs" />
     <EmbeddedResource Include="frmStarting.resx">
       <DependentUpon>frmStarting.cs</DependentUpon>
     </EmbeddedResource>

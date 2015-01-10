@@ -15,6 +15,7 @@ using MineLauncher;
 using MineLauncher.Launcher;
 
 using Newtonsoft.Json;
+using Microsoft.Win32;
 
 namespace MineLauncher.UI.Forms
 {
@@ -389,7 +390,15 @@ namespace MineLauncher.UI.Forms
             try
             {
                 string javaKey = "SOFTWARE\\JavaSoft\\Java Runtime Environment\\";
-                using (Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(javaKey))
+
+                RegistryKey localmachine;
+
+                if (Environment.Is64BitOperatingSystem)
+                    localmachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
+                else
+                    localmachine = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);
+
+                using (Microsoft.Win32.RegistryKey rk = localmachine.OpenSubKey(javaKey))
                 {
                     string currentVersion = rk.GetValue("CurrentVersion").ToString();
                     using (Microsoft.Win32.RegistryKey key = rk.OpenSubKey(currentVersion))

@@ -7,10 +7,10 @@ using System.Resources;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
 [assembly: AssemblyTitle("MineLauncher")]
-[assembly: AssemblyDescription("Simple Minecraft-Launcher")]
+[assembly: AssemblyDescription("Simple Minecraft-Launcher with some features")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Lukas Berger <http://lukasberger.at>")]
-[assembly: AssemblyProduct("MineSurvival, licensed under the GPLv3")]
+[assembly: AssemblyProduct("MineSurvival, Codename Crafter; Licensed under the GPLv3")]
 [assembly: AssemblyCopyright("Copyright © 2014 Lukas Berger")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -33,6 +33,6 @@ using System.Resources;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.1.5.5")]
-[assembly: AssemblyFileVersion("0.1.5.5")]
+[assembly: AssemblyVersion("0.2.0.1")]
+[assembly: AssemblyFileVersion("0.2.0.1")]
 [assembly: NeutralResourcesLanguageAttribute("")]

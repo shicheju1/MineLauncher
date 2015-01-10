@@ -14,15 +14,14 @@ namespace MineLauncher.Launcher
     {
 
         Dictionary<string, string[]> rawVersionData;
+        Dictionary<string, string[]> rawAssetsData;
+
         private List<string[]> _assets = new List<string[]>();
         private List<string[]> _libraries = new List<string[]>();
-        private List<string[]> _librariesHashes = new List<string[]>();
 
         public List<string[]> Assets { get { return this._assets; } }
 
         public List<string[]> Libraries { get { return this._libraries; } }
-
-        public List<string[]> LibrarieshHashes { get { return this._librariesHashes; } }
         
         private string _assetspath = "";
         private string _legacyassetspath = "";
@@ -41,20 +40,48 @@ namespace MineLauncher.Launcher
             _versionpath = GlobalConfig.AppDataPath + "\\.minecraft\\versions\\" + version;
             _versionspath = GlobalConfig.AppDataPath + "\\.minecraft\\versions";
 
-            string _version_json = "";
+            string _version_json = File.ReadAllText(_versionpath + "\\" + version + ".json");
+            string _version_assets = "";
+            string _version_basever = "";
+
+            rawVersionData = getVersionData(_version_json);
+            _version_basever = rawVersionData["assets"][0];
 
             try
             {
                 _version_json = new WebClient().DownloadString("http://s3.amazonaws.com/Minecraft.Download/versions/" + version + "/" + version + ".json");
                 rawVersionData = getVersionData(_version_json);
             }
-            catch (WebException)
+            catch (Exception)
             {
-                _version_json = File.ReadAllText(_versionpath + "\\" + version + ".json");
-                rawVersionData = getVersionData(_version_json);
+                try
+                {
+                    rawVersionData = getVersionData(File.ReadAllText(_versionpath + "\\" + version + ".json"));
+                }
+                catch (Exception)
+                {
+                    if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Failed to download the version-JSON", 1, 1, "Error"));
+                    return;
+                }
             }
-            string _version_assets = new WebClient().DownloadString("https://s3.amazonaws.com/Minecraft.Download/indexes/" + rawVersionData["assets"][0] + ".json");
-            Dictionary<string, string[]> rawAssetsData = getAssetsList(_version_assets);
+
+            try
+            {
+                _version_assets = new WebClient().DownloadString("https://s3.amazonaws.com/Minecraft.Download/indexes/" + rawVersionData["assets"][0] + ".json");
+                rawAssetsData = getAssetsList(_version_assets);
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    rawAssetsData = getAssetsList(File.ReadAllText(GlobalConfig.AppDataPath + "\\.minecraft\\assets\\indexes\\" + rawVersionData["assets"][0] + ".json"));
+                }
+                catch (Exception)
+                {
+                    if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Failed to download the assets-JSON", 1, 1, "Error"));
+                    return;
+                }
+            }
 
             int modCount = 0;
             foreach (string library in rawVersionData["libraries"])
@@ -64,10 +91,6 @@ namespace MineLauncher.Launcher
                     _libraries.Add(new string[] { 
                         "https://libraries.minecraft.net/" + library.Replace(@"\", "/"), 
                         Path.Combine(_librariespath, library) 
-                    });
-                    _librariesHashes.Add(new string[] { 
-                        "https://libraries.minecraft.net/" + library.Replace(@"\", "/") + ".sha1", 
-                        Path.Combine(_librariespath, library) + ".sha1" 
                     });
                 }
                 else
@@ -120,13 +143,15 @@ namespace MineLauncher.Launcher
                 Directory.CreateDirectory(GlobalConfig.AppDataPath + "\\.minecraft\\assets\\indexes");
 
             File.WriteAllText(_versionpath + "\\" + version + ".json", _version_json);
-            File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\assets\\indexes\\" + version + ".json", _version_assets);
+            File.WriteAllText(GlobalConfig.AppDataPath + "\\.minecraft\\assets\\indexes\\" + rawVersionData["assets"][0] + ".json", _version_assets);
         }
 
         public void StartDownload()
         {
             int dnld_max = _libraries.Count + _assets.Count + rawVersionData["natives"].Length;
             int dnld_curr = 0;
+
+            WebClient downloader = new WebClient();
 
             foreach (string[] item in _libraries)
             {
@@ -137,11 +162,11 @@ namespace MineLauncher.Launcher
                 if(!File.Exists(path))
                 {
                     if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Downloading " + Path.GetFileNameWithoutExtension(path), dnld_max, dnld_curr, Path.GetFileNameWithoutExtension(path)));
-                    WebClient downloader = new WebClient();
                     if(downloader.RemoteExists(url))
                     {
                         try
                         {
+                            Console.WriteLine("[" + DateTime.Now.ToString() + "][DOWNLOADER] Downloading library " + Path.GetFileNameWithoutExtension(path) + "...");
                             downloader.DownloadFile(url, path);
                         }
                         catch (Exception)
@@ -154,12 +179,19 @@ namespace MineLauncher.Launcher
                         if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Downloading of " + Path.GetFileNameWithoutExtension(path) + " failed", dnld_max, dnld_curr, Path.GetFileNameWithoutExtension(path)));
                     }
                 }
+                else
+                    Console.WriteLine("[" + DateTime.Now.ToString() + "][DOWNLOADER] Library " + Path.GetFileNameWithoutExtension(path) + " exists.");
+
                 dnld_curr++;
             }
 
             foreach (string entry in rawVersionData["natives"])
             {
-                Extract(_librariespath + "\\" + entry, _versionspath + "\\" + rawVersionData["id"][0] + "\\" + rawVersionData["id"][0] + "-natives-AL74", "META-INF");
+                if (!String.IsNullOrEmpty(entry) && !String.IsNullOrWhiteSpace(entry))
+                {
+                    Console.WriteLine("[" + DateTime.Now.ToString() + "][DOWNLOADER] Extracing native " + Path.GetFileNameWithoutExtension(entry) + "...");
+                    Extract(_librariespath + "\\" + entry, _versionspath + "\\" + rawVersionData["id"][0] + "\\" + rawVersionData["id"][0] + "-natives-AL74", "META-INF");
+                }
                 dnld_curr++;
             }
 
@@ -172,12 +204,12 @@ namespace MineLauncher.Launcher
                 if (!File.Exists(path))
                 {
                     if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Downloading " + Path.GetFileNameWithoutExtension(path), dnld_max, dnld_curr, Path.GetFileNameWithoutExtension(path)));
-                    WebClient downloader = new WebClient();
                     if (downloader.RemoteExists(url))
                     {
                         try
                         {
-                            new WebClient().DownloadFile(url, path);
+                            Console.WriteLine("[" + DateTime.Now.ToString() + "][DOWNLOADER] Downloading asset " + Path.GetFileNameWithoutExtension(path) + "...");
+                            downloader.DownloadFile(url, path);
                         }
                         catch (Exception)
                         {
@@ -189,6 +221,9 @@ namespace MineLauncher.Launcher
                         if (OnDownload != null) OnDownload(this, new DownloadEventArgs("Downloading of " + Path.GetFileNameWithoutExtension(path) + " failed", dnld_max, dnld_curr, Path.GetFileNameWithoutExtension(path)));
                     }
                 }
+                else
+                    Console.WriteLine("[" + DateTime.Now.ToString() + "][DOWNLOADER] Asset " + Path.GetFileNameWithoutExtension(path) + " exists.");
+
                 dnld_curr++;
             }
         }

@@ -102,7 +102,7 @@
             this.tcMain.ItemSize = new System.Drawing.Size(68, 37);
             this.tcMain.Location = new System.Drawing.Point(23, 63);
             this.tcMain.Name = "tcMain";
-            this.tcMain.SelectedIndex = 3;
+            this.tcMain.SelectedIndex = 2;
             this.tcMain.Size = new System.Drawing.Size(884, 420);
             this.tcMain.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tcMain.TabIndex = 0;
@@ -365,7 +365,7 @@
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(176, 32);
             this.metroLabel3.TabIndex = 3;
-            this.metroLabel3.Text = "Username";
+            this.metroLabel3.Text = "Username (E-Mail)";
             this.metroLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
@@ -818,7 +818,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(0, 63);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(930, 46);
+            this.metroPanel1.Size = new System.Drawing.Size(930, 35);
             this.metroPanel1.TabIndex = 1;
             this.metroPanel1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroPanel1.VerticalScrollbarBarColor = true;

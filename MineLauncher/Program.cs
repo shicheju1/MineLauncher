@@ -21,6 +21,12 @@ namespace MineLauncher
         [STAThread]
         static void Main()
         {
+            string[] ver = Application.ProductVersion.Split('.');
+            if (ver[3] == "0")
+            {
+                NativeMethods.AllocConsole();
+            }
+
             string architcture = Environment.Is64BitOperatingSystem ? "64" : "86";
 
             AppDomain.CurrentDomain.AssemblyResolve += (sender, args) =>
@@ -77,11 +83,12 @@ namespace MineLauncher
             AppDomain.CurrentDomain.UnhandledException += ((object sender, UnhandledExceptionEventArgs e) =>
             {
                 ExceptionTracker.Track((Exception)e.ExceptionObject, false, false);
+                Console.WriteLine("An exeption occured: \n" + ((Exception)e.ExceptionObject).StackTrace);
             });
-
             Application.ThreadException += ((object sender, System.Threading.ThreadExceptionEventArgs e) =>
             {
                 ExceptionTracker.Track(e.Exception, false, false);
+                Console.WriteLine("An exeption occured: \n" + e.Exception.StackTrace);
             });
                         
             Application.Run(new frmLauncher());

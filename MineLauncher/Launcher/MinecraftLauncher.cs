@@ -175,23 +175,21 @@ namespace MineLauncher.Launcher
             mcProcessStartInfo.RedirectStandardOutput = true;
 
             Process mcProcess = Process.Start(mcProcessStartInfo);
+
             StreamReader mcProcessOutputReader = mcProcess.StandardOutput;
+            mcProcessOutputReader = new StreamReader(mcProcessOutputReader.BaseStream, Encoding.UTF8);
             
             while (!mcProcess.HasExited)
             {
                 string read = mcProcessOutputReader.ReadLine();
-                if ((read == "") == false || (read == null) == false)
+                if (read != "" && read != null)
                 {
-                    if (OnLauncherLog != null) OnLauncherLog(this, new LauncherEventArgs("MINECRAFT", read));
+                    if (OnLauncherLog != null) OnLauncherLog(this, new LauncherEventArgs("MINECRAFT", read.Replace(" [" + DateTime.Now.ToLongTimeString() + "]", ""), mcProcess));
 
                     // [Server thread/ERROR]: This crash report has been saved to: D:\Example\x.x.x\crash-reports\crash-2000-01-01_00.00.00-(server/client).txt
                     if ((read == null) == false && read.Contains("[Server thread/ERROR]: This crash report has been saved to"))
                     {
-                        string[] line_parts = read.Split(':');
-
-                        string drive = line_parts[2].ToCharArray()[1].ToString();
-                        string path = drive + ":\\" + line_parts[3];
-
+                        string path = read.Split(new string[] { "[Server thread/ERROR]: This crash report has been saved to" }, StringSplitOptions.None)[0];                        
                         new frmMinecraftCrashLog(path, ver).Show();
                     }
                 }
